@@ -6,3 +6,4 @@ content/upgrade
 content/uploads
 content/plugins/*
 content/themes/*
+!content/plugins/gamenshare
