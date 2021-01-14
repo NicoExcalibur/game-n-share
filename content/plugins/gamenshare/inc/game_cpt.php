@@ -6,14 +6,13 @@ if (!defined('WPINC')) {
 }
 
 // creation of a POO class in order to create our custom post type
-class Games_cpt
+class Game_cpt
 {
 
     // construct fonction that will be instencied 
     public function __construct()
     {
       add_action('init', [$this, 'create_cpt']);
-      add_action('init', [$this, 'create_taxo']);
     }
 
      // declaration of the CPT
@@ -23,7 +22,7 @@ class Games_cpt
         'name'               => 'Jeux',
         'singular_name'      => 'jeu',
         'menu_name'          => 'Jeux',
-        'name_admin_bar'     => 'game',
+        'name_admin_bar'     => 'Jeux',
         'add_new'            => 'Ajouter un jeu',
         'add_new_item'       => 'Ajouter une nouveau jeu',
         'new_item'           => 'Nouveau jeu',
