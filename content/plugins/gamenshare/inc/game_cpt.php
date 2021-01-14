@@ -41,7 +41,7 @@ class Game_cpt
         'hierarchical' => false,
         'show_in_rest' => true,
         'menu_position' => 4,
-        'menu_icon' => 'dashicons-games',
+        'menu_icon' => 'dashicons-carrot',
         'supports' => [
           'title',
           'categories',
