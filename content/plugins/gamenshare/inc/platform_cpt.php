@@ -39,7 +39,6 @@ class Platform_cpt
         'labels' => $labels,
         'public' => true,
         'hierarchical' => false,
-        'show_in_rest' => true,
         'menu_position' => 4,
         'menu_icon' => 'dashicons-desktop',
         'supports' => [
