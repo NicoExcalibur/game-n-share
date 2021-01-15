@@ -39,6 +39,7 @@ class Game_cpt
         'labels' => $labels,
         'public' => true,
         'hierarchical' => false,
+
         'menu_position' => 4,
         'menu_icon' => 'dashicons-carrot',
         'supports' => [
