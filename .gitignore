@@ -7,3 +7,4 @@ content/uploads
 content/plugins/*
 content/themes/*
 !content/plugins/gamenshare
+!content/themes/gamenshare
