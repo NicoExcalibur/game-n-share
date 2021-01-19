@@ -1,0 +1,9 @@
+.menu-link{
+
+    & ul{
+        display: flex;
+    }
+    &__item a{
+        color: $color-text-alt;
+    }
+}

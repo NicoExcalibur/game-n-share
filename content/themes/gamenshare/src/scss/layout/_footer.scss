@@ -1,0 +1,19 @@
+.footer{
+    font-size: 0.9em;
+
+    background-color: $color-bg;
+    color: $color-text-alt;
+    &__container{
+        
+        /* display: flex;
+        flex-direction:row;
+        align-items: center;
+        justify-content: space-between; */
+        padding: 0.5em 0;
+    }
+  
+} 
+.footer-infos__p{
+        margin-bottom: 0;
+        padding: 0.5rem 1rem;
+    }

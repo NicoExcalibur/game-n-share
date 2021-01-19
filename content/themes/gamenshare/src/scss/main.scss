@@ -1,0 +1,35 @@
+// Définition de la variable "fa-font-path" nécessaire au chargement des fichiers de font de FA
+// Comme elle est déclarée en premier, c'est cette valeur qui sera utilisée
+// et non celle définie dans le code source de FA
+@charset 'UTF-8';
+
+$fa-font-path: '/../node_modules/font-awesome/fonts';
+@import
+    'abstracts/vars';
+
+@import 
+    '~reset-css/sass/reset', 
+    '~font-awesome/scss/font-awesome',
+    '~bootstrap/scss/bootstrap';
+
+
+@import
+    'base/base',
+    'base/typo';
+
+@import
+    'layout/header',
+    'layout/footer',
+    'layout/nav',
+    'layout/games'
+    ;
+
+    @import
+    'components/menu-link',
+    'components/footer-menu',
+    'components/footer-social',
+    'components/game',
+    'components/button-rouge',
+    'components/bs-navbar-toggler',
+    'components/form-search',
+    'components/button-search';

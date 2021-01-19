@@ -1,0 +1,48 @@
+$fa-font-path: '/../node_modules/font-awesome/fonts';
+// Breakpoints
+$breakpoint-medium: 500px;
+$breakpoint-large: 800px;
+$breakpoint-extra-large: 1200px;
+
+// Fonts
+$font-size: 16px;
+$font-size-medium: 18px;
+$font-size-large: 20px;
+
+$font-family-content: 'Open Sans', sans-serif;
+$font-family-fallback: 'Helvetica', Arial, sans-serif;
+
+// color 
+$black: #000;
+$white: #fff;
+$anthracitegray:#303030;
+$lightgray: #dedede;
+$darkgray: #181818;
+$finesilvergray: #cdcdcd;
+$red: #a41b14;
+$altgray: #dedede;
+
+$color-text: $black;
+$color-text-alt: $white;
+$color-bg: $anthracitegray;
+$color-bg-alt: $darkgray;
+$color-bg-btn: $red;  
+$color-bg-info: $finesilvergray;  
+$color-bg-site: $altgray;
+
+// Animations
+$duration-slow: 1s;
+$duration-medium: 0.5s;
+$duration-fast: 0.2s;
+
+
+
+
+
+
+
+
+
+
+
+
