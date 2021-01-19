@@ -5,4 +5,10 @@
         justify-content: right;
         text-align: right;
     }
+    
+    @media (max-width: $breakpoint-medium) {
+        ul {
+            font-size: xx-large;
+        }
+    } 
 }
