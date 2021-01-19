@@ -1,5 +1,16 @@
 .footer-menu{
+    order: 2;
+    
     & ul{
         display: flex;
     }
+
+    @media (max-width: $breakpoint-medium) {
+        order:1;
+
+        ul {
+            font-size: 13px;
+            justify-content: center;
+        }
+    } 
 }

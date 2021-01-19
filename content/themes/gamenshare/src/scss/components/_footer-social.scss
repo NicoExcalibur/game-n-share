@@ -1,8 +1,17 @@
 .footer-social {
+    order: 3;
 
     & ul {
         display: flex;
         justify-content: right;
         text-align: right;
     }
+    
+    @media (max-width: $breakpoint-medium) {
+        order: 2;
+        ul {
+            font-size: 30px;
+            justify-content: center;
+        }
+    } 
 }

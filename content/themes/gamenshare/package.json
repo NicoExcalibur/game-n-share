@@ -1,1 +1,16 @@
-{"scripts":{"dev":"parcel src/index.html","prod":"NODE_ENV=production node parcel-bundler-prod.js"},"devDependencies":{"parcel-bundler":"*","sass":"*"},"dependencies":{"bootstrap":"^5.0.0-beta1","font-awesome":"^4.7.0","reset-css":"*"}}
+{
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "prod": "NODE_ENV=production node parcel-bundler-prod.js"
+  },
+  "devDependencies": {
+    "parcel-bundler": "*",
+    "sass": "^1.32.4"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.6.0",
+    "bootstrap": "^5.0.0-beta1",
+    "font-awesome": "^4.7.0",
+    "reset-css": "*"
+  }
+}
