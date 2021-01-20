@@ -1,11 +1,16 @@
 .button-filter-mobile{
     position: fixed;
-    background-color: $color-bg;
+    background-color: $black;
     z-index: 50;
     bottom: 1em;
     right: calc(50% - 60px)!important;
     left: calc(50% - 60px)!important;
 }
+
+.main{
+    position:  relative;
+}
+
 .dropdown-menu{
     //width: 100%;
     
