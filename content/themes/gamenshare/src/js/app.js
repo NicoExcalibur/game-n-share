@@ -8,12 +8,17 @@ const app = {
     formSearch: document.querySelector('.block-search__form'),
     filters: document.querySelector('.dropdown-menu'),
     filterButton: document.querySelector('.button-filter-mobile'),
+    footerEl: document.querySelector('.footer'),
 
     init: function () {
         //console.log('init');
         app.btnClose.addEventListener('click', app.closeSearch);
         app.formSearch.addEventListener('submit', app.handlecloseSearch);
         window.addEventListener('resize', app.filtersResponsive);
+        window.addEventListener('load', app.filtersResponsive);
+        window.addEventListener('scroll', app.checkIfScrolled);
+        
+
     },
     closeSearch: function(){
         //console.log(app.blockSearch);
@@ -29,13 +34,23 @@ const app = {
         let lWidth = window.screen.width;
         //console.log(lWidth);
 
-        if (lWidth >= 768) {
-            
+        if (lWidth >= 768) { 
             app.filters.classList.remove('dropdown-menu');
             app.filterButton.classList.add('d-none');
         }else {
             app.filters.classList.add('dropdown-menu');
             app.filterButton.classList.remove('d-none');
+        }
+    },
+
+    checkIfScrolled: function(){
+        console.log(app.footerEl.offsetHeight);
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight )
+        {
+            app.filterButton.style.bottom = app.footerEl.offsetHeight  + "px";
+        }else if(document.body.offsetHeight - app.footerEl.offsetHeight <= window.innerHeight + window.scrollY)
+        {
+            app.filterButton.style.bottom =  (window.innerHeight + window.scrollY) - (document.body.offsetHeight - app.footerEl.offsetHeight) + "px";
         }
     }
 
