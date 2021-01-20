@@ -17,6 +17,7 @@ const app = {
         window.addEventListener('resize', app.filtersResponsive);
         window.addEventListener('load', app.filtersResponsive);
         window.addEventListener('scroll', app.checkIfScrolled);
+        window.addEventListener('load', app.checkIfScrolled);
         
 
     },
@@ -37,7 +38,8 @@ const app = {
         if (lWidth >= 768) { 
             app.filters.classList.remove('dropdown-menu');
             app.filterButton.classList.add('d-none');
-        }else {
+        }else 
+        {
             app.filters.classList.add('dropdown-menu');
             app.filterButton.classList.remove('d-none');
         }
@@ -50,7 +52,10 @@ const app = {
             app.filterButton.style.bottom = app.footerEl.offsetHeight  + "px";
         }else if(document.body.offsetHeight - app.footerEl.offsetHeight <= window.innerHeight + window.scrollY)
         {
-            app.filterButton.style.bottom =  (window.innerHeight + window.scrollY) - (document.body.offsetHeight - app.footerEl.offsetHeight) + "px";
+            app.filterButton.style.bottom =  (window.innerHeight + window.scrollY) - (document.body.offsetHeight - app.footerEl.offsetHeight) + 5 + "px";
+        }else 
+        {
+            app.filterButton.style.bottom = "35px";
         }
     }
 
