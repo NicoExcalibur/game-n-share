@@ -19,7 +19,6 @@ const app = {
         window.addEventListener('scroll', app.checkIfScrolled);
         window.addEventListener('load', app.checkIfScrolled);
         
-
     },
     closeSearch: function(){
         //console.log(app.blockSearch);
@@ -57,7 +56,7 @@ const app = {
         {
             app.filterButton.style.bottom = "35px";
         }
-    }
+    },
 
 }
 document.addEventListener('DOMContentLoaded', app.init);

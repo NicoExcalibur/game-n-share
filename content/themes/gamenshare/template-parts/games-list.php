@@ -6,7 +6,7 @@
                 Filtrer
                 </button>
             <div class="dropdown-menu">
-                <form action="">
+                <form action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="filter">
                     <fieldset>
                         <legend>Filter par genres</legend>
                         <?php $terms = get_terms( 
@@ -17,7 +17,7 @@
 
                             foreach($terms as $term) { ?>
                         <div class="form-check">
-                            <input type="checkbox" name="<?php $term->name ?>" id="<?php $term->name ?>" class="form-check-input">
+                            <input type="checkbox" name="<?php echo $term->name ?>" id="<?php echo $term->slug ?>" class="form-check-input" onchange="change()">
                             <label for="<?php $term->name ?>" class="form-check-label"><?php echo $term->name ?></label>
                         </div>
                         <?php 
