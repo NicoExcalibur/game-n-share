@@ -9,104 +9,46 @@
                 <form action="">
                     <fieldset>
                         <legend>Filter par genres</legend>
-                        <div class="form-check">
-                            <input type="checkbox" name="aventure" id="aventure" class="form-check-input">
-                            <label for="aventure" class="form-check-label">Aventure</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" name="aventure" id="aventure" class="form-check-input">
-                            <label for="aventure" class="form-check-label">Aventure</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" name="aventure" id="aventure" class="form-check-input">
-                            <label for="aventure" class="form-check-label">Aventure</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" name="aventure" id="aventure" class="form-check-input">
-                            <label for="aventure" class="form-check-label">Aventure</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" name="aventure" id="aventure" class="form-check-input">
-                            <label for="aventure" class="form-check-label">Aventure</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" name="aventure" id="aventure" class="form-check-input">
-                            <label for="aventure" class="form-check-label">Aventure</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" name="aventure" id="aventure" class="form-check-input">
-                            <label for="aventure" class="form-check-label">Aventure</label>
-                        </div>
+                        <?php $terms = get_terms( 
+                            array(
+                                'taxonomy' => 'genre',
+                                'hide_empty' => false,
+                            ) );
 
+                            foreach($terms as $term) { ?>
+                        <div class="form-check">
+                            <input type="checkbox" name="<?php $term->name ?>" id="<?php $term->name ?>" class="form-check-input">
+                            <label for="<?php $term->name ?>" class="form-check-label"><?php echo $term->name ?></label>
+                        </div>
+                        <?php 
+                        }   
+                        ?>
                     </fieldset>
                 </form>
             </div>
             
         </div>
         <div class="games row col-md-9">
-            <?php if (have_posts()) : while (have_posts()) : the_post(); ?> 
+            <?php 
+            $args = array( 'post_type' => 'game', 'posts_per_page' => 10 );
+            $games = new WP_Query ($args);
+            if ($games->have_posts()) : while ($games->have_posts()) : $games->the_post(); ?> 
                 <div class="col-sm-6 col-md-4">
                     <div class="game">
-                        <div class="game__imagecover"><img src="./img/jeux-video.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="game__info">
-                        <h2 class="game__info--title"><?php the_title(); ?></h2>
-                        <a href="<?php the_permalink(); ?>" class="btn button button-red">Voir la fiche</a>
+                        <div class="game__imagecover">
+                           <?php if( get_field('game_cover') ): ?>
+                                <img class="img-fluid" src="<?php the_field('game_cover'); ?>" />
+                            <?php endif; ?>
+                        </div>
+                        <div class="game__info">
+                            <h2 class="game__info--title"><?php the_title(); ?></h2>
+                            <a href="<?php the_permalink(); ?>" class="btn button button-red">Voir la fiche</a>
+                        </div>
                     </div>
                 </div>
-            </div>
             <?php endwhile;
             endif; ?>
-            <div class="col-sm-6 col-md-4">
-                <div class="game">
-                    <div class="game__imagecover"><img src="./img/jeux-video.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="game__info">
-                        <h2 class="game__info--title">Assassin's Creed Valhalla</h2>
-                        <a href="" class="btn button button-red">Voir la fiche</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="game">
-                    <div class="game__imagecover"><img src="./img/jeux-video.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="game__info">
-                        <h2 class="game__info--title">Assassin's Creed Valhalla</h2>
-                        <a href="" class="btn button button-red">Voir la fiche</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="game">
-                    <div class="game__imagecover"><img src="./img/jeux-video.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="game__info">
-                        <h2 class="game__info--title">Assassin's Creed Valhalla</h2>
-                        <a href="" class="btn button button-red">Voir la fiche</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="game">
-                    <div class="game__imagecover"><img src="./img/jeux-video.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="game__info">
-                        <h2 class="game__info--title">Assassin's Creed Valhalla</h2>
-                        <a href="" class="btn button button-red">Voir la fiche</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="game">
-                    <div class="game__imagecover"><img src="./img/jeux-video.jpg" alt="" class="img-fluid">
-                    </div>
-                    <div class="game__info">
-                        <h2 class="game__info--title">Assassin's Creed Valhalla</h2>
-                        <a href="" class="btn button button-red">Voir la fiche</a>
-                    </div>
-                </div>
-            </div>
+        
         </div>
 
     </div>
