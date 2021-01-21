@@ -1,4 +1,4 @@
-<<?php
+<?php
 /*
 Plugin Name: Game'n'Share Settings
 Description: Réglages de Game'n'share

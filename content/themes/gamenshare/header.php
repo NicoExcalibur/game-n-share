@@ -11,6 +11,9 @@
 
 <body <?php body_class(); ?>>
 
+<?php
+		wp_body_open();
+		?>
 
     <div class="wrapper">
         <header class="header">
@@ -29,12 +32,27 @@
                     </button> 
                   
                     <div class="menu-link collapse navbar-collapse" id="navbarMobil">
-                        <ul class="navbar-nav mb-2 ms-5 mb-lg-0">
+
+  <?php
+
+$menu = wp_nav_menu([
+  'theme_location' => 'main-menu',
+  'echo' => false,
+  'container_class' => 'navbar-nav mb-2 ms-5 mb-lg-0',
+
+]);
+
+$menu = str_replace(['class="menu"', 'menu-item'], ['', 'main-nav__item'], $menu);
+
+echo $menu;
+
+?>
+                      <!--   <ul class="navbar-nav mb-2 ms-5 mb-lg-0">
                             <li class="menu-link__item nav-item"><a class="nav-link" href="#">A propos</a></li>
                             <li class="menu-link__item nav-item"><a class="nav-link" href="#">Plateforme</a></li>
                             <li class="menu-link__item nav-item"><a class="nav-link" href="#">Jeux video</a></li>
                             <li class="menu-link__item nav-item"><a class="nav-link" href="#">Contact</a></li>
-                        </ul>
+                        </ul> -->
                         <ul class="navbar-nav me-auto ms-5">
                             <li class="nav-item"><a href="#" class="nav-link btn menu-button__item button button-red">
                                     Inscrivez-vous</a></li>
@@ -48,3 +66,5 @@
             </nav>
         </header>
         <main class="main">
+
+        <section class="content container">
