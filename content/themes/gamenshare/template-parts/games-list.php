@@ -6,9 +6,10 @@
                 Filtrer
                 </button>
             <div class="dropdown-menu">
-                <form action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="filter">
+                <form>
                     <fieldset>
                         <legend>Filter par genres</legend>
+    
                         <?php $terms = get_terms( 
                             array(
                                 'taxonomy' => 'genre',
@@ -17,20 +18,34 @@
 
                             foreach($terms as $term) { ?>
                         <div class="form-check">
-                            <input type="checkbox" name="<?php echo $term->name ?>" id="<?php echo $term->slug ?>" class="form-check-input" onchange="change()">
+                            <input type="checkbox" name="genre" id="<?php echo $term->slug ?>" value="<?php echo $term->slug ?>" class="form-check-input"/>
                             <label for="<?php $term->name ?>" class="form-check-label"><?php echo $term->name ?></label>
                         </div>
-                        <?php 
+                        <?php
                         }   
                         ?>
                     </fieldset>
+                    <button type="submit">Appliquer les filtres</button>
                 </form>
             </div>
             
         </div>
         <div class="games row col-md-9">
             <?php 
-            $args = array( 'post_type' => 'game', 'posts_per_page' => 10 );
+            $args = array( 
+                'post_type' => 'game', 
+                'posts_per_page' => 10,
+                'tax_query' => 
+                    array(
+                    'relation' => 'AND',
+                        array(
+                            'taxonomy' => 'genre',
+                            'field'    => 'slug',
+                            'terms'    => 'action',
+                        ),
+                    )
+            );
+
             $games = new WP_Query ($args);
             if ($games->have_posts()) : while ($games->have_posts()) : $games->the_post(); ?> 
                 <div class="col-sm-6 col-md-4">
@@ -48,6 +63,7 @@
                 </div>
             <?php endwhile;
             endif; ?>
+
         
         </div>
 
