@@ -29,7 +29,8 @@ if (!function_exists('gamenshare_setup')) {
         add_theme_support('post-thumbnails');
         register_nav_menus([
             'main-menu' => "Menu de navigation",
-            'footer' => "Menu du footer"
+            'footer' => "Menu du footer",
+            'social' => "Menu social"
         ]);
 
         // Lors du setup de thème, ion demande à WordPress de charger le dossier de traductions (lié au textdomain "gamenshare")
