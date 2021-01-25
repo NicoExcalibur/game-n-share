@@ -22,7 +22,7 @@ const app = {
         window.addEventListener('resize', app.filtersResponsive);
         window.addEventListener('load', app.filtersResponsive);
         window.addEventListener('scroll', app.checkIfScrolled);
-        window.addEventListener('load', app.checkIfScrolled);
+        //window.addEventListener('load', app.checkIfScrolled);
         app.handleAjaxFilterGames();
 
     },
