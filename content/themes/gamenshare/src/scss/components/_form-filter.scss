@@ -1,0 +1,23 @@
+.filters .legend{
+    font-size: 1em!important;
+    color: $color-bg-alt;
+}
+.filters .form-check{
+    display: flex;
+    align-items: center;
+}
+.filters .form-check-label{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 6px;
+    color: $color-bg;
+}
+.filters .form-check-input{
+    margin-top: 0;
+}
+.filters label .badge{
+    background-color: $color-bg-info;
+    color: $color-text;
+}

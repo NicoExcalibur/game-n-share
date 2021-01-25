@@ -16,6 +16,7 @@ if (!function_exists('gamesnshare_enqueue')) {
       '20200609',
       true
     );
+   
   }
 }
 
