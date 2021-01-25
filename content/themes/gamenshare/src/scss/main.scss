@@ -21,10 +21,10 @@ $fa-font-path: '/../node_modules/font-awesome/fonts';
     'layout/header',
     'layout/footer',
     'layout/nav',
-    'layout/games'
-    ;
+    'layout/games',
+    'layout/single-game';
 
-    @import
+ @import
     'components/menu-link',
     'components/footer-menu',
     'components/footer-social',
