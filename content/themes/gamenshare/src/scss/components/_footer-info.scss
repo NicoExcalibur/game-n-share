@@ -1,0 +1,10 @@
+.footer-info {
+    display: flex;
+    order: 1;
+    
+    @media (max-width: $breakpoint-medium) {  
+        order: 3;
+        justify-content: center;
+        font-size: x-small;  
+    } 
+}

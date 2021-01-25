@@ -1,0 +1,27 @@
+.button-filter-mobile{
+    position: fixed;
+    background-color: $black;
+    z-index: 50;
+    bottom: 1em;
+    right: calc(50% - 60px)!important;
+    left: calc(50% - 60px)!important;
+}
+
+.main{
+    position:  relative;
+}
+
+.dropdown-menu{
+    //width: 100%;
+    
+    padding: 1em;
+    margin: 0 10px!important;
+    bottom: 10px;
+    top: 0;
+    left: 0;
+    right: 50px!important;
+}
+.dropdown-menu[style]{
+  // transform: translate3d(0px, 926px, 0px)!important;
+   // position: fixed!important;
+}
