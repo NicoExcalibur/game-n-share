@@ -22,12 +22,9 @@ const app = {
         window.addEventListener('resize', app.filtersResponsive);
         window.addEventListener('load', app.filtersResponsive);
         window.addEventListener('scroll', app.checkIfScrolled);
-        //window.addEventListener('load', app.checkIfScrolled);
-        // document.querySelectorAll('.form-check-input').forEach(function (checkbox) {
-        //     checkbox.addEventListener('change', app.handleAjaxFilterGames);
-        //   });
-         app.handleAjaxFilterGames();
-         //app.filtersResponsive();
+        window.addEventListener('load', app.checkIfScrolled);
+        app.handleAjaxFilterGames();
+
     },
     closeSearch: function(){
         //console.log(app.blockSearch);
@@ -102,7 +99,5 @@ const app = {
         });
  
     }
-
 }
 document.addEventListener('DOMContentLoaded', app.init);
-
