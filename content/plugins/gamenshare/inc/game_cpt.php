@@ -42,7 +42,7 @@ class Game_cpt
         'hierarchical' => false,
         'show_in_nav_menus' => true,
         'menu_position' => 4,
-        'menu_icon' => 'dashicons-carrot',
+        'menu_icon' => 'dashicons-games',
         'supports' => [
           'title',
           'categories',
@@ -53,7 +53,7 @@ class Game_cpt
         ],
         'has_archive' => true,
         'rewrite' => [
-          'slug' => 'games',
+          'slug' => 'jeux-video',
           'with_front' => true
         ]
       ];
