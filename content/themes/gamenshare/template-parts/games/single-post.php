@@ -1,29 +1,29 @@
-<div class="main">
+<div class="main d-flex flex-column">
     <img src="https://source.unsplash.com/1300x300/?videogame" class="img-fluid mx-auto mb-5" alt="...">
     <div class="game_infos d-flex justify-content-between">
-        <div class="game_infos_left w-50">
+        <div class="game_infos_left mw-50">
             <div class="game_infos_title mb-4"><h1 class="text-start"><?php the_title(); ?></h1></div>
-            <div class="game_infos_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium eaque debitis ea rerum, error est ut. Iste pariatur doloremque quis ex ipsa ad, aperiam soluta atque eligendi at vitae facere, necessitatibus ab tempore enim reiciendis expedita sed officia quasi voluptates illo modi deleniti eaque amet. Debitis nihil facilis dolorum impedit.
+            <div class="game_infos_text"><?php the_content(); ?>
             </div>
         </div>
-       <?php $games = new WP_query(); 
-       echo "<pre>";
-        var_dump($games);
-        echo "</pre>";
-       ?>
-        <div class="game_infos_right d-flex flex-column w-40 align-items-end">
+        <?php
+        $terms = get_the_terms( get_the_ID(), 'genre' );
+        ?>
+        <div class="game_infos_right d-flex flex-column align-items-end">
             <button type="button" class="btn button-red mb-4 pl-2">Ajouter à mes favoris</button>
-            <div class="game_infos_details">
-                <h4 class="list-header">Details sur le jeu : <?php $games->get_terms('genre'); ?></h4>
-                <ul class="list-group">
-                    <li class="list-group-item">Genre(s) :</li>
+            <div class="game_infos_details mb-4">
+                <h4 class="content-header">Details sur le jeu : </h4>
+                <ul class="list-group ">
+                        <li class="list-group-item">Genre(s) : <?php foreach ($terms as $term) {
+                         ?> <a href="#"> <?php echo $term->name; ?> </a>        
+                        <?php }; ?></li>
                     <li class="list-group-item">Plateforme(s) : <?php the_field('platform'); ?></li>
-                    <li class="list-group-item">Sorti le : <?php the_field('date'); ?></li>
-                    <li class="list-group-item">Editeur : <?php the_field('editor'); ?></li>
+                    <li class="list-group-item">Sorti le : <?php the_field('date', $post->ID); ?></li>
+                    <li class="list-group-item">Editeur : <?php the_field('editor', $post->ID); ?></li>
                 </ul>
             </div>
             <div class="game_infos_rating">
-                <h4 class="rating-header">Note du jeu :</h4>
+                <h4 class="content-header">Note du jeu :</h4>
                 <div class=”rating_stars”>
                     étoile étoile
                 </div>
@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="comments">
-        <h4 class="rating-header">Commentaires :</h4>
+        <h4 class="content-header">Commentaires :</h4>
         <div class="comments_list">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex">
