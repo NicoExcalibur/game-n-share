@@ -43,13 +43,15 @@ class Game_cpt
         'show_in_nav_menus' => true,
         'menu_position' => 4,
         'menu_icon' => 'dashicons-games',
+        'show_in_rest' => true,// display in Gutenberg editor
         'supports' => [
           'title',
           'categories',
           'editor',
           'excerpt',
           'thumbnail',
-          'custom-fields'
+          'custom-fields',
+          'comments'
         ],
         'has_archive' => true,
         'rewrite' => [
@@ -89,6 +91,7 @@ class Game_cpt
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
+        'show_in_rest'      => true,// display in Gutenberg editor
         'rewrite'           => [ 'slug' => 'genre' ],
         'rest_base'         => 'game_genre',
         'show_in_nav_menus' => true

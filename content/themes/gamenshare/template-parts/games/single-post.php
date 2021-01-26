@@ -42,36 +42,5 @@
             </div>
         </div>
     </div>
-    <div class="comments">
-        <h4 class="content-header">Commentaires :</h4>
-        <div class="comments_list">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item d-flex">
-                    <div class="comment_author w-25">
-                        <img src="https://source.unsplash.com/50x50/" class="img-fluid mx-auto" alt="...">
-                    </div>
-                    <div class="comment_body d-flex flex-column">
-                        <div class="comment_body_title">Titre commentaire</div>
-                        <div class="comment_body_date">17 mai 2021</div>
-                        <div class="comment_body_content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro cumque provident consectetur nostrum doloremque ratione quasi quae quo quis accusantium delectus, ipsa debitis laudantium repudiandae at distinctio veniam optio libero temporibus voluptatum dolorum ut quas laborum. Odit consectetur excepturi odio?</div>
-                    </div>
-                </li>
-                <li class="list-group-item  d-flex">
-                    <div class="comment_author w-25">
-                        <img src="https://source.unsplash.com/50x50/" class="img-fluid mx-auto" alt="...">
-                    </div>
-                    <div class="comment_body d-flex flex-column">
-                        <div class="comment_body_title">Titre commentaire</div>
-                        <div class="comment_body_date">17 mai 2021</div>
-                        <div class="comment_body_content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro cumque provident consectetur nostrum doloremque ratione quasi quae quo quis accusantium delectus, ipsa debitis laudantium repudiandae at distinctio veniam optio libero temporibus voluptatum dolorum ut quas laborum. Odit consectetur excepturi odio?</div>
-                    </div>
-                </li>
-
-            </ul>
-        </div>
-        <div class="input-group my-4">
-            <textarea class="form-control" aria-label="With textarea"></textarea>
-            <span class="input-group-text">Ajouter un commentaire</span>
-        </div>
-    </div>
-</div>
+    <?php comments_template('./comments.php', true); ?>
+    
