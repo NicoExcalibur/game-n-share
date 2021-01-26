@@ -1,8 +1,11 @@
 .main {
-    .game_infos_title {
-       color: $red;
-       font-weight: bold;
-       font-size: $font-size-large;
+    .game_infos {
+
+        &_title {
+            color: $red;
+            font-weight: bold;
+            font-size: $font-size-large;
+        }
     }
 
     .content-header {
@@ -10,11 +13,12 @@
         font-weight: bold;
     }
 
-    // .list-group {
+    .list-group {
+        border-top: solid $bordergray 1px;
         
-    //     &-item{
-    //         background-color: $color-bg-site;
-    //         font-size: $font-size-small;
-    //     }
-    // }
+        &-item {
+        background-color: $color-bg-site;
+        font-size: $font-size-small;
+        }
+    }
 }
