@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "20b3b8e8c4477c7d7e187fc84c14d388",
+    "content-hash": "f13b7ab1ea0e0f4d07e9bbba1f5bd7f1",
     "packages": [
         {
             "name": "composer/installers",
@@ -319,6 +319,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/search-filter/"
+        },
+        {
+            "name": "wpackagist-plugin/simply-show-hooks",
+            "version": "1.2.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/simply-show-hooks/",
+                "reference": "tags/1.2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/simply-show-hooks.1.2.1.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/simply-show-hooks/"
         },
         {
             "name": "wpackagist-plugin/wp-super-cache",
