@@ -43,6 +43,7 @@ class Game_cpt
         'show_in_nav_menus' => true,
         'menu_position' => 4,
         'menu_icon' => 'dashicons-carrot',
+        'show_in_rest' => true,
         'supports' => [
           'title',
           'categories',
@@ -91,7 +92,8 @@ class Game_cpt
         'query_var'         => true,
         'rewrite'           => [ 'slug' => 'genre' ],
         'rest_base'         => 'game_genre',
-        'show_in_nav_menus' => true
+        'show_in_nav_menus' => true,
+        'show_in_rest'      => true,
       ];
 
       register_taxonomy('genre','game', $args);
