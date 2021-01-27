@@ -17,5 +17,4 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /site/game-n-share/index.php [L]
 </IfModule>
 
-
 # END WordPress

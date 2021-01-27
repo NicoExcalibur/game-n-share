@@ -1,4 +1,5 @@
-<h1 itemprop="headline" ><?php the_title()  ?></h1>
+<h1><?php wp_title(''); ?> </h1>
+
 <div class="row">
     <div class="filters col-md-3 dropup">
         <button type="button" class="btn button-filter-mobile btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
