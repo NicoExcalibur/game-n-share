@@ -11,10 +11,10 @@
                 <h4 class="content-header">Details sur le jeu : </h4>
                 <ul class="list-group list-group-flush">
                     <?php $terms = get_the_terms( get_the_ID(), 'genre' ); ?> 
-                    <li class="list-group-item">Genre(s) : <?php foreach ($terms as $term) {
+                    <li class="list-group-item"><span class="item-bold">Genre(s) : </span><?php foreach ($terms as $term) {
                         ?> <a href="#"> <?php echo $term->name; ?> </a>        
                         <?php }; ?></li>
-                    <li class="list-group-item">Plateforme(s) : <?php
+                    <li class="list-group-item"><span class="item-bold">Plateforme(s) : </span><?php
                         $featured_posts = get_field('platform');
                         if( $featured_posts ): ?>
                             <ul>
@@ -30,8 +30,8 @@
                             <?php endforeach; ?>
                             </ul>
                         <?php endif; ?>
-                    <li class="list-group-item">Sorti le : <?php the_field('date'); ?></li>
-                    <li class="list-group-item">Editeur : <?php the_field('editor'); ?></li>
+                    <li class="list-group-item"><span class="item-bold">Sorti le :</span> <?php the_field('date'); ?></li>
+                    <li class="list-group-item"><span class="item-bold">Editeur : </span><?php the_field('editor'); ?></li>
                 </ul>
             </div>
             <div class="game_infos_rating">

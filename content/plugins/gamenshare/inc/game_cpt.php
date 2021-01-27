@@ -48,8 +48,6 @@ class Game_cpt
           'title',
           'categories',
           'editor',
-          'excerpt',
-          'thumbnail',
           'custom-fields',
           'comments'
         ],

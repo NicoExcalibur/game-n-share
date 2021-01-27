@@ -1,0 +1,32 @@
+.comments {
+    
+    .content-header {
+        font-size: $font-size-medium;
+        border-bottom: 1px solid $bordergray;
+        margin: 2em 0;
+    }
+    
+    .comments_list {
+        margin: auto;
+    }
+
+    .comment-body {
+        display: flex;
+        justify-content: space-between;
+        .url {
+            color: $red;
+        }
+    }
+
+    .input-group {
+        
+        .comment-reply-title{
+            color: $red;
+            font-size: $font-size;
+        }
+    
+        .says {
+            display: none;
+        }
+    }
+}

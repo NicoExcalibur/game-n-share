@@ -41,13 +41,11 @@ class Platform_cpt
         'hierarchical' => false,
         'menu_position' => 4,
         'menu_icon' => 'dashicons-desktop',
-        'show_in_rest' => true,
+        'show_in_rest' => true, // display in Gutenberg editor
         'supports' => [
           'title',
           'categories',
           'editor',
-          'excerpt',
-          'thumbnail',
           'custom-fields',
           'comments'
         ],
