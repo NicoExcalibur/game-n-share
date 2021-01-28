@@ -1,20 +1,52 @@
 .comments {
     
+    p {
+        font-size: $font-size;
+    }
+    
+    .comment-body {
+        background-color: $white;
+        padding: 1em;
+
+        .fn, .url {
+            color: $red !important;
+            font-weight: bold;
+        }
+         
+        .reply {
+            margin-bottom: 1em;
+            font-size: $font-size-small;
+            color: $anthracitegray;
+        }
+    }
+
+    &-form {
+        textarea {
+            width: 500px!important;
+        }
+    }
+
+    &-meta {
+        font-size: $font-size-small;
+    }
+
+    &-reply-title {
+        font-weight: bold;
+    }
+    
     .content-header {
         font-size: $font-size-medium;
         border-bottom: 1px solid $bordergray;
         margin: 2em 0;
     }
     
-    .comments_list {
+    .comments-list {
         margin: auto;
-    }
 
-    .comment-body {
-        display: flex;
-        justify-content: space-between;
-        .url {
-            color: $red;
+        &-item {
+            margin-bottom: 1em;
+            display: flex;
+            flex-direction: row;
         }
     }
 
@@ -23,10 +55,6 @@
         .comment-reply-title{
             color: $red;
             font-size: $font-size;
-        }
-    
-        .says {
-            display: none;
         }
     }
 }

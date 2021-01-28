@@ -1,21 +1,10 @@
 <div class="comments">
         <h4 class="content-header">Commentaires :</h4>
         <div class="comments-list">
-            <ol class="comment-list-item">
+            <ol class="comment-list-item my-4">
                 <?php
-                //Gather comments for a specific page/post 
-                $comments = get_comments(array(
-                    'post_id' => $post->ID,
-                    'style'     => 'div',
-                    'status'  => 'approve' //Change this to the type of comments to be displayed
-                ));
-        
                 //Display the list of comments
-                wp_list_comments(array(
-                    'per_page'          => 5, //Allow comment pagination
-                    'reverse_top_level' => false, //Show the oldest comments at the top of the list
-                    'avatar_size'       => 50
-                ), $comments);
+                wp_list_comments('type=comment&callback=gamenshare_comment');
                 ?>
             </ol>
         </div>
@@ -35,8 +24,11 @@
                 'cancel_reply_before'   => ' <small>',
                 'cancel_reply_after'    => '</small>',
                 'title_reply_to'        => __( 'Leave a Reply to %s' ),
+                'class_container'       => 'w-100 border border-primary',
+                'class_form'            => 'comment-form border border-danger fs-6',
+                'class_submit'          => 'border border-validate',
                 // Redefine your own textarea (the comment body).
-                'comment_field' => '<p class="comment-form-comment"><label for="comment"></label><br /><textarea id="comment" name="comment" aria-required="true"></textarea></p>',
+                'comment_field' => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><br /><textarea id="comment" name="comment" aria-required="true"></textarea></p>',
             );
             comment_form($comments_args); ?>
         </div>
