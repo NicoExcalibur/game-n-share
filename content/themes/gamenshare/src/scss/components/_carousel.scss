@@ -1,0 +1,54 @@
+.carousel{
+    
+}
+
+.carousel-container{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.carousel__left{
+    width: 70%;
+
+}
+.carousel-control{
+   // background: #000;
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 80%;
+    z-index: 10;
+}
+.carousel-indicators{
+     position: relative;
+     flex-direction: column;
+         li{
+            background-color: $anthracitegray!important;
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 100px;
+            width: 150px;
+            margin:0;
+            padding: 0; 
+            //background-position: -20px 0;
+        }
+
+        .active {
+            background-color: $red!important;
+        }
+    }
+
+.carousel__right{
+    width: 30%;
+}
+.carousel-cover{
+    width: 30%;
+}
+.carousel-text{
+
+    width: 70%;
+}
+
