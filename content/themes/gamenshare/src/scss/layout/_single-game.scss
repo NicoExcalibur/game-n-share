@@ -1,6 +1,7 @@
 .main {
+    
     .game_infos {
-
+        
         &_title {
             color: $red;
             font-weight: bold;
@@ -17,8 +18,13 @@
         border-top: solid $bordergray 1px;
         
         &-item {
-        background-color: $color-bg-site;
-        font-size: $font-size-small;
-        }
+            background-color: $color-bg-site;
+            font-size: $font-size-small;
+
+            .item-bold {
+                color: $red;
+                font-weight: bold;
+            }
+        } 
     }
 }

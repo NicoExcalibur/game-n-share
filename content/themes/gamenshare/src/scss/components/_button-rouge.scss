@@ -8,7 +8,8 @@
     color: $color-text-alt!important;
     
  &:hover{
-     color: yellow!important;
+    color: $red !important;
+    background-color: $white !important;
  }
 }
 .main .button-red{
