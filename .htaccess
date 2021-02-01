@@ -4,17 +4,17 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/$1
 # BEGIN WordPress
-# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
-# dynamically generated, and should only be modified via WordPress filters.
-# Any changes to the directives between these markers will be overwritten.
+# Les directives (lignes) entre « BEGIN WordPress » et « END WordPress » sont générées
+# dynamiquement, et doivent être modifiées uniquement via les filtres WordPress.
+# Toute modification des directives situées entre ces marqueurs sera surchargée.
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-RewriteBase /site/game-n-share/
+RewriteBase /Gamenshare/
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /site/game-n-share/index.php [L]
+RewriteRule . /Gamenshare/index.php [L]
 </IfModule>
 
 # END WordPress
