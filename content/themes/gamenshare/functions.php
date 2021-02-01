@@ -4,6 +4,7 @@ require 'inc/enqueues.php';
 require 'inc/theme-setup.php';
 require 'inc/menu-class.php';
 require 'inc/filter-games.php';
+require 'inc/login.php';
 require 'inc/custom-comment.php';
 
 function css_custom_acf()
@@ -15,3 +16,4 @@ function css_custom_acf()
          </style>';
 }
 add_action('admin_head', 'css_custom_acf');
+

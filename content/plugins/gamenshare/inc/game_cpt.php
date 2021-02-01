@@ -42,6 +42,7 @@ class Game_cpt
         'hierarchical' => false,
         'show_in_nav_menus' => true,
         'menu_position' => 4,
+        'show_in_rest' => true,
         'menu_icon' => 'dashicons-games',
         'show_in_rest' => true,// display in Gutenberg editor
         'supports' => [
@@ -92,7 +93,8 @@ class Game_cpt
         'show_in_rest'      => true,// display in Gutenberg editor
         'rewrite'           => [ 'slug' => 'genre' ],
         'rest_base'         => 'game_genre',
-        'show_in_nav_menus' => true
+        'show_in_nav_menus' => true,
+        'show_in_rest'      => true,
       ];
 
       register_taxonomy('genre','game', $args);

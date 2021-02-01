@@ -4,8 +4,15 @@ get_header();
 
 ?>
 
-             
-<?php get_template_part( 'template-parts/games/content-games' ); ?>
+<?php 
+while ( have_posts() ) :
+				the_post();
+
+
+get_template_part( 'template-parts/games/content-games', 'page' ); 
+
+endwhile;
+?>
 
 
 
