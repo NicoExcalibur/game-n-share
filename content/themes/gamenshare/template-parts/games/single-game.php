@@ -36,8 +36,13 @@
             </div>
             <div class="game_infos_rating">
                 <h4 class="content-header">Note du jeu :</h4>
-                <div class=”rating_stars”>
-                    étoile étoile
+                <div class=”rating”>
+                    <?php $ratingstar = get_field('rate'); ?>
+                    <span class="fa fa-star <?php if ($ratingstar >= 1) { echo 'checked';}?>"></span>
+                    <span class="fa fa-star <?php if ($ratingstar >= 2) { echo 'checked';}?>"></span>
+                    <span class="fa fa-star <?php if ($ratingstar >= 3) { echo 'checked';}?>"></span>
+                    <span class="fa fa-star <?php if ($ratingstar >= 4) { echo 'checked';}?>"></span>
+                    <span class="fa fa-star <?php if ($ratingstar == 5) { echo 'checked';}?>"></span>
                 </div>
             </div>
         </div>
