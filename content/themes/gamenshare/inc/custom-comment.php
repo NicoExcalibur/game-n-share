@@ -23,29 +23,31 @@ function gamenshare_comment($comment, $args, $depth) {
         } ?>
         <div class="d-flex flex-column w-50">
             <div class="comment-meta commentmetadata">
-                <p class="fs-6">Posté le
-                    <?php
+                <p>Posté le
+                    <span><?php
                         comment_date();
-                    ?>
+                    ?></span>
                 </p>
             </div>
-            
             <?php comment_text(); ?>
-            <?php
-                edit_comment_link( __( '(Edit)' ), '  ', '' ); ?>
         </div>
  
-        <div class="reply"><?php 
-                comment_reply_link( 
-                    array_merge( 
-                        $args, 
-                        array( 
-                            'add_below' => $add_below, 
-                            'depth'     => $depth, 
-                            'max_depth' => $args['max_depth'] 
-                        ) 
+        <div class="reply">
+            <?php
+            edit_comment_link( __( 'Edit' ), '  ', '' ); ?>
+            <br>
+            <br>
+            <?php 
+            comment_reply_link( 
+                array_merge( 
+                    $args, 
+                    array( 
+                        'add_below' => $add_below, 
+                        'depth'     => $depth, 
+                        'max_depth' => $args['max_depth'] 
                     ) 
-                ); ?>
+                ) 
+            ); ?>
         </div><?php 
     if ( 'div' != $args['style'] ) : ?>
         </div><?php 

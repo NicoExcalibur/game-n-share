@@ -1,12 +1,9 @@
 .comments {
     
-    p {
-        font-size: $font-size;
-    }
-    
     .comment-body {
         background-color: $white;
         padding: 1em;
+        box-shadow: 1px 1px 7px 1px rgba(163,163,163, 1)!important;
 
         .fn, .url {
             color: $red !important;
@@ -16,24 +13,25 @@
         .reply {
             margin-bottom: 1em;
             font-size: $font-size-small;
-            color: $anthracitegray;
+            color: $red;
         }
     }
 
-    &-form {
-        textarea {
-            width: 500px!important;
+    .comment-meta {
+        border-bottom: 1px solid $bordergray;
+        margin-bottom: 1em !important;
+
+        p {
+            font-size: $font-size-small !important;
+            margin-bottom: 0 !important;
+            
+            span {
+                color: $anthracitegray;
+                font-weight: bold;
+            }
         }
     }
 
-    &-meta {
-        font-size: $font-size-small;
-    }
-
-    &-reply-title {
-        font-weight: bold;
-    }
-    
     .content-header {
         font-size: $font-size-medium;
         border-bottom: 1px solid $bordergray;
@@ -55,6 +53,31 @@
         .comment-reply-title{
             color: $red;
             font-size: $font-size;
+            font-weight: bold;
         }
+    }
+
+    .comment-form-comment {
+        margin: auto;
+    }
+
+    #submit {
+        background-color: $color-bg-btn !important;
+        //  line-height: normal !important;
+        color: $color-text-alt !important;
+        border: none;
+        border-radius: 5px;
+        text-align: right;
+          
+        &:hover{
+            color: $red !important;
+            background-color: $white !important;
+        }
+    }
+ 
+    #comment {
+        width: 100% !important;
+        height: 5em !important;
+        outline: none;
     }
 }

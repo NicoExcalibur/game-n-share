@@ -24,9 +24,9 @@
                 'cancel_reply_before'   => ' <small>',
                 'cancel_reply_after'    => '</small>',
                 'title_reply_to'        => __( 'Leave a Reply to %s' ),
-                'class_container'       => 'w-100 border border-primary',
-                'class_form'            => 'comment-form border border-danger fs-6',
-                'class_submit'          => 'border border-validate',
+                'class_container'       => 'w-100',
+                'class_form'            => 'comment-form fs-6',
+                'class_submit'          => 'comment-input-button',
                 // Redefine your own textarea (the comment body).
                 'comment_field' => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><br /><textarea id="comment" name="comment" aria-required="true"></textarea></p>',
             );
