@@ -37,12 +37,62 @@
             <div class="game_infos_rating">
                 <h4 class="content-header">Note du jeu :</h4>
                 <div class=”rating”>
-                    <?php $ratingstar = get_field('rate'); ?>
-                    <span class="fa fa-star <?php if ($ratingstar >= 1) { echo 'checked';}?>"></span>
-                    <span class="fa fa-star <?php if ($ratingstar >= 2) { echo 'checked';}?>"></span>
-                    <span class="fa fa-star <?php if ($ratingstar >= 3) { echo 'checked';}?>"></span>
-                    <span class="fa fa-star <?php if ($ratingstar >= 4) { echo 'checked';}?>"></span>
-                    <span class="fa fa-star <?php if ($ratingstar == 5) { echo 'checked';}?>"></span>
+                <?php
+                    $userid = 4;
+                    $query = "SELECT * FROM posts";
+                    $result = mysqli_query($con,$query);
+                    while($row = mysqli_fetch_array($result)){
+                    $postid = $row['id'];
+                    $title = $row['title'];
+                    $content = $row['content'];
+                    $link = $row['link'];
+
+                    // User rating
+                    $query = "SELECT * FROM wp_rating WHERE postid=".$postid." and user_id=".$userid;
+                    $userresult = mysqli_query($con,$query) or die(mysqli_error());
+                    $fetchRating = mysqli_fetch_array($userresult);
+                    $rating = $fetchRating['rating'];
+
+                    // get average
+                    $query = "SELECT ROUND(AVG(rating),1) as averageRating FROM post_rating WHERE post_id=".$postid;
+                    $avgresult = mysqli_query($con,$query) or die(mysqli_error());
+                    $fetchAverage = mysqli_fetch_array($avgresult);
+                    $averageRating = $fetchAverage['averageRating'];
+
+                    if($averageRating <= 0){
+                    $averageRating = "No rating yet.";
+                    }
+                    ?>
+                    <div class="post">
+                    <h1><a href='<?php echo $link; ?>' class='link' target='_blank'><?php echo $title; ?></a></h1>
+                    <div class="post-text">
+                        <?php echo $content; ?>
+                    </div>
+                    <div class="post-action">
+                    <!-- Rating -->
+                    <select class='rating' id='rating_<?php echo $postid; ?>' data-id='rating_<?php echo $postid; ?>'>
+                        <option value="1" >1</option>
+                        <option value="2" >2</option>
+                        <option value="3" >3</option>
+                        <option value="4" >4</option>
+                        <option value="5" >5</option>
+                    </select>
+                    <div style='clear: both;'></div>
+                    Average Rating : <span id='avgrating_<?php echo $postid; ?>'><?php echo $averageRating; ?></span>
+
+                    <!-- Set rating -->
+                    <script type='text/javascript'>
+                    $(document).ready(function(){
+                        $('#rating_<?php echo $postid; ?>').barrating('set',<?php echo $rating; ?>);
+                    });
+                    </script>
+                    </div>
+                    </div>
+                    <?php
+                    }
+                    ?>
+
+                    </div>          
                 </div>
             </div>
         </div>
