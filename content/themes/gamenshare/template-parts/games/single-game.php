@@ -36,7 +36,7 @@
             </div>
             <div class="game_infos_rating">
                 <h4 class="content-header">Note du jeu :</h4>
-                <div class=”rating”>
+                <div class="content">
                 <?php
                     $userid = get_current_user_id();
                     global $wpdb;
