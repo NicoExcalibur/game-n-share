@@ -34,3 +34,9 @@ $add_favorite = new Add_favorite();
 
 register_activation_hook( __FILE__,[$add_favorite, 'activation']);
 register_deactivation_hook( __FILE__,[$add_favorite, 'deactivation']); 
+
+// Create a favorite table + Add a favorite post in DB 
+$star_rating = new Star_rating();
+
+register_activation_hook( __FILE__,[$star_rating, 'activation']);
+register_deactivation_hook( __FILE__,[$star_rating, 'deactivation']); 
