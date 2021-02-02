@@ -12,6 +12,7 @@
     "bootstrap": "^5.0.0-beta1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
+    "jquery-bar-rating": "^1.2.2",
     "reset-css": "*"
   }
 }

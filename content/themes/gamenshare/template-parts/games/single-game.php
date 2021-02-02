@@ -48,7 +48,7 @@
                     $average = $wpdb->get_var("SELECT ROUND(AVG(rating),1) as averageRating FROM {$wpdb->prefix}rating WHERE post_id={$post->ID}");
 
                     if($average <= 0){
-                    $average = "No rating yet.";
+                    $average = "Le jeu n'a pas encore été noté";
                     }
                     ?>
                     <div class="post">
@@ -63,7 +63,7 @@
                                 <option value="5" >5</option>
                             </select>
                             <div style='clear: both;'></div>
-                            Average Rating : <span id='avgrating_<?php echo $post->ID; ?>'><?php echo $average; ?></span>
+                            Note moyenne : <span id='avgrating_<?php echo $post->ID; ?>'><?php echo $average; ?></span>
 
                             <!-- Set rating -->
                             <script type='text/javascript'>
