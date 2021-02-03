@@ -1,7 +1,9 @@
 import '../scss/main.scss';
 
 import 'bootstrap/dist/js/bootstrap.bundle';
-import 'jquery-bar-rating/dist/jquery.barrating.min.js'
+import 'jquery-bar-rating/dist/themes/fontawesome-stars.css';
+import 'jquery-bar-rating/dist/themes/fontawesome-stars-o.css';
+import 'jquery-bar-rating/dist/jquery.barrating.min.js';
 import $ from 'jquery';
 
 window.jQuery = $;
@@ -38,8 +40,8 @@ const app = {
 
     filtersResponsive: function(){
         let lWidth = window.screen.width;
-        console.log(lWidth);
-        console.log(app.filters);
+        //console.log(lWidth);
+        //console.log(app.filters);
         
         if (lWidth >= 768) { 
             app.filters.classList.remove('dropdown-menu');
@@ -52,7 +54,7 @@ const app = {
     },
 
     checkIfScrolled: function(){
-        console.log(app.footerEl.offsetHeight);
+        //console.log(app.footerEl.offsetHeight);
         if (window.innerHeight + window.scrollY >= document.body.offsetHeight )
         {
             app.filterButton.style.bottom = app.footerEl.offsetHeight  + "px";
@@ -101,33 +103,33 @@ const app = {
 
     handleStarRating: function() {
         $('.rating').barrating({
-         theme: 'fontawesome-stars',
-         onSelect: function(value, text, event) {
+            theme: 'fontawesome-stars',
+            onSelect: function(value, text, event) {
        
-          // Get element id by data-id attribute
-          var el = this;
-          var el_id = el.$elem.data('id');
-       
-          // rating was selected by a user
-          if (typeof(event) !== 'undefined') {
-        
-            var split_id = el_id.split("_");
-            var postid = split_id[1]; // postid
-       
-            // AJAX Request
-            $.ajax({
-              url: 'rating_ajax.php',
-              type: 'post',
-              data: {postid:postid,rating:value},
-              dataType: 'json',
-              success: function(data){
-                // Update average
-                var average = data['averageRating'];
-                $('#avgrating_'+postid).text(average);
-              }
-            });
-          }
-         }
+                // Get element id by data-id attribute
+                var el = this;
+                var el_id = el.$elem.data('id');
+                console.log(el_id);
+                // rating was selected by a user
+                if (typeof(event) !== 'undefined') {
+            
+                    var split_id = el_id.split("_");
+                    var postid = split_id[1]; // postid
+                    
+                    // AJAX Request
+                    $.ajax({
+                        url: 'star-rating.php',
+                        type: 'post',
+                        data: {postid:postid,rating:value},
+                        dataType: 'json',
+                        success: function(data){
+                            // Update average
+                            var average = data['averageRating'];
+                            $('#avgrating_'+postid).text(average);
+                        }
+                    });
+                }
+            }
         });
     }
 }
