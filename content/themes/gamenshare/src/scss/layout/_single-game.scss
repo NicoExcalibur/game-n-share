@@ -8,17 +8,36 @@
             font-size: $font-size-large;
         }
     }
+    .game_infos_right{
+        display: flex;
+        flex-direction: column;
+        
+    }
 
     .content-header {
         font-size: $font-size-medium;
         font-weight: bold;
-    }
+     
 
+    }
+    .game_infos_details{
+        background-color: $white!important;
+        //padding:1em ;
+        .content-header {
+            padding: 0.5em 1em;
+            color: $color-text-alt;
+            background-color: $color-text;
+    
+        }
+
+
+    }
     .list-group {
-        border-top: solid $bordergray 1px;
+        //border-top: solid $bordergray 1px;
+        padding: 0 1em 0.5em;
         
         &-item {
-            background-color: $color-bg-site;
+            //background-color: $color-bg-site;
             font-size: $font-size-small;
 
             .item-bold {

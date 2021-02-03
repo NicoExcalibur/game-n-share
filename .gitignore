@@ -1,6 +1,7 @@
 vendor
 wp
 wp-config.php
+content/cache
 content/languages
 content/upgrade
 content/uploads

@@ -5,9 +5,9 @@
             <div class="game_infos_title mb-4"><h1 class="text-start"><?php the_title(); ?></h1></div>
             <div class="game_infos_text"><?php the_content(); ?> </div>
         </div>
-        <div class="game_infos_right d-flex col-md-4 flex-column align-items-end">
+        <div class="game_infos_right  col-md-4">
             <button type="button" class="btn button-red mb-4 pl-2">Ajouter à mes favoris</button>
-            <div class="game_infos_details mb-4">
+            <div class="game_infos_details rounded-bottom mb-4">
                 <h4 class="content-header">Details sur le jeu : </h4>
                 <ul class="list-group list-group-flush">
                     <?php $terms = get_the_terms( get_the_ID(), 'genre' ); ?> 
@@ -42,4 +42,5 @@
             </div>
         </div>
     </div>
-    <?php comments_template('./comments.php', true); ?>
+
+    <?php comments_template('/comments.php', true); ?>
