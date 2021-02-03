@@ -3,17 +3,14 @@
 // et non celle définie dans le code source de FA
 @charset 'UTF-8';
 
-$fa-font-path: '/../node_modules/font-awesome/fonts';
+//$fa-font-path: '/../node_modules/font-awesome/fonts';
 @import
-    'abstracts/vars';
+  'abstracts/vars';
 
 @import 
     '~reset-css/sass/reset', 
     '~font-awesome/scss/font-awesome',
-    '~bootstrap/scss/bootstrap',
-    '~jquery-bar-rating/dist/themes/fontawesome-stars',
-    '~jquery-bar-rating/dist/themes/fontawesome-stars-o';
-
+    '~bootstrap/scss/bootstrap';
 
 @import
     'base/base',
@@ -24,7 +21,7 @@ $fa-font-path: '/../node_modules/font-awesome/fonts';
     'layout/footer',
     'layout/nav',
     'layout/games',
-    'layout/single-game';
+    'layout/single-game'; 
 
  @import
     'components/menu-link',
@@ -39,7 +36,6 @@ $fa-font-path: '/../node_modules/font-awesome/fonts';
     'components/button-filter-mobile',
     'components/form-filter',
     'components/comments',
-    'components/star-rating',
     'components/mylogin';
 
 @import
