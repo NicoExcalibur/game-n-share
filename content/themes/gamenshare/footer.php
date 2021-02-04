@@ -31,7 +31,14 @@
 </footer>
 </div>
 <?php wp_footer(); ?>
-
+<?php 
+if(is_single() && 'game' == get_post_type()){
+    while ( have_posts() ) :
+        the_post();
+    get_template_part( 'template-parts/games/script-js-staring' ); 
+endwhile;
+}
+?>
 </body>
 
 </html>

@@ -115,6 +115,8 @@ const app = {
             
                     var split_id = el_id.split("_");
                     var postid = split_id[1]; // postid
+                    console.log(postid);
+                    console.log(split_id);
                     
                     // AJAX Request
                     $.ajax({

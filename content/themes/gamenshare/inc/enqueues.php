@@ -9,18 +9,7 @@ if (!function_exists('gamesnshare_enqueue')) {
       [],
       '20200609'
     ); 
-    wp_enqueue_style(
-      'mfont',
-      get_theme_file_uri('http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css'),
-      [],
-      '20200609'
-    );
-    wp_enqueue_style(
-      'main-style',
-      get_theme_file_uri('public/fontawesome-stars.css'),
-      [],
-      '20200609'
-    );
+    
     wp_enqueue_script(
       'app',
       get_theme_file_uri('public/app.c3f9f951.js'),

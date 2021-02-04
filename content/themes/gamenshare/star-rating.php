@@ -3,9 +3,9 @@
 global $wpdb;
 global $post;
 
-$userid = get_current_user_id(); // User id
+$userid = 2; // User id
 $postid = $_POST['postid'];
-$rating = $wpdb->rating;
+$rating = $_POST['rating'];
 
 var_dump($_POST);
 

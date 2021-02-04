@@ -39,12 +39,14 @@
                 <div class="content">
                 <?php
                     $userid = get_current_user_id();
+                   // var_dump($userid);
                     $postid = $post->ID;
                     global $wpdb;
 
                     // User rating
                     $user_rating = $wpdb->get_var("SELECT `rating` FROM {$wpdb->prefix}rating WHERE post_id={$postid} and user_id={$userid}");
-
+                    var_dump($user_rating);
+                    
                     // get average
                     $average = $wpdb->get_var("SELECT ROUND(AVG(rating),1) as averageRating FROM {$wpdb->prefix}rating WHERE post_id={$postid}");
 
@@ -67,15 +69,11 @@
                             Note moyenne : <span id='avgrating_<?php echo $postid; ?>'><?php echo $average; ?></span>
 
                             <!-- Set rating -->
-                            <script type='text/javascript'>
-                            $(document).ready(function(){
-                                $('#rating_<?php echo $postid; ?>').barrating('set',<?php echo $user_rating; ?>);
-                            });
-                            </script>
+                         
                         </div>
                     </div>         
                 </div>
             </div>
         </div>
     </div>
-    <?php comments_template('./comments.php', true); ?>
+    <?php comments_template('/comments.php', true); ?>
