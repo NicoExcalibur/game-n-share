@@ -45,7 +45,7 @@
 
                     // User rating
                     $user_rating = $wpdb->get_var("SELECT `rating` FROM {$wpdb->prefix}rating WHERE post_id={$postid} and user_id={$userid}");
-                    var_dump($user_rating);
+                    //var_dump($user_rating);
                     
                     // get average
                     $average = $wpdb->get_var("SELECT ROUND(AVG(rating),1) as averageRating FROM {$wpdb->prefix}rating WHERE post_id={$postid}");

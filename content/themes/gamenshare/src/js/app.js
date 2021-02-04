@@ -105,31 +105,44 @@ const app = {
         $('.rating').barrating({
             theme: 'fontawesome-stars',
             onSelect: function(value, text, event) {
-       
+                //console.log(value);
+                
                 // Get element id by data-id attribute
                 var el = this;
                 var el_id = el.$elem.data('id');
-                console.log(el_id);
+                //console.log(el_id);
                 // rating was selected by a user
                 if (typeof(event) !== 'undefined') {
             
                     var split_id = el_id.split("_");
                     var postid = split_id[1]; // postid
-                    console.log(postid);
-                    console.log(split_id);
+                    //console.log(postid);
+                    //console.log(split_id);
                     
                     // AJAX Request
                     $.ajax({
-                        url: 'star-rating.php',
-                        type: 'post',
-                        data: {postid:postid,rating:value},
+                        url:frontendajax.ajaxurl,
+                        type: 'POST', //Post method
+                        data: {
+                            'action': 'get_star_rating',
+                            'postid': postid,
+                            'rating': value,                            
+                        },
+
                         dataType: 'json',
                         success: function(data){
                             // Update average
+                             console.log('caca');
+                            
                             var average = data['averageRating'];
                             $('#avgrating_'+postid).text(average);
+                        },
+                        error: function(){
+                            console.log('error');
+                            
                         }
                     });
+                   
                 }
             }
         });
