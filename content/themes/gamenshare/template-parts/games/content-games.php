@@ -6,7 +6,7 @@
             Filtrer
         </button>
         <div class="dropfilter">
-            
+
             <form action="<?= site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="filter">
                 <fieldset>
                     <legend class="legend">Filtrez par genres</legend>
@@ -69,8 +69,10 @@
                         </div>
                     </div>
                 </div>
-        <?php endwhile;
-        endif; ?>
+        <?php
+            endwhile;
+        endif;
+        ?>
     </div>
 
 </div>

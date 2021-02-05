@@ -11,6 +11,7 @@
                 <h4 class="content-header">Details sur le jeu : </h4>
                 <ul class="list-group list-group-flush">
                     <?php $terms = get_the_terms( get_the_ID(), 'genre' ); ?> 
+
                     <li class="list-group-item"><span class="item-bold">Genre(s) : </span><?php foreach ($terms as $term) {
                         ?> <a href="#"> <?php echo $term->name; ?> </a>        
                         <?php }; ?></li>
@@ -30,6 +31,7 @@
                             <?php endforeach; ?>
                             </ul>
                         <?php endif; ?>
+
                     <li class="list-group-item"><span class="item-bold">Sorti le :</span> <?php the_field('date'); ?></li>
                     <li class="list-group-item"><span class="item-bold">Editeur : </span><?php the_field('editor'); ?></li>
                 </ul>
