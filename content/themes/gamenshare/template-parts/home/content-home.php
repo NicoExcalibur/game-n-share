@@ -11,7 +11,8 @@ $args = array(
 $games = get_posts($args);
 
 ?>
-
+<h1>Accueil</h1>
+<p>Voici les derniers jeux ajoutés récemment :</p>
 <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
     <div class="carousel-control">
       <ol class="carousel-indicators">

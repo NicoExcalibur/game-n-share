@@ -1,31 +1,26 @@
 .carousel{
     
-}
-
-.carousel-container{
-    display: flex;
-    flex-direction: row;
-}
-
-
-.carousel__left{
-    width: 70%;
-
-}
-.carousel-control{
-   // background: #000;
-    position: absolute;
-
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 80%;
-    z-index: 10;
-}
-.carousel-indicators{
-     position: relative;
-     flex-direction: column;
-         li{
+    &-container {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    &-control {
+       // background: #000;
+        position: absolute;
+    
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 80%;
+        z-index: 10;
+    }
+    
+    &-indicators {
+         position: relative;
+         flex-direction: column;
+            
+        li {
             background-color: $anthracitegray!important;
             background-size: contain;
             background-repeat: no-repeat;
@@ -35,20 +30,27 @@
             padding: 0; 
             //background-position: -20px 0;
         }
-
+    
         .active {
             background-color: $red!important;
         }
     }
+    
+    &__left {
+        width: 70%;
+    }
+    
+    &__right {
+        width: 30%;
+    }
+    
+    &-cover {
+        width: 30%;
+    }
+    
+    &-text {
+        width: 70%;
+    }
+}
 
-.carousel__right{
-    width: 30%;
-}
-.carousel-cover{
-    width: 30%;
-}
-.carousel-text{
-
-    width: 70%;
-}
 
