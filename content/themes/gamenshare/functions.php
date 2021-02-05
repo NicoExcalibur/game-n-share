@@ -5,7 +5,15 @@ require 'inc/theme-setup.php';
 require 'inc/menu-class.php';
 require 'inc/filter-games.php';
 require 'inc/login.php';
+require 'inc/custom-comment.php';
 
-if ( !function_exists( 'wp_star_rating' ) ) { 
-    require_once ABSPATH . '/wp-admin/includes/template.php'; 
-} 
+function css_custom_acf()
+{
+    echo '<style>
+            .editor{
+                margin-bottom: 1em!important;
+            }
+         </style>';
+}
+add_action('admin_head', 'css_custom_acf');
+
