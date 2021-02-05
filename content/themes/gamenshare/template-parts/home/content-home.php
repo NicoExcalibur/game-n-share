@@ -9,10 +9,10 @@ $args = array(
 );
 
 $games = get_posts($args);
-
+// var_dump($games);
 ?>
 <h1>Accueil</h1>
-<p>Voici les derniers jeux ajoutés récemment :</p>
+<p class="carousel-header mb-0 p-3">Voici les derniers jeux ajoutés récemment :</p>
 <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
     <div class="carousel-control">
       <ol class="carousel-indicators">
@@ -22,7 +22,7 @@ $games = get_posts($args);
         ?>
        
           
-          <li data-bs-target="#carouselExampleDark" data-bs-slide-to="<?= $key; ?>" style="background-image: url('<?= get_field('game_cover', $game->ID); ?>')"   class="<?php echo ($i == 0) ? 'active' : ''; ?>"> </li> 
+          <li data-bs-target="#carouselExampleDark" data-bs-slide-to="<?= $key; ?>" style="background: url('<?= get_field('game_cover', $game->ID); ?>') right center;"   class="<?php echo ($i == 0) ? 'active' : ''; ?>"> </li> 
           
          </li>
          <?php
@@ -40,18 +40,19 @@ $games = get_posts($args);
       <?php if ($i == 0):  ?>
           <div class="carousel-item active" data-bs-interval="10000">
       <?php else: ?>
-        <div class="carousel-item" data-bs-interval="2000">
+        <div class="carousel-item" data-bs-interval="5000">
           <?php endif ?>
   
             <div class="carousel-container">
               <div class="carousel-cover ">
              
-                  <img class="img-fluid" src="<?= get_field('game_cover', $game->ID); ?>" />
+                  <a href="<?= $game->guid ?>"><img class="img-fluid rounded" src="<?= get_field('game_cover', $game->ID); ?>" /></a>
                
               </div>
-              <div class="carousel-text">
+              <div class="carousel-text d-flex flex-column justify-content-around">
                 <h5><?= $game->post_title ?></h5>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                <p><?= $game->post_excerpt; ?></p>
+                <a href="<?= $game->guid ?>" class="btn button button-red w-25 align-self-center">Voir la fiche</a>
               </div>
             </div>
           </div>
