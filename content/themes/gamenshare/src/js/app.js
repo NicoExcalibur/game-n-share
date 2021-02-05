@@ -104,6 +104,7 @@ const app = {
     handleStarRating: function() {
         $('.rating').barrating({
             theme: 'fontawesome-stars',
+            initialRating: null,
             onSelect: function(value, text, event) {
                 //console.log(value);
                 
@@ -128,19 +129,18 @@ const app = {
                             'postid': postid,
                             'rating': value,                            
                         },
-
                         dataType: 'json',
-                        success: function(data){
+                        success: function(response){
                             // Update average
-                             console.log('caca');
+                           
                             
-                            var average = data['averageRating'];
+                            var average = response['averageRating'];
                             $('#avgrating_'+postid).text(average);
                         },
-                        error: function(){
+                      /*   error: function(){
                             console.log('error');
                             
-                        }
+                        } */
                     });
                    
                 }
