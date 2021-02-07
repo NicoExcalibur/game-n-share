@@ -5,7 +5,7 @@
   },
   "devDependencies": {
     "parcel-bundler": "*",
-    "sass": "^1.32.4"
+    "sass": "^1.32.6"
   },
   "dependencies": {
     "@popperjs/core": "^2.6.0",
