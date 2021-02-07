@@ -10,7 +10,7 @@
             font-weight: bold;
             font-size: $font-size-large;
         }
-      
+
     }
 
     .game_infos_right {
@@ -50,27 +50,41 @@
 
     .game_infos_rating {
         text-align: center;
-        .note_raiting{
+
+        .note_raiting {
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-        .number_raiting{
-            font-weight: bold;
-            font-size: 1.2em;
+            margin-bottom: 0.2em;
+
+            .number_raiting {
+                font-weight: bold;
+                font-size: 1.2em;
+                color: $red;
+
+                &::before {
+                    content: "\00a0";
+
+                }
+            }
+
+            .small_number {
+                font-size: 0.5em;
+                align-self: flex-end;
+                color: $black;
+            }
+        }
+
+        .msg_for_raiting {
+            margin-bottom: 0.3em;
             color: $red;
-              &::before{
-                content: "\00a0";
-               
-              }
         }
-      
-        .small_number{
-            font-size: 0.5em;
-            align-self: flex-end;
-            color: $black;
+
+        .connect_for_raiting {
+            font-weight: bold;
+
         }
-    }
     }
 
     .list-group {

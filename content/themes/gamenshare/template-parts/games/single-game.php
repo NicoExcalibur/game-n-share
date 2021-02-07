@@ -83,7 +83,7 @@
                     $average = $wpdb->get_var("SELECT ROUND(AVG(rating),1) as averageRating FROM {$wpdb->prefix}rating WHERE post_id={$postid}");
 
                     if ($average <= 0) {
-                        $average = "Le jeu n'a pas encore été noté";
+                        $average = 0;
                     }
                     ?>
                     <div class="post">
@@ -98,11 +98,14 @@
                                 <option value="5">5</option>
                             </select>
                             <div style='clear: both;'></div>
-                           <p class="note_raiting"> <strong>Note moyenne : </strong> <span class="number_raiting" id='avgrating_<?php echo $postid; ?>'><?php echo $average; ?><span class="small_number">/5</span></span></p>
+                           <p class="note_raiting"> Note moyenne : <span class="number_raiting" id='avgrating_<?php echo $postid; ?>'><?php echo $average; ?><span class="small_number">/5</span></span></p>
                             <?php
                             //var_dump($userid);
+                            if ($average <= 0) {
+                                echo'<p class="small-p msg_for_raiting">Le jeu n\'a pas encore été noté </p>';
+                            }
                             if ($userid == 0) {
-                                echo '<p class="small-p"><a href="' . home_url('/login/') . '">Connectez-vous pour noter le jeu.</a> </p>';
+                                echo '<p class="small-p connect_for_raiting"><a href="' . home_url('/login/') . '">Connectez-vous pour noter le jeu.</a> </p>';
                             }
                             ?>
                             <!-- Set rating -->
