@@ -53,3 +53,10 @@ function gamenshare_comment($comment, $args, $depth) {
         </div><?php 
     endif;
 }
+
+add_filter('login_url','gamenshare_login_url');
+
+function gamenshare_login_url($login_url) {
+
+    return home_url('/login/');
+}

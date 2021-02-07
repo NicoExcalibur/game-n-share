@@ -3,16 +3,15 @@
 // et non celle définie dans le code source de FA
 @charset 'UTF-8';
 
-$fa-font-path: '/../node_modules/font-awesome/fonts';
+//$fa-font-path: '/../node_modules/font-awesome/fonts';
 @import
-    'abstracts/vars';
+  'abstracts/vars';
 
 @import 
     '~reset-css/sass/reset', 
     '~font-awesome/scss/font-awesome',
-    '~bootstrap/scss/bootstrap';
-
-
+    '~bootstrap/scss/bootstrap',
+    '~jquery-bar-rating/dist/themes/fontawesome-stars';
 @import
     'base/base',
     'base/typo';
@@ -22,7 +21,7 @@ $fa-font-path: '/../node_modules/font-awesome/fonts';
     'layout/footer',
     'layout/nav',
     'layout/games',
-    'layout/single-game';
+    'layout/single-game'; 
 
  @import
     'components/menu-link',
@@ -36,7 +35,10 @@ $fa-font-path: '/../node_modules/font-awesome/fonts';
     'components/button-search',
     'components/button-filter-mobile',
     'components/form-filter',
-    'components/mylogin',
-    'components/carousel';
+    'components/comments',
+    'components/mylogin';
 
-    @import 'shames';
+@import
+    'shames';
+
+

@@ -1,30 +1,104 @@
 .main {
-    
+    .text-start {
+        margin-top: 0 !important;
+    }
+
     .game_infos {
-        
+
         &_title {
             color: $red;
             font-weight: bold;
             font-size: $font-size-large;
         }
+
     }
 
-    .content-header {
-        font-size: $font-size-medium;
-        font-weight: bold;
+    .game_infos_right {
+        display: flex;
+        flex-direction: column;
+
+        .content-header {
+            font-size: $font-size-medium;
+            font-weight: bold;
+            padding: 0.5em 1em;
+            color: $color-text-alt;
+            background-color: $color-text;
+            text-align: left;
+
+        }
+    }
+
+    .game_infos_cover {
+        text-align: center;
+
+        .img-small {
+            width: 50%;
+            height: auto;
+            margin: 0 auto;
+            padding: 0.5em 0;
+        }
+    }
+
+
+    .game_infos_details,
+    .game_infos_rating,
+    .game_infos_cover {
+        background-color: $white !important;
+        //padding:1em ;
+
+    }
+
+    .game_infos_rating {
+        text-align: center;
+
+        .note_raiting {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 0.2em;
+
+            .number_raiting {
+                font-weight: bold;
+                font-size: 1.2em;
+                color: $red;
+
+                &::before {
+                    content: "\00a0";
+
+                }
+            }
+
+            .small_number {
+                font-size: 0.5em;
+                align-self: flex-end;
+                color: $black;
+            }
+        }
+
+        .msg_for_raiting {
+            margin-bottom: 0.3em;
+            color: $red;
+        }
+
+        .connect_for_raiting {
+            font-weight: bold;
+
+        }
     }
 
     .list-group {
-        border-top: solid $bordergray 1px;
-        
+        //border-top: solid $bordergray 1px;
+        padding: 0 1em 0.5em;
+
         &-item {
-            background-color: $color-bg-site;
+            //background-color: $color-bg-site;
             font-size: $font-size-small;
 
             .item-bold {
                 color: $red;
                 font-weight: bold;
             }
-        } 
+        }
     }
 }

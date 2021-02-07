@@ -14,6 +14,7 @@ if (!defined('WPINC')) {die();}
 require plugin_dir_path(__FILE__) . 'inc/game_cpt.php';
 require plugin_dir_path(__FILE__) . 'inc/platform_cpt.php';
 require plugin_dir_path(__FILE__) . 'inc/add_favorite.php';
+require plugin_dir_path(__FILE__) . 'inc/star_rating.php';
 
 
 
@@ -34,3 +35,9 @@ $add_favorite = new Add_favorite();
 
 register_activation_hook( __FILE__,[$add_favorite, 'activation']);
 register_deactivation_hook( __FILE__,[$add_favorite, 'deactivation']); 
+
+// Create a rating table + Add a rating post in DB 
+$star_rating = new Star_rating();
+
+register_activation_hook( __FILE__,[$star_rating, 'activation']);
+register_deactivation_hook( __FILE__,[$star_rating, 'deactivation']); 

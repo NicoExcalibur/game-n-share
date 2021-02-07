@@ -27,6 +27,8 @@ if (!function_exists('gamenshare_setup')) {
 
         add_theme_support('title-tag');
         add_theme_support('post-thumbnails');
+        // Ajout d'un format d'image custom pour banner dans la page du jeux
+        add_image_size('banner-screenshot', 1300 , 300, true );
         register_nav_menus([
             'main-menu' => "Menu de navigation",
             'footer' => "Menu du footer",
