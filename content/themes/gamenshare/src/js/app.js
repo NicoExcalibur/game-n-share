@@ -15,6 +15,7 @@ const app = {
     filters: document.querySelector('.dropfilter'),
     filterButton: document.querySelector('.button-filter-mobile'),
     footerEl: document.querySelector('.footer'),
+    addFavButton: document.getElementById('add-favorite'),
 
     init: function () {
         //console.log('init');
@@ -26,6 +27,7 @@ const app = {
         window.addEventListener('load', app.checkIfScrolled);
         app.handleAjaxFilterGames();
         app.handleStarRating();
+        app.addFavButton.addEventListener('click', app.handleAddFavoriteGame);
 
     },
     closeSearch: function(){
@@ -145,6 +147,24 @@ const app = {
                 }
             }
         });
+    },
+    handleAddFavoriteGame: function() {
+        
+        // AJAX Request
+        // ajax({
+        //     url: frontendajax.ajaxurl,
+        //     type: 'POST', //Post method
+        //     data: {
+        //         'action': '',
+        //         'postid': postid,
+        //         'rating': value,
+        //     },
+        //     dataType: 'json',
+        //     success: function (response) {
+        //         // Success message and switch button
+
+        //     },
+        // });
     }
     
 }
