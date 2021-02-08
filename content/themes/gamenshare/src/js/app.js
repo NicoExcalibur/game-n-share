@@ -15,7 +15,6 @@ const app = {
     filters: document.querySelector('.dropfilter'),
     filterButton: document.querySelector('.button-filter-mobile'),
     footerEl: document.querySelector('.footer'),
-    addFavButton: document.getElementById('add-favorite'),
 
     init: function () {
         //console.log('init');
@@ -27,7 +26,7 @@ const app = {
         window.addEventListener('load', app.checkIfScrolled);
         app.handleAjaxFilterGames();
         app.handleStarRating();
-        app.addFavButton.addEventListener('click',app.handleAddFavorite);
+        app.handleAddFavorite();
 
     },
     closeSearch: function(){
@@ -42,8 +41,8 @@ const app = {
 
     filtersResponsive: function(){
         let lWidth = window.screen.width;
-        console.log(lWidth);
-        console.log(app.filters);
+        // console.log(lWidth);
+        // console.log(app.filters);
         
         if (lWidth >= 768) { 
             app.filters.classList.remove('dropdown-menu');
@@ -56,7 +55,7 @@ const app = {
     },
 
     checkIfScrolled: function(){
-        console.log(app.footerEl.offsetHeight);
+        // console.log(app.footerEl.offsetHeight);
         if (window.innerHeight + window.scrollY >= document.body.offsetHeight )
         {
             app.filterButton.style.bottom = app.footerEl.offsetHeight  + "px";
@@ -107,12 +106,11 @@ const app = {
             theme: 'fontawesome-stars',
             initialRating: null,
             onSelect: function (value, text, event) {
-                //console.log(value);
 
                 // Get element id by data-id attribute
                 var el = this;
                 var el_id = el.$elem.data('id');
-                //console.log(el_id);
+                // console.log(el);
                 // rating was selected by a user
                 if (typeof (event) !== 'undefined') {
 
@@ -149,14 +147,31 @@ const app = {
         });
     },
     handleAddFavorite: function () {
-        $('#add-favorite').ready(function() {
-            var data = {
-                'action': 'gamesnshare_add_fav_game',
-                'whatever': ajax_object.we_value      // We pass php values differently!
-            };
-            // We can also pass the url value separately from ajaxurl for front end AJAX implementations
-            jQuery.post(ajax_object.ajaxurl, data, function(response) {
-                alert('Got this from the server: ' + response);
+        $(document).ready(function() {
+            $('.add-fav-button').click(function() {
+                
+                var el = this;
+                var el_id = el.dataset.id;
+                var split_id = el_id.split("_");
+                var postid = parseInt(split_id[1], 10);
+                console.log(postid);
+
+                // AJAX Request
+                $.ajax({
+                    url: ajaxobject.ajaxurl,
+                    type: 'POST', //Post method
+                    data: {
+                        'action': 'add_fav_game',
+                        'postid': postid,
+                    },
+                    success: function () {
+                        console.log ('SUCCESS !');
+                    },
+                    error: function(){
+                        console.log('ERROR');
+                              
+                    } 
+                });
             });
         });
     }
