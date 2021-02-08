@@ -20,7 +20,7 @@
             <div class="game_infos_text"><?php the_content(); ?> </div>
         </div>
         <div class="game_infos_right  col-md-3">
-            <button type="button" class="btn button-red mb-4 pl-2">Ajouter à mes favoris</button>
+            <button type="button" id="add-favorite" class="btn button-red mb-4 pl-2">Ajouter à mes favoris</button>
             <div class="game_infos_cover rounded mb-4">
                 <?php if (get_field('game_cover')) : ?>
                     <img class="img-small" src="<?php the_field('game_cover'); ?>" />

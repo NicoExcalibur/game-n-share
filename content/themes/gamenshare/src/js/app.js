@@ -15,6 +15,7 @@ const app = {
     filters: document.querySelector('.dropfilter'),
     filterButton: document.querySelector('.button-filter-mobile'),
     footerEl: document.querySelector('.footer'),
+    addFavButton: document.getElementById('add-favorite'),
 
     init: function () {
         //console.log('init');
@@ -26,6 +27,7 @@ const app = {
         window.addEventListener('load', app.checkIfScrolled);
         app.handleAjaxFilterGames();
         app.handleStarRating();
+        app.addFavButton.addEventListener('click',app.handleAddFavorite);
 
     },
     closeSearch: function(){
@@ -144,6 +146,18 @@ const app = {
 
                 }
             }
+        });
+    },
+    handleAddFavorite: function () {
+        $('#add-favorite').ready(function() {
+            var data = {
+                'action': 'gamesnshare_add_fav_game',
+                'whatever': ajax_object.we_value      // We pass php values differently!
+            };
+            // We can also pass the url value separately from ajaxurl for front end AJAX implementations
+            jQuery.post(ajax_object.ajaxurl, data, function(response) {
+                alert('Got this from the server: ' + response);
+            });
         });
     }
     
