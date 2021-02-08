@@ -25,10 +25,12 @@ function gamenshare_add_fav_game()
             )
         );
     } else {
-        $wpdb->query(
-            "DELETE * FROM 'wp_favorites'
-            WHERE user_id={$userid} 
-            AND post_id={$postid}"
+        $wpdb->delete(
+            'wp_favorites', //table
+            array(   //where
+                'user_id' => $userid,
+                'post_id' => $postid
+            )
         );
     }
 	wp_die();
