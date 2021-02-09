@@ -7,7 +7,7 @@ require 'inc/filter-games.php';
 require 'inc/login.php';
 require 'inc/custom-comment.php';
 require 'inc/star-rating.php';
-require 'inc/add-game-in-fav.php'; 
+require 'inc/add-fav-game.php';
 
 function css_custom_acf()
 {

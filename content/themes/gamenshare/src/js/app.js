@@ -15,7 +15,7 @@ const app = {
     filters: document.querySelector('.dropfilter'),
     filterButton: document.querySelector('.button-filter-mobile'),
     footerEl: document.querySelector('.footer'),
-    addFavButton: document.getElementById('add-favorite'),
+    body: document.querySelector('body'),
 
     init: function () {
         //console.log('init');
@@ -27,23 +27,23 @@ const app = {
         window.addEventListener('load', app.checkIfScrolled);
         app.handleAjaxFilterGames();
         app.handleStarRating();
-        app.addFavButton.addEventListener('click', app.handleAddFavoriteGame);
+        app.handleAddFavorite();
 
     },
-    closeSearch: function(){
+    closeSearch: function () {
         //console.log(app.blockSearch);
         app.blockSearch.classList.remove('show');
     },
-    handlecloseSearch: function(evt) {
+    handlecloseSearch: function (evt) {
         //console.log(evt);
         evt.preventDefault();
         app.blockSearch.classList.remove('show');
     },
 
-    filtersResponsive: function(){
+    filtersResponsive: function () {
         let lWidth = window.screen.width;
-        console.log(lWidth);
-        console.log(app.filters);
+        // console.log(lWidth);
+        // console.log(app.filters);
         
         if (lWidth >= 768) { 
             app.filters.classList.remove('dropdown-menu');
@@ -56,7 +56,7 @@ const app = {
     },
 
     checkIfScrolled: function(){
-        console.log(app.footerEl.offsetHeight);
+        // console.log(app.footerEl.offsetHeight);
         if (window.innerHeight + window.scrollY >= document.body.offsetHeight )
         {
             app.filterButton.style.bottom = app.footerEl.offsetHeight  + "px";
@@ -66,35 +66,36 @@ const app = {
         }else 
         {
             app.filterButton.style.bottom = "35px";
+
         }
     },
-    handleAjaxFilterGames: function() {
+    handleAjaxFilterGames: function () {
         //console.log('kikou j');
-        
-            $('.form-check-input').change(function(){
+
+        $('.form-check-input').change(function () {
             const filter = $('#filter');
             $.ajax({
-                url:filter.attr('action'),
-                data:filter.serialize(), // form data
-                type:filter.attr('method'), // POST
-                
-                success:function(data){
-                  
+                url: filter.attr('action'),
+                data: filter.serialize(), // form data
+                type: filter.attr('method'), // POST
+
+                success: function (data) {
+
                     $('#response').html(data); // insert data
                 }
             });
             return false;
         });
-        $('#filter').submit(function(){
+        $('#filter').submit(function () {
             const filter = $('#filter');
             $.ajax({
-                url:filter.attr('action'),
-                data:filter.serialize(), // form data
-                type:filter.attr('method'), // POST
-                beforeSend:function(xhr){
+                url: filter.attr('action'),
+                data: filter.serialize(), // form data
+                type: filter.attr('method'), // POST
+                beforeSend: function (xhr) {
                     filter.find('button').text('Processing...'); // changing the button label
                 },
-                success:function(data){
+                success: function (data) {
                     filter.find('button').text('Filtrez'); // changing the button label back
                     $('#response').html(data); // insert data
                 }
@@ -107,12 +108,11 @@ const app = {
             theme: 'fontawesome-stars',
             initialRating: null,
             onSelect: function (value, text, event) {
-                //console.log(value);
 
                 // Get element id by data-id attribute
                 var el = this;
                 var el_id = el.$elem.data('id');
-                //console.log(el_id);
+                // console.log(el);
                 // rating was selected by a user
                 if (typeof (event) !== 'undefined') {
 
@@ -133,8 +133,6 @@ const app = {
                         dataType: 'json',
                         success: function (response) {
                             // Update average
-
-
                             var average = response['averageRating'];
                             $('#avgrating_' + postid).text(average);
                         },
@@ -148,25 +146,60 @@ const app = {
             }
         });
     },
-    handleAddFavoriteGame: function() {
+    handleAddFavorite: function () {
         
-        // AJAX Request
-        // ajax({
-        //     url: frontendajax.ajaxurl,
-        //     type: 'POST', //Post method
-        //     data: {
-        //         'action': '',
-        //         'postid': postid,
-        //         'rating': value,
-        //     },
-        //     dataType: 'json',
-        //     success: function (response) {
-        //         // Success message and switch button
-
-        //     },
-        // });
-    }
+        $('.fav-button').on('click', function() {
+            
+            var el = this;
+            var el_id = el.dataset.id;
+            var split_id = el_id.split("_");
+            var postid = parseInt(split_id[1], 10);
+            // console.log(postid);
+            
+            if($(el).attr('data-current-state') == 0){
+                // AJAX Request
+                $.ajax({
+                    url: ajaxobject.ajaxurl,
+                    type: 'POST', //Post method
+                    data: {
+                        'action': 'add_fav_game',
+                        'postid': postid,
+                    },
+                    success: function () {
+                        console.log('ajouté aux fav');
+                        $(el).removeClass('add-fav-button')
+                            .addClass('add-delete-button')
+                            .html('Retirer des favoris')
+                            .attr('data-current-state', '1');
     
+                    }
+                });
+                
+            }else{
+
+                // AJAX Request
+                $.ajax({
+                    url: ajaxobject.ajaxurl,
+                    type: 'POST', //Post method
+                    data: {
+                        'action': 'add_fav_game',
+                        'postid': postid,
+                    },
+                    success: function () {
+                        console.log('retiré des fav');
+                        $(el).removeClass('add-delete-button')
+                            .addClass('add-fav-button')
+                            .html('Ajouter aux favoris')
+                            .attr('data-current-state', '0');      
+                    }
+                });
+                
+            }  
+       
+        });
+    
+    },
+
 }
 
 document.addEventListener('DOMContentLoaded', app.init);

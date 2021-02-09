@@ -12,6 +12,7 @@
     '~font-awesome/scss/font-awesome',
     '~bootstrap/scss/bootstrap',
     '~jquery-bar-rating/dist/themes/fontawesome-stars';
+
 @import
     'base/base',
     'base/typo';
@@ -23,7 +24,7 @@
     'layout/games',
     'layout/single-game'; 
 
- @import
+@import
     'components/menu-link',
     'components/footer-menu',
     'components/footer-social',
