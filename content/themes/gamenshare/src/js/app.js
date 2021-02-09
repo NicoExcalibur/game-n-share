@@ -166,10 +166,11 @@ const app = {
                     },
                     success: function () {
                         console.log('ajouté aux fav');
-                        $(el).removeClass('add-fav-button');
-                        $(el).addClass('add-delete-button');
-                        $(el).html('Retirer des favoris');
-                        $(el).attr('data-current-state', '1');     
+                        $(el).removeClass('add-fav-button')
+                            .addClass('add-delete-button')
+                            .html('Retirer des favoris')
+                            .attr('data-current-state', '1');
+    
                     }
                 });
                 
@@ -185,10 +186,10 @@ const app = {
                     },
                     success: function () {
                         console.log('retiré des fav');
-                        $(el).removeClass('add-delete-button');
-                        $(el).addClass('add-fav-button');
-                        $(el).html('Ajouter aux favoris');
-                        $(el).attr('data-current-state', '0');      
+                        $(el).removeClass('add-delete-button')
+                            .addClass('add-fav-button')
+                            .html('Ajouter aux favoris')
+                            .attr('data-current-state', '0');      
                     }
                 });
                 
