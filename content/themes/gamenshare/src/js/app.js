@@ -15,6 +15,7 @@ const app = {
     filters: document.querySelector('.dropfilter'),
     filterButton: document.querySelector('.button-filter-mobile'),
     footerEl: document.querySelector('.footer'),
+    addFavButton: document.querySelector('.add-fav-button'),
 
     init: function () {
         //console.log('init');
@@ -131,8 +132,6 @@ const app = {
                         dataType: 'json',
                         success: function (response) {
                             // Update average
-
-
                             var average = response['averageRating'];
                             $('#avgrating_' + postid).text(average);
                         },
@@ -147,14 +146,34 @@ const app = {
         });
     },
     handleAddFavorite: function () {
-        $(document).ready(function() {
-            $('.add-fav-button').click(function() {
+        
+        $('.fav-button').on('click', function() {
+            
+            var el = this;
+            var el_id = el.dataset.id;
+            var split_id = el_id.split("_");
+            var postid = parseInt(split_id[1], 10);
+            // console.log(postid);
+            
+            if($(el).attr('data-current-state') == 0){
+                // AJAX Request
+                $.ajax({
+                    url: ajaxobject.ajaxurl,
+                    type: 'POST', //Post method
+                    data: {
+                        'action': 'add_fav_game',
+                        'postid': postid,
+                    },
+                    success: function () {
+                        console.log('ajouté aux fav');
+                        $(el).removeClass('add-fav-button');
+                        $(el).addClass('add-delete-button');
+                        $(el).html('Retirer des favoris');
+                        $(el).attr('data-current-state', '1');     
+                    }
+                });
                 
-                var el = this;
-                var el_id = el.dataset.id;
-                var split_id = el_id.split("_");
-                var postid = parseInt(split_id[1], 10);
-                console.log(postid);
+            }else{
 
                 // AJAX Request
                 $.ajax({
@@ -165,17 +184,19 @@ const app = {
                         'postid': postid,
                     },
                     success: function () {
-                        console.log ('SUCCESS !');
-                    },
-                    error: function(){
-                        console.log('ERROR');
-                              
-                    } 
+                        console.log('retiré des fav');
+                        $(el).removeClass('add-delete-button');
+                        $(el).addClass('add-fav-button');
+                        $(el).html('Ajouter aux favoris');
+                        $(el).attr('data-current-state', '0');      
+                    }
                 });
-            });
+                
+            }  
+       
         });
-    }
     
+    },
 }
 
 document.addEventListener('DOMContentLoaded', app.init);
