@@ -15,7 +15,7 @@ const app = {
     filters: document.querySelector('.dropfilter'),
     filterButton: document.querySelector('.button-filter-mobile'),
     footerEl: document.querySelector('.footer'),
-    addFavButton: document.querySelector('.add-fav-button'),
+    body: document.querySelector('body'),
 
     init: function () {
         //console.log('init');
@@ -30,17 +30,17 @@ const app = {
         app.handleAddFavorite();
 
     },
-    closeSearch: function(){
+    closeSearch: function () {
         //console.log(app.blockSearch);
         app.blockSearch.classList.remove('show');
     },
-    handlecloseSearch: function(evt) {
+    handlecloseSearch: function (evt) {
         //console.log(evt);
         evt.preventDefault();
         app.blockSearch.classList.remove('show');
     },
 
-    filtersResponsive: function(){
+    filtersResponsive: function () {
         let lWidth = window.screen.width;
         // console.log(lWidth);
         // console.log(app.filters);
@@ -66,35 +66,36 @@ const app = {
         }else 
         {
             app.filterButton.style.bottom = "35px";
+
         }
     },
-    handleAjaxFilterGames: function() {
+    handleAjaxFilterGames: function () {
         //console.log('kikou j');
-        
-            $('.form-check-input').change(function(){
+
+        $('.form-check-input').change(function () {
             const filter = $('#filter');
             $.ajax({
-                url:filter.attr('action'),
-                data:filter.serialize(), // form data
-                type:filter.attr('method'), // POST
-                
-                success:function(data){
-                  
+                url: filter.attr('action'),
+                data: filter.serialize(), // form data
+                type: filter.attr('method'), // POST
+
+                success: function (data) {
+
                     $('#response').html(data); // insert data
                 }
             });
             return false;
         });
-        $('#filter').submit(function(){
+        $('#filter').submit(function () {
             const filter = $('#filter');
             $.ajax({
-                url:filter.attr('action'),
-                data:filter.serialize(), // form data
-                type:filter.attr('method'), // POST
-                beforeSend:function(xhr){
+                url: filter.attr('action'),
+                data: filter.serialize(), // form data
+                type: filter.attr('method'), // POST
+                beforeSend: function (xhr) {
                     filter.find('button').text('Processing...'); // changing the button label
                 },
-                success:function(data){
+                success: function (data) {
                     filter.find('button').text('Filtrez'); // changing the button label back
                     $('#response').html(data); // insert data
                 }
@@ -198,6 +199,7 @@ const app = {
         });
     
     },
+
 }
 
 document.addEventListener('DOMContentLoaded', app.init);
