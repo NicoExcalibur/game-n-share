@@ -20,12 +20,40 @@
             <div class="game_infos_text"><?php the_content(); ?> </div>
         </div>
         <div class="game_infos_right  col-md-3">
-            <button type="button" class="btn button-red mb-4 pl-2">Ajouter à mes favoris</button>
-            <div class="game_infos_cover rounded mb-4">
-                <?php if (get_field('game_cover')) : ?>
-                    <img class="img-small" src="<?php the_field('game_cover'); ?>" />
-                <?php endif; ?>
-            </div>
+            <?php
+            $userid = get_current_user_id();
+            // var_dump($userid);
+            $postid = $post->ID;
+            global $wpdb;
+            $count = $wpdb->get_var("SELECT COUNT(*) AS cntpost FROM {$wpdb->prefix}favorites WHERE post_id={$postid} and user_id={$userid}");
+            
+            if (is_user_logged_in()) {
+            
+                if ( $count == 0) {
+                ?>
+                    <button type="button" data-id="add_<?php echo $post->ID ?>" class="btn mb-4 pl-2 fav-button add-fav-button" data-current-state="0">Ajouter aux favoris</button>
+                <?php
+                } else {
+                ?>
+                    <button type="button" data-id="add_<?php echo $post->ID ?>" class="btn mb-4 pl-2 fav-button delete-fav-button" data-current-state="1">Retirer des favoris</button>
+               <?php 
+               } 
+            } else {
+            ?>
+                <div>
+                    <p class="small-p connect_for_raiting">
+                        <a href="' . home_url('/login/') . '">Connectez-vous pour ajouter ce jeu à vos favoris</a> 
+                    </p>
+                </div>
+            <?php
+            }
+            ?>
+                <div class="game_infos_cover rounded mb-4">
+                    <?php if (get_field('game_cover')) : ?>
+                        <img class="img-small" src="<?php the_field('game_cover'); ?>" />
+                    <?php endif; ?>
+                </div>
+   
             <div class="game_infos_details rounded-bottom mb-4">
                 <h4 class="content-header">Details sur le jeu : </h4>
                 <ul class="list-group list-group-flush">
@@ -104,7 +132,7 @@
                             if ($average <= 0) {
                                 echo'<p class="small-p msg_for_raiting">Le jeu n\'a pas encore été noté </p>';
                             }
-                            if ($userid == 0) {
+                            if (!is_user_logged_in()) {
                                 echo '<p class="small-p connect_for_raiting"><a href="' . home_url('/login/') . '">Connectez-vous pour noter le jeu.</a> </p>';
                             }
                             ?>

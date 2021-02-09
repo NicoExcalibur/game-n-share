@@ -17,8 +17,18 @@ if (!function_exists('gamesnshare_enqueue')) {
       '20200609',
       true
     );
-    wp_localize_script( 'app', 'frontendajax', 
-    ['ajaxurl' => admin_url( 'admin-ajax.php' )]);
+    
+    wp_localize_script( 
+      'app',
+      'frontendajax', 
+      ['ajaxurl' => admin_url( 'admin-ajax.php' )]
+    );
+    
+    wp_localize_script( 
+      'app',
+      'ajaxobject',
+      ['ajaxurl' => admin_url( 'admin-ajax.php' )] 
+    ); 
   }
 }
 

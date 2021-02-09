@@ -18,3 +18,28 @@
 .btn{
     line-height: 1!important;
 }
+
+.delete-fav-button {
+    background-color: $white !important;
+    color: $red;
+    border: $red solid 1px;
+    
+    &:hover{
+        color: $white !important;
+        background-color:  $red !important;
+        border: $white solid 1px;
+    }
+    
+}
+
+.add-fav-button{
+    
+    background-color: $color-bg-btn !important;
+  //  line-height: normal !important;
+    color: $color-text-alt!important;
+    
+    &:hover{
+        color: $red !important;
+        background-color: $white !important;
+    }
+}
