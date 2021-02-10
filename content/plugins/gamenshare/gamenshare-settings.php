@@ -43,7 +43,7 @@ $star_rating = new Star_rating();
 register_activation_hook( __FILE__,[$star_rating, 'activation']);
 register_deactivation_hook( __FILE__,[$star_rating, 'deactivation']);
 
-// Create a rating table + Add a rating post in DB 
+// Create a collection table + Add a post in cellection in DB 
 $add_collec = new Add_collection();
 
 register_activation_hook( __FILE__,[$add_collec, 'activation']);

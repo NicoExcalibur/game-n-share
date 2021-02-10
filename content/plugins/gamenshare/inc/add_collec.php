@@ -21,7 +21,7 @@ class Add_collection {
   }
 
   // function that drops(delete) the custom_table
-  public function custom_table_fav_collec()
+  public function custom_table_collec_uninstall()
   { 
     global $wpdb;
 
