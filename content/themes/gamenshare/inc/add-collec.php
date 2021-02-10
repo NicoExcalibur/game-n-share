@@ -10,7 +10,7 @@ function gamenshare_add_collection() {
     $postid = $_POST['postid'];
 
     // Check entry within table
-    $count = $wpdb->get_var("SELECT COUNT(*) AS cntpost FROM {$wpdb->prefix}`collection` WHERE post_id={$postid} and user_id={$userid}");
+    $count = $wpdb->get_var("SELECT COUNT(*) AS cntpost FROM `{$wpdb->prefix}collection` WHERE post_id={$postid} and user_id={$userid}");
 
     if ($count == '0') {
 

@@ -213,7 +213,7 @@ const app = {
             if($(el).attr('data-current-state') == 0){
                 // AJAX Request
                 $.ajax({
-                    url: ajaxobject.ajaxurl,
+                    url: ajaxadd.ajaxurl,
                     type: 'POST', //Post method
                     data: {
                         'action': 'add_collection',
@@ -221,10 +221,10 @@ const app = {
                     },
                     success: function () {
                         console.log('ajouté à la collec');
-                        // $(el).removeClass('add-fav-button')
-                        //     .addClass('add-delete-button')
-                        //     .html('Retirer des favoris')
-                        //     .attr('data-current-state', '1');
+                        $(el).removeClass('collec-button-add')
+                            .addClass('collec-button-delete')
+                            .html('Retirer de ma collection')
+                            .attr('data-current-state', '1');
     
                     }
                 });
@@ -233,7 +233,7 @@ const app = {
 
                 // AJAX Request
                 $.ajax({
-                    url: ajaxobject.ajaxurl,
+                    url: ajaxadd.ajaxurl,
                     type: 'POST', //Post method
                     data: {
                         'action': 'add_collection',
@@ -241,10 +241,10 @@ const app = {
                     },
                     success: function () {
                         console.log('retiré de la collec');
-                        // $(el).removeClass('add-delete-button')
-                        //     .addClass('add-fav-button')
-                        //     .html('Ajouter aux favoris')
-                        //     .attr('data-current-state', '0');      
+                        $(el).removeClass('collec-button-delete')
+                            .addClass('collec-button-add')
+                            .html('Ajouter à ma collection')
+                            .attr('data-current-state', '0');      
                     }
                 });
                 
