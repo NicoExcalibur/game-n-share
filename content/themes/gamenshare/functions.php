@@ -8,6 +8,7 @@ require 'inc/login.php';
 require 'inc/custom-comment.php';
 require 'inc/star-rating.php';
 require 'inc/add-fav-game.php';
+require 'inc/add-collec.php';
 
 function css_custom_acf()
 {
@@ -18,4 +19,3 @@ function css_custom_acf()
          </style>';
 }
 add_action('admin_head', 'css_custom_acf');
-

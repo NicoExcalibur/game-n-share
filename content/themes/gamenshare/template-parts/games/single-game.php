@@ -25,11 +25,13 @@
             // var_dump($userid);
             $postid = $post->ID;
             global $wpdb;
-            $count = $wpdb->get_var("SELECT COUNT(*) AS cntpost FROM {$wpdb->prefix}favorites WHERE post_id={$postid} and user_id={$userid}");
+            $countfav = $wpdb->get_var("SELECT COUNT(*) AS cntpost FROM {$wpdb->prefix}favorites WHERE post_id={$postid} and user_id={$userid}");
+            
+            $countcollec = $wpdb->get_var("SELECT COUNT(*) AS cntpost FROM `{$wpdb->prefix}collection` WHERE post_id={$postid} and user_id={$userid}");
             
             if (is_user_logged_in()) {
             
-                if ( $count == 0) {
+                if ( $countfav == 0) {
                 ?>
                     <button type="button" data-id="add_<?php echo $post->ID ?>" class="btn mb-4 pl-2 fav-button add-fav-button" data-current-state="0">Ajouter aux favoris</button>
                 <?php
@@ -42,10 +44,24 @@
             ?>
                 <div>
                     <p class="small-p connect_for_raiting">
-                        <a href="' . home_url('/login/') . '">Connectez-vous pour ajouter ce jeu à vos favoris</a> 
+                        <a href="' . home_url('/login/') . '">Connectez-vous pour ajouter ce jeu à vos favoris ou à votre collection</a> 
                     </p>
                 </div>
             <?php
+            }
+            if (is_user_logged_in()) {
+            
+                if ( $countcollec == 0) {
+                ?>
+                    <button type="button" data-id="add_<?php echo $post->ID ?>" class="btn mb-4 pl-2 collec-button collec-button-add" data-current-state="0">Ajouter à ma collection</button>
+                <?php
+                } else {
+                ?>
+                    <button type="button" data-id="add_<?php echo $post->ID ?>" class="btn mb-4 pl-2 collec-button collec-button-delete" data-current-state="1">Retirer de ma collection</button>
+                <?php 
+                } 
+            } else {
+                //else nothing ...
             }
             ?>
                 <div class="game_infos_cover rounded mb-4">
