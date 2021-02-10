@@ -4,9 +4,13 @@
     <div class="platforms row col-md-9" id="response">
         <?php
 
+        // pagination param
+        $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
         $args = array(
-            'post_type' => 'platform',
-            'posts_per_page' => 10
+            'post_type'      => 'platform',
+            'posts_per_page' => 9,
+            'paged'          => $paged //pagination
         );
 
         $platforms = new WP_Query($args);
@@ -14,7 +18,7 @@
                 <div class="col-sm-6 col-md-4">
                     <div class="platform">
                         <div class="platform__image">
-                            <?php if (get_field('')) : ?>
+                            <?php if (get_field('game_cover')) : ?>
                                 <img class="img-fluid" src="<?php the_field('game_cover'); ?>" />
                             <?php endif; ?>
                         </div>
@@ -26,6 +30,19 @@
                 </div>
         <?php
             endwhile;
+        ?>
+            <!-- pagination -->
+            <div class="pagination d-flex">
+                <div class="btn pagination-next">
+                    <?php next_posts_link('Suivant', $platforms->max_num_pages); ?>
+                </div>
+                <div class="btn pagination-prev">
+                    <?php previous_posts_link('précédent'); ?>
+                </div>
+                <?php else : ?>
+                <!-- No posts found -->
+            </div>
+        <?php
         endif;
         ?>
     </div>
