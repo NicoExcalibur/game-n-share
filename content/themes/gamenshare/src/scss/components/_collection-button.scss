@@ -1,0 +1,33 @@
+.collec-button {
+    background-color: $color-bg-btn;
+    color: $color-text-alt!important;
+      
+    &:hover{
+      color: $red !important;
+      background-color: $white !important;
+    }
+
+    &-add {
+        background-color: $color-bg-btn !important;
+        //  line-height: normal !important;
+          color: $color-text-alt!important;
+          
+          &:hover{
+              color: $red !important;
+              background-color: $white !important;
+          }
+
+    }
+
+    &-delete {
+        background-color: $white !important;
+        color: $red !important;
+        border: $red solid 1px;
+        
+        &:hover{
+            color: $white !important;
+            background-color:  $red !important;
+            border: $white solid 1px;
+        }
+    }
+}

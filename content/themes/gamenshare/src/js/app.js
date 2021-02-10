@@ -28,6 +28,7 @@ const app = {
         app.handleAjaxFilterGames();
         app.handleStarRating();
         app.handleAddFavorite();
+        app.handleAddCollection();
 
     },
     closeSearch: function () {
@@ -190,6 +191,59 @@ const app = {
                         $(el).removeClass('add-delete-button')
                             .addClass('add-fav-button')
                             .html('Ajouter aux favoris')
+                            .attr('data-current-state', '0');      
+                    }
+                });
+                
+            }  
+       
+        });
+    
+    },
+    handleAddCollection: function () {
+        
+        $('.collec-button').on('click', function() {
+            
+            var el = this;
+            var el_id = el.dataset.id;
+            var split_id = el_id.split("_");
+            var postid = parseInt(split_id[1], 10);
+            // console.log(postid);
+            
+            if($(el).attr('data-current-state') == 0){
+                // AJAX Request
+                $.ajax({
+                    url: ajaxadd.ajaxurl,
+                    type: 'POST', //Post method
+                    data: {
+                        'action': 'add_collection',
+                        'postid': postid,
+                    },
+                    success: function () {
+                        console.log('ajouté à la collec');
+                        $(el).removeClass('collec-button-add')
+                            .addClass('collec-button-delete')
+                            .html('Retirer de ma collection')
+                            .attr('data-current-state', '1');
+    
+                    }
+                });
+                
+            }else{
+
+                // AJAX Request
+                $.ajax({
+                    url: ajaxadd.ajaxurl,
+                    type: 'POST', //Post method
+                    data: {
+                        'action': 'add_collection',
+                        'postid': postid,
+                    },
+                    success: function () {
+                        console.log('retiré de la collec');
+                        $(el).removeClass('collec-button-delete')
+                            .addClass('collec-button-add')
+                            .html('Ajouter à ma collection')
                             .attr('data-current-state', '0');      
                     }
                 });

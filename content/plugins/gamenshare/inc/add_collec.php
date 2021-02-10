@@ -1,13 +1,13 @@
 <?php
 
-class Add_favorite {
+class Add_collection {
 
-    public function custom_table_fav()
+    public function custom_table_collec()
   {
     global $wpdb;
 
     $this->wpdb = $wpdb;
-    $this->table = $wpdb->prefix . 'favorites';
+    $this->table = $wpdb->prefix . 'collection';
 
     // function that creates the custom_table
     $sql = "CREATE TABLE {$this->table} (
@@ -21,12 +21,12 @@ class Add_favorite {
   }
 
   // function that drops(delete) the custom_table
-  public function custom_table_fav_uninstall()
+  public function custom_table_collec_uninstall()
   { 
     global $wpdb;
 
     $this->wpdb = $wpdb;
-    $this->table = $wpdb->prefix . 'favorites';
+    $this->table = $wpdb->prefix . 'collection';
     
     $sql = "DROP TABLE {$this->table};";
 
@@ -36,11 +36,11 @@ class Add_favorite {
   // callbacks
   public function activation()
   {
-    $this->custom_table_fav();
+    $this->custom_table_collec();
   }
 
   public function deactivation()
   {
-    $this->custom_table_fav_uninstall();
+    $this->custom_table_collec_uninstall();
   }
 }
