@@ -1,6 +1,6 @@
-<h1><?php wp_title(''); ?> </h1>
+<h1><?php wp_title(''); ?>s </h1>
 
-<div class="row">
+<div class="row justify-content-center">
     <div class="platforms row col-md-9" id="response">
         <?php
 
@@ -32,12 +32,12 @@
             endwhile;
         ?>
             <!-- pagination -->
-            <div class="pagination d-flex">
-                <div class="btn pagination-next">
-                    <?php next_posts_link('Suivant', $platforms->max_num_pages); ?>
+            <div class="pagination d-flex justify-content-between">
+                <div class="btn pagination-next order-2">
+                    <?php next_posts_link('Suivant >', $platforms->max_num_pages); ?>
                 </div>
-                <div class="btn pagination-prev">
-                    <?php previous_posts_link('précédent'); ?>
+                <div class="btn pagination-prev order-1">
+                    <?php previous_posts_link('< précédent'); ?>
                 </div>
                 <?php else : ?>
                 <!-- No posts found -->

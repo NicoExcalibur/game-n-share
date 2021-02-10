@@ -1,0 +1,29 @@
+.platform {
+    box-shadow: 1px 1px 7px 1px rgba(163,163,163, .35);
+    //width: calc((100% / 3) - 30px);
+    //margin: 0 15px 30px;
+    transition: $duration-fast;
+    &:hover{
+        box-shadow: 1px 1px 7px 1px rgba(163,163,163, 1)!important;
+       
+    }
+    margin-bottom: 1.5em;
+    &__imagecover{
+        overflow: hidden;
+        height: 7em;
+    }
+    &__imagecover img{
+        margin-top: -30px;
+    }
+    &__info{
+        padding: 0.5em 0;
+        text-align: center;
+        background-color: $color-bg-info;
+        &--title{
+            font-size: 1.1em;
+            margin-bottom: 0.6em;
+            
+        }
+
+    }
+}
