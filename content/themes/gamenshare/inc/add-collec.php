@@ -6,7 +6,7 @@ function add_favorite_game() {
 
     global $wpdb;
     $userid = get_current_user_id();
-    $postid = $_POST['postid']
+    $postid = $_POST['postid'];
 
 
     $wpdb->insert(
