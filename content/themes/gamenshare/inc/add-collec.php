@@ -1,23 +1,38 @@
 <?php
+add_action('wp_ajax_add_collection', 'gamenshare_add_collection');
 
-
-function add_favorite_game() {
+function gamenshare_add_collection() {
 
 
     global $wpdb;
-    $userid = get_current_user_id();
+
+    $userid = get_current_user_id(); // User id
     $postid = $_POST['postid'];
 
+    // Check entry within table
+    $count = $wpdb->get_var("SELECT COUNT(*) AS cntpost FROM {$wpdb->prefix}`collection` WHERE post_id={$postid} and user_id={$userid}");
+
+    if ($count == '0') {
 
     $wpdb->insert(
-        'wp_favorites', //table
+        'wp_collection', //table
         array(   //datas
-            'user_id' => intval($userid),
-            'post_id' => intval($postid),
+            'user_id' => $userid,
+            'post_id' => $postid
         ),
         array(  //format
             '%d',   // integer
-            '%d',   // integer
+            '%d'    // integer
         )
     );
+    } else {
+    $wpdb->delete(
+        'wp_collection', //table
+        array(   //where
+            'user_id' => $userid,
+            'post_id' => $postid
+        )
+    );
+    }
+	wp_die();
 }
