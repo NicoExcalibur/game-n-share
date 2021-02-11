@@ -44,15 +44,15 @@
                         ?>
                             <ul class="navbar-nav me-auto ms-5">
                           
-                            <li class="nav-item"><a href="<?= wp_logout_url( home_url() ); ?>/" class="nav-link menu-button__item">Déconnctez-vous</a></li>
+                            <li class="nav-item"><a href="<?= esc_url(wp_logout_url( home_url() )); ?>/" class="nav-link menu-button__item">Déconnctez-vous</a></li>
                         </ul>
                         <?php
                         else:
                         ?>
                             <ul class="navbar-nav me-auto ms-5">
-                            <li class="nav-item"><a href="<?= wp_registration_url(); ?>" class="nav-link btn menu-button__item button button-red">
+                            <li class="nav-item"><a href="<?= esc_url(wp_registration_url()); ?>" class="nav-link btn menu-button__item button button-red">
                                     Inscrivez-vous</a></li>
-                            <li class="nav-item"><a href="<?=  home_url('/login/') ; ?>" class="nav-link menu-button__item">Connectez-vous</a></li>
+                            <li class="nav-item"><a href="<?=  esc_url(home_url('/login/')) ; ?>" class="nav-link menu-button__item">Connectez-vous</a></li>
                         </ul>
                             <?php
                             endif;

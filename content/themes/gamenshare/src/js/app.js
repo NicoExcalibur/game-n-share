@@ -40,15 +40,14 @@ const app = {
 
     filtersResponsive: function () {
         let lWidth = window.screen.width;
-        console.log(lWidth);
+        //console.log(lWidth);
         // console.log(app.filters);
-        //let myClass = app.filters.classList.contains('dropdown-menu');
+        
         //console.log(myClass);
         let bodyClass = app.body.classList.contains('post-type-archive-game');
         //console.log(bodyClass);
         if (bodyClass) {
-            console.log('kikou');
-
+          let myClass = app.filters.classList.contains('dropdown-menu');
             if (lWidth >= 768) {
                 if (myClass) {
                     app.filters.classList.remove('dropdown-menu');
@@ -62,7 +61,7 @@ const app = {
     },
 
     checkIfScrolled: function () {
-        console.log(app.footerEl.offsetHeight);
+        //console.log(app.footerEl.offsetHeight);
         let bodyClass = app.body.classList.contains('post-type-archive-game');
         if (bodyClass) {
             if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {

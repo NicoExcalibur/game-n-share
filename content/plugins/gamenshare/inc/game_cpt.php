@@ -12,8 +12,8 @@ class Game_cpt
     // construct fonction that will be instancied 
     public function __construct()
     {
+      add_action('init', [$this, 'create_taxo'], 0);
       add_action('init', [$this, 'create_cpt']);
-      add_action('init', [$this, 'create_taxo']);
     }
 
      // declaration of the CPT
@@ -95,6 +95,12 @@ class Game_cpt
         'rest_base'         => 'game_genre',
         'show_in_nav_menus' => true,
         'show_in_rest'      => true,
+        'capabilities' => array(
+          'manage_terms' => 'manage_categories',
+          'edit_terms'   => 'manage_categories',
+          'delete_terms' => 'manage_categories',
+          'assign_terms' => 'edit_posts'
+        ),
       ];
 
       register_taxonomy('genre','game', $args);
