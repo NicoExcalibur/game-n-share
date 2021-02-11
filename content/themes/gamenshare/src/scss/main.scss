@@ -21,8 +21,9 @@
     'layout/header',
     'layout/footer',
     'layout/nav',
-    'layout/games',
-    'layout/single-game'; 
+    'layout/content-platforms',
+    'layout/single-game',
+    'layout/single-platform'; 
 
 @import
     'components/menu-link',
@@ -30,6 +31,7 @@
     'components/footer-social',
     'components/footer-info',
     'components/game',
+    'components/platform',
     'components/button-rouge',
     'components/bs-navbar-toggler',
     'components/form-search',
@@ -39,6 +41,7 @@
     'components/form-filter',
     'components/comments',
     'components/mylogin',
+    'components/pagination',
     'components/carousel';
 
 @import
