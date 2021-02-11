@@ -1,6 +1,6 @@
 <?php  // renommer le fichier avec le nom du CPT /!\ ?>
 
-<div class="main d-flex flex-column">
+<div class="main d-flex flex-column mt-3">
     <div class="platform_infos row">
         <div class="platform_infos_left col-md-9">
             <div class="platform_infos_title mb-4">
@@ -40,8 +40,8 @@
             }
             ?>
                 <div class="game_infos_cover rounded mb-4">
-                    <?php if (get_field('game_cover')) : ?>
-                        <img class="img-small" src="<?php the_field('game_cover'); ?>" />
+                    <?php if (get_field('platform_pic')) : ?>
+                        <img class="img-small" src="<?php the_field('platform_pic'); ?>" />
                     <?php endif; ?>
                 </div>
    
@@ -49,7 +49,7 @@
                 <h4 class="content-header">Details sur la plateforme : </h4>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <span class="item-bold">Constructeur : </span><?php the_field('editor'); ?>
+                        <span class="item-bold">Constructeur : </span><?php the_field('builder'); ?>
                     </li>
                     <li class="list-group-item">
                         <span class="item-bold">Sorti le :</span> <?php the_field('date'); ?>

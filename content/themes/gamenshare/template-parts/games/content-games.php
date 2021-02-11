@@ -40,10 +40,16 @@
         $terms = get_terms('genre');
         $termSlug = wp_list_pluck($terms, 'slug');
 
+        // pagination param
+        $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
         $args = array(
-            'post_type' => 'game',
-            'posts_per_page' => 10,
-            'tax_query' =>
+            'post_type'      => 'game',
+            'posts_per_page' => 9,
+            'paged'          => $paged, //pagination
+            'orderby'        => 'title', // alphabetical order with title
+            'order'          => 'ASC', // ascending
+            'tax_query'      =>
             array(
                 'relation' => 'AND',
                 array(
@@ -70,7 +76,19 @@
                     </div>
                 </div>
         <?php
-            endwhile;
+            endwhile;?>
+            <!-- pagination -->
+            <div class="pagination d-flex justify-content-between">
+                <div class="btn pagination-next order-2">
+                    <?php next_posts_link('Suivant >', $games->max_num_pages); ?>
+                </div>
+                <div class="btn pagination-prev order-1">
+                    <?php previous_posts_link('< Précédent'); ?>
+                </div>
+                <?php else : ?>
+                <!-- No posts found -->
+            </div>
+        <?php
         endif;
         ?>
     </div>

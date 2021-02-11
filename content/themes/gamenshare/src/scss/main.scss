@@ -22,7 +22,8 @@
     'layout/footer',
     'layout/nav',
     'layout/content-platforms',
-    'layout/single-game'; 
+    'layout/single-game',
+    'layout/single-platform'; 
 
 @import
     'components/menu-link',
@@ -40,6 +41,7 @@
     'components/form-filter',
     'components/comments',
     'components/mylogin',
+    'components/pagination',
     'components/carousel';
 
 @import

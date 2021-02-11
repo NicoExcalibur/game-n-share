@@ -1,18 +1,19 @@
 .platform {
     box-shadow: 1px 1px 7px 1px rgba(163,163,163, .35);
-    //width: calc((100% / 3) - 30px);
-    //margin: 0 15px 30px;
     transition: $duration-fast;
     &:hover{
         box-shadow: 1px 1px 7px 1px rgba(163,163,163, 1)!important;
        
     }
     margin-bottom: 1.5em;
-    &__imagecover{
+    &__image{
         overflow: hidden;
         height: 7em;
+        background-position: center;
+        background-size: cover;
+        background-color: $white;
     }
-    &__imagecover img{
+    &__image img{
         margin-top: -30px;
     }
     &__info{

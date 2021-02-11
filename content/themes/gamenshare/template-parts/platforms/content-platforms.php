@@ -10,7 +10,9 @@
         $args = array(
             'post_type'      => 'platform',
             'posts_per_page' => 9,
-            'paged'          => $paged //pagination
+            'paged'          => $paged, //pagination
+            'orderby'        => 'title', // alphabetical order with title
+            'order'          => 'ASC' // ascending
         );
 
         $platforms = new WP_Query($args);
@@ -18,8 +20,8 @@
                 <div class="col-sm-6 col-md-4">
                     <div class="platform">
                         <div class="platform__image">
-                            <?php if (get_field('game_cover')) : ?>
-                                <img class="img-fluid" src="<?php the_field('game_cover'); ?>" />
+                            <?php if (get_field('platform_pic')) : ?>
+                                <img class="img-fluid" src="<?php the_field('platform_pic'); ?>" />
                             <?php endif; ?>
                         </div>
                         <div class="platform__info">
@@ -37,7 +39,7 @@
                     <?php next_posts_link('Suivant >', $platforms->max_num_pages); ?>
                 </div>
                 <div class="btn pagination-prev order-1">
-                    <?php previous_posts_link('< précédent'); ?>
+                    <?php previous_posts_link('< Précédent'); ?>
                 </div>
                 <?php else : ?>
                 <!-- No posts found -->

@@ -1,0 +1,20 @@
+.pagination {
+    margin-bottom: 1em;
+
+    &-next, &-prev {
+        
+        a {
+            padding: .5em;
+            border-radius: 5px;
+            font-weight: bold;
+            color: $white !important;
+            background-color: $anthracitegray;
+            
+            &:hover {
+                color: $red !important;
+                background-color: $white;
+            }
+        }
+
+    }
+}
