@@ -1,0 +1,13 @@
+.profile {
+
+    &-link {
+        &-pic {
+            img {
+                border: 2px solid $bordergray;
+                border-radius: 50%;
+                margin-right: .2em;
+            }
+        }
+    }
+
+}

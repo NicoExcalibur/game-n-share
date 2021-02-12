@@ -21,8 +21,8 @@
     'layout/header',
     'layout/footer',
     'layout/nav',
-    'layout/content-platforms',
     'layout/single-game',
+    'layout/content-profile',
     'layout/single-platform'; 
 
 @import
@@ -34,6 +34,7 @@
     'components/platform',
     'components/button-rouge',
     'components/bs-navbar-toggler',
+    'components/profile-nav-link',
     'components/form-search',
     'components/button-search',
     'components/collection-button',
