@@ -7,13 +7,18 @@
   //  line-height: normal !important;
     color: $color-text-alt!important;
     
- &:hover{
-    color: $red !important;
-    background-color: $white !important;
- }
+    &:hover{
+        color: $red !important;
+        background-color: $white !important;
+    }
 }
 .main .button-red{
     color: $color-text-alt!important;
+
+    &:hover{
+        color: $red !important;
+        background-color: $white !important;
+    }
 }
 .btn{
     line-height: 1!important;

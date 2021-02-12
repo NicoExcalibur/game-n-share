@@ -10,7 +10,7 @@
                 ?>
             </ol>
         <?php else : ?>
-            <p>Y a pas encore de commentaires</p>
+            <p>Pas de commentaire</p>
         <?php endif; ?>
     </div>
 
