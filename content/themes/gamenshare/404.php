@@ -5,7 +5,7 @@
 <div>
     <p>GAME OVER</P>
     
-    <a href="">Press here to continue</a>
+    <a href="">Click here to continue</a>
 </div>
 
 <?php get_footer(); ?>
