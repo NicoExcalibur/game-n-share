@@ -5,7 +5,7 @@
 			<h1 class="page-title">
 			<?php
 			/* translators: Search query. */
-			printf( __( 'Résultats de la recherche pour: %s'), '<span>' . get_search_query() . '</span>' );
+			printf( __( 'Résultats de la recherche pour: %s'), '<span class="search-term">' . get_search_query() . '</span>' );
 			?>
 			</h1>
 		<?php else : ?>
@@ -14,8 +14,8 @@
 	</header><!-- .page-header -->
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
+		<main id="main" class="site-main d-flex flex-wrap justify-content-between" role="main">
+            <div class="games row col-md-9" id="response">
 		<?php
 		if ( have_posts() ) :
 			// Start the Loop.
@@ -43,3 +43,4 @@
         <?php
 		endif;
 		?>
+        </div>
