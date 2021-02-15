@@ -5,7 +5,7 @@
 			<h1 class="page-title">
 			<?php
 			/* translators: Search query. */
-			printf('Résultats de la recherche pour: %s', '<span>' . get_search_query() . '</span>' );
+			printf( __( 'Résultats de la recherche pour: %s'), '<span>' . get_search_query() . '</span>' );
 			?>
 			</h1>
 		<?php else : ?>

@@ -35,9 +35,7 @@ const app = {
         //console.log(app.blockSearch);
         app.blockSearch.classList.remove('show');
     },
-    handlecloseSearch: function (evt) {
-        //console.log(evt);
-        evt.preventDefault();
+    handlecloseSearch: function () {
         app.blockSearch.classList.remove('show');
     },
 
