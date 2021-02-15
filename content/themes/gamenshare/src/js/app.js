@@ -16,6 +16,7 @@ const app = {
     filterButton: document.querySelector('.button-filter-mobile'),
     footerEl: document.querySelector('.footer'),
     body: document.querySelector('body'),
+   
     init: function () {
         //console.log('init');
         app.btnClose.addEventListener('click', app.closeSearch);
@@ -24,6 +25,7 @@ const app = {
         window.addEventListener('load', app.filtersResponsive);
         window.addEventListener('scroll', app.checkIfScrolled);
         window.addEventListener('load', app.checkIfScrolled);
+        
         app.handleAjaxFilterGames();
         app.handleStarRating();
 
@@ -152,7 +154,8 @@ const app = {
                 }
             }
         });
-    }
+    },
+  
 
 }
 

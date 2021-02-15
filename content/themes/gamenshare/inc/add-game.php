@@ -1,111 +1,128 @@
 <?php
 add_action('init', 'gamenshare_insert_game', 20);
 
-function gamenshare_insert_game(){
+function gamenshare_insert_game()
+{
     if (is_user_logged_in()) {
-        //var_dump($_POST['add_game_field']);
-        //var_dump(wp_verify_nonce($_POST['add_game_field'], 'add_game_action'));
-        //die();
-        if (
-        isset($_POST['add_game_field'])
-        && wp_verify_nonce($_POST['add_game_field'], 'add_game_action')
-    ) {
-            //$current_user = wp_get_current_user();
 
+        if (
+            isset($_POST['add_game_field'])
+            && wp_verify_nonce($_POST['add_game_field'], 'add_game_action')
+        ) {
+            //$current_user = wp_get_current_user();
+           
             $user_id =  get_current_user_id();
             $user = get_user_by('id', $user_id);
             wp_set_current_user($user_id, $user->user_login);
 
             // post game
-            $post_title = $_POST['post-title'];
-            $post_content = $_POST['post-content'];
+            $post_title =  sanitize_text_field($_POST['post-title']);
+            $post_content =  sanitize_textarea_field($_POST['post-content']);
             $post_date = $_POST['post-date'];
             $post_cover = 'post-cover';
-            $post_screenshot = $_FILES['post-screenshot']['name'];
+            $post_screenshot = 'post-screenshot';
             $post_editor = $_POST['post-editor'];
-            $post_genres = $_POST['post-genre'];
-            $post_plateform = $_POST['post-plateform'];
-            // var_dump($post_title);
-            // var_dump($post_content);
-            // var_dump($post_date);
-            // var_dump($post_cover);
-            // var_dump($post_screenshot);
-            // var_dump($post_editor);
-            //var_dump($post_genres);
-            // var_dump($post_plateform);
-            //die();
-            /*  $post_genres = array_map( 'intval', $post_genres );
-            $post_genres = array_unique( $post_genres );
- */
-          
-
-             $new_post = [
-                'post_title' => $post_title,
-                'post_content' => $post_content,
-                'post_status' => 'publish',
-                'post_type' => 'game',
-            ];
-
-    $new_post_id = wp_insert_post($new_post, true);
-            if ($user) {
-                wp_set_current_user($user_id, $user->user_login);
+            $post_genres = isset($_POST['post-genre']) ? sanitize_term($_POST['post-genre'], 'genre') : 'Choisissez le ou les plateforme(s)...' ; 
+            $post_plateform = isset($_POST['post-plateform']) ? $_POST['post-plateform'] : 'Choisissez le ou les plateforme(s)...' ;
+            $errors = [];
+            if (!isset($post_title)) {
+                $errors['post-title'] = true;
             }
-
-         $my_tax = wp_set_post_terms($new_post_id, $post_genres, 'genre' );
-         //wp_update_attachment_metadata($new_post_id, $_FILES[$post_cover] );
-          if( !empty( $_FILES[$post_cover]['name']  )) { //New upload
-            require_once( ABSPATH . 'wp-admin/includes/file.php' );
-              
-              $override = ['test_form' => false];
-            $file = wp_handle_upload( $_FILES[$post_cover], $override ); 
-            var_dump($file);
-            $wp_upload_dir = wp_upload_dir();
-            //var_dump($file);
-            $args = [
-                'guid' =>$wp_upload_dir['url'].'/'. basename($file['file']),
-                'post_title' =>  preg_replace( '/\.[^.]+$/', '', basename($file['file']) ),
-                'post_mine_type' => $file['type'],
-                'post_status' => 'inherit',
-                'post_content' => ''
-            ];
-            //var_dump($args);
-           
-            $attachement_id = wp_insert_attachment( $args, $file['url']);
-            var_dump($attachement_id);
-            $imgAcfIds[] = array('game_cover' => $attachement_id);
-            require_once(ABSPATH . 'wp-admin/includes/image.php');
-            $attachment_data = wp_generate_attachment_metadata( $attachement_id, $file['url'] );
-            var_dump($attachment_data);
-            wp_update_attachment_metadata( $attachement_id, $attachment_data );
-
+            if (!isset($post_content)) {
+                $errors['post-content'] = true;
             }
-           update_field('field_6001b14e06e0a', $post_editor, $new_post_id); // editor field
-          update_field('field_6001ce0761277', $post_date, $new_post_id); // release date field
-          update_field('field_6001d001b889d', $post_plateform, $new_post_id); // plaform field
-         
-       update_field('field_600585c17d2a7', $imgAcfIds, $new_post_id); // cover field
- 
-       
-        // update_field('field_601d5af05f123', $post_screenshot, $new_post_id); // screenshot field
+            if (!isset($post_date)) {
+                $errors['post-date'] = true;
+            }
+            if (!isset($post_editor)) {
+                $errors['post-editor'] = true;
+            }
+            if (!isset($post_genres)) {
+                $errors['post-genre'] = true;
+            }
+            if (!isset($post_plateform)) {
+                $errors['post-platorm'] = true;
+            }
+            if($errors){
+
+                $new_post = [
+                    'post_title' => $post_title,
+                    'post_content' => $post_content,
+                    'post_status' => 'publish',
+                    'post_type' => 'game',
+                ];
+    
+                $new_post_id = wp_insert_post($new_post, true);
+                if ($user) {
+                    wp_set_current_user($user_id, $user->user_login);
+                }
+    
+                $my_tax = wp_set_post_terms($new_post_id, $post_genres, 'genre');
+                if (!function_exists('media_handle_upload')) {
+                    require_once(ABSPATH . 'wp-admin/includes/image.php');
+                    require_once(ABSPATH . 'wp-admin/includes/file.php');
+                    require_once(ABSPATH . 'wp-admin/includes/media.php');
+                }
+                if (!empty($_FILES[$post_cover]) || !empty($_FILES[$post_screenshot])) { //New upload
+                    
+                    $cover = media_handle_upload($post_cover, $new_post_id);
+                    $screenshot = media_handle_upload($post_screenshot, $new_post_id);
+                }
+                update_field('field_6001b14e06e0a', $post_editor, $new_post_id); // editor field
+                update_field('field_6001ce0761277', $post_date, $new_post_id); // release date field
+                update_field('field_6001d001b889d', $post_plateform, $new_post_id); // plaform field
+    
+                update_field('field_600585c17d2a7', $cover, $new_post_id); // cover field       
+                update_field('field_601d5af05f123', $screenshot, $new_post_id); // screenshot field
+            }
         }
+    } else {
+      // return $errors;
     }
 }
-function gamenshare_form_add_game()
+function gamenshare_form_error($errors = [])
 {
-    echo '<form class="form row" name="form" method="post" enctype="multipart/form-data">
+   return var_dump($errors);
+}
+
+function gamenshare_form_add_game($errors = null)
+{
+
+   var_dump($errors);
+   
+    $class_errors = [];
+    if (is_array($errors) && !empty($errors)) {
+        foreach ($errors as $key => $err) {
+            if ($err === true) {
+                echo 'lou';
+            }
+        }
+    }
+    (array_key_exists('post-title', $class_errors) ? "<br/>You must enter your first name." : "");
+    (array_key_exists('post-content', $class_errors) ? "<br/>You must enter your first name." : "");
+    echo '<form class="form row needs-validation" name="form" method="post" enctype="multipart/form-data" novalidate>
 
     <div class="col-md-8">
         <div class="mb-3">
             <label for="post-title" class="form-label">Saisissez le titre</label>
-            <input type="text" class="form-control" name="post-title" id="post-title" placeholder="Saisissez le titre">
+            <input type="text" class="form-control" name="post-title" id="post-title" placeholder="Saisissez le titre" required>
+            <div class="invalid-feedback">
+                Veuillez mettre un titre
+          </div>
         </div>
         <div class="mb-3">
             <label for="post-content" class="form-label">écrivez la description</label>
-            <textarea class="form-control" name="post-content" id="post-content" rows="6"></textarea>
+            <textarea class="form-control" name="post-content" id="post-content" rows="6" required></textarea>
+            <div class="invalid-feedback">
+                Veuillez mettre une description
+            </div>
         </div>
         <div class="mb-3">
-            <label for="post-title" class="orm-label">Date de sortie</label>
-            <input type="date" name="post-date" class="form-control" id="post-date">
+            <label for="post-date" class="orm-label">Date de sortie</label>
+            <input type="date" name="post-date" class="form-control" id="post-date" required>
+            <div class="invalid-feedback">
+                Veuillez mettre une date de sortie
+            </div>
         </div>
         <div class="mb-3">
             <label for="post-cover" class="form-label">Jacquette ou couverture du jeu</label>
@@ -119,47 +136,52 @@ function gamenshare_form_add_game()
     <div class="col-md-4">
         <div class="mb-3">
             <label for="post-editor" class="form-label">&Eacute;diteur</label>
-            <input type="text" name="post-editor" class="form-control" id="post-editor" placeholder="Saisissez l\'éditeur du jeux">
-        </div>
-        <div class="mb-3">
-            <label for="post-genre" class="form-label">Genre</label>
-            <select class="form-select" id="post-genre" name="post-genre[]" multiple aria-label="multiple select example">
-                <option selected>Choisissez le ou les genre(s)...</option>';
+            <input type="text" name="post-editor" class="form-control" id="post-editor" placeholder="Saisissez l\'éditeur du jeux" required>
+            <div class="invalid-feedback">
+                Veuillez mettre un éditeur
+            </div>
+        </div>gamenshare_form_add_game(disabled value="">Choisissez le ou les genre(s)...</option>';
 
 
 
-    $args = [
-        'taxonomy'  => 'genre',
-        'orderby'   => 'name',
-        'hide_empty' => false,
-    ];
-    if ($terms = get_terms($args)) :
+                    $args = [
+                        'taxonomy'  => 'genre',
+                        'orderby'   => 'name',
+                        'hide_empty' => false,
+                    ];
+                    if ($terms = get_terms($args)) :
 
 
-        foreach ($terms as $term) :
-            echo '<option value="' . $term->term_taxonomy_id  . '">' . $term->name . '</option>';
-        endforeach;
+                        foreach ($terms as $term) :
+                            echo '<option value="' . $term->term_taxonomy_id  . '">' . $term->name . '</option>';
+                        endforeach;
 
-    endif;
+                    endif;
 
-    echo '</select>
+                    echo '</select>
+                    <div class="invalid-feedback">
+                        Veuillez choisir au moins un genre
+                    </div>
         </div>
         <div class="mb-3">
             <label for="post-plateform" class="form-label">Plateforme</label>
-            <select class="form-select" id="post-plateform" name="post-plateform[]" multiple aria-label="multiple select example">
-                <option selected>Choisissez le ou les plateforme(s)...</option>';
+            <select class="form-select" id="post-plateform" name="post-plateform[]" multiple aria-label="multiple select" required >
+                <option disabled >Choisissez le ou les plateforme(s)...</option>';
 
-    if ($plateforms = get_posts(['post_type' => 'platform', 'orderby' => 'name', 'order' => 'ASC', 'posts_per_page' => 80])) :
-        var_dump($plateforms);
+                if ($plateforms = get_posts(['post_type' => 'platform', 'orderby' => 'name', 'order' => 'ASC', 'posts_per_page' => 80])) :
+                    var_dump($plateforms);
 
-        foreach ($plateforms as $plateform) :
-            echo '<option value="' . $plateform->ID . '">' . $plateform->post_title . '</option>';
+                    foreach ($plateforms as $plateform) :
+                        echo '<option value="' . $plateform->ID . '">' . $plateform->post_title . '</option>';
 
-        endforeach;
+                    endforeach;
 
-    endif;
-
-    echo '</select>
+                endif;
+              
+                echo '</select>
+                <div class="invalid-feedback">
+                    Veuillez choisir au moins une plateforme
+                </div>
         </div>
 
     </div>

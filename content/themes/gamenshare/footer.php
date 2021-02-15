@@ -38,6 +38,9 @@ if(is_single() && 'game' == get_post_type()){
     get_template_part( 'template-parts/games/script-js-staring' ); 
 endwhile;
 }
+if ( is_page_template( 'add-game.php' ) ) {
+    get_template_part( 'template-parts/games/script-js-form' ); 
+}
 ?>
 </body>
 
