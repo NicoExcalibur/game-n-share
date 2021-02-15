@@ -169,7 +169,7 @@ const app = {
                     success: function () {
                         console.log('ajouté aux fav');
                         $(el).removeClass('add-fav-button')
-                            .addClass('add-delete-button')
+                            .addClass('delete-fav-button')
                             .html('Retirer des favoris')
                             .attr('data-current-state', '1');
     
@@ -188,7 +188,7 @@ const app = {
                     },
                     success: function () {
                         console.log('retiré des fav');
-                        $(el).removeClass('add-delete-button')
+                        $(el).removeClass('delete-fav-button')
                             .addClass('add-fav-button')
                             .html('Ajouter aux favoris')
                             .attr('data-current-state', '0');      
