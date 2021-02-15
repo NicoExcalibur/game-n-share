@@ -9,6 +9,7 @@ require 'inc/custom-comment.php';
 require 'inc/star-rating.php';
 require 'inc/add-fav-game.php';
 require 'inc/add-collec.php';
+require 'inc/register.php';
 
 function css_custom_acf()
 {

@@ -26,7 +26,6 @@ else :
             <div class="mb-3">
                 <label for="<?= esc_attr('id_username') ?>" class="form-label">Email ou nom d'utilisateur</label>
                 <input type="text" name="log" class="form-control" id="<?= esc_attr('id_username') ?>" size="20" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
                 <label for="<?= esc_attr('id_password') ?>" class="form-label">Mot de passe</label>
