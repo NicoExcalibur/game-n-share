@@ -27,12 +27,12 @@
 .delete-fav-button {
     background-color: $white !important;
     color: $red;
-    border: $red solid 1px;
+    border: $red solid 1px important !important;
     
     &:hover{
         color: $white !important;
         background-color:  $red !important;
-        border: $white solid 1px;
+        border: $white solid 1px !important;
     }
     
 }
