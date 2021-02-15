@@ -17,7 +17,7 @@
 		<main id="main" class="site-main d-flex flex-wrap justify-content-between" role="main">
             <div class="games row col-md-9" id="response">
 		<?php
-		if ( have_posts() ) :
+		if ( have_posts()) :
 			// Start the Loop.
 			while ( have_posts() ) :
 				the_post(); ?>
