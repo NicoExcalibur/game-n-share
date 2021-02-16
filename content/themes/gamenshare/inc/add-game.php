@@ -1,6 +1,6 @@
 <?php
 add_action('init', 'gamenshare_insert_game', 20);
-
+//add_action('wp_ajax_insert_game', 'gamesnshare_insert_game');
 function gamenshare_insert_game()
 {
     if (is_user_logged_in()) {
@@ -16,7 +16,7 @@ function gamenshare_insert_game()
             wp_set_current_user($user_id, $user->user_login);
 
             // post game
-            $post_title =  sanitize_text_field($_POST['post-title']);
+            $post_title =  sanitize_title($_POST['post-title']);
             $post_content =  sanitize_textarea_field($_POST['post-content']);
             $post_date = $_POST['post-date'];
             $post_cover = 'post-cover';
@@ -43,7 +43,8 @@ function gamenshare_insert_game()
             if (!isset($post_plateform)) {
                 $errors['post-platorm'] = true;
             }
-            if($errors){
+            //var_dump($errors);
+            if(empty($errors)){
 
                 $new_post = [
                     'post_title' => $post_title,
@@ -74,33 +75,22 @@ function gamenshare_insert_game()
     
                 update_field('field_600585c17d2a7', $cover, $new_post_id); // cover field       
                 update_field('field_601d5af05f123', $screenshot, $new_post_id); // screenshot field
+               // return wp_redirect(home_url());
+            }
+            if ($new_post_id < 0) {
+                  
             }
         }
     } else {
       // return $errors;
     }
 }
-function gamenshare_form_error($errors = [])
-{
-   return var_dump($errors);
-}
 
 function gamenshare_form_add_game($errors = null)
 {
 
-   var_dump($errors);
-   
-    $class_errors = [];
-    if (is_array($errors) && !empty($errors)) {
-        foreach ($errors as $key => $err) {
-            if ($err === true) {
-                echo 'lou';
-            }
-        }
-    }
-    (array_key_exists('post-title', $class_errors) ? "<br/>You must enter your first name." : "");
-    (array_key_exists('post-content', $class_errors) ? "<br/>You must enter your first name." : "");
-    echo '<form class="form row needs-validation" name="form" method="post" enctype="multipart/form-data" novalidate>
+    ob_start(); ?>
+    <form class="form row needs-validation" name="form" method="post" enctype="multipart/form-data" novalidate>
 
     <div class="col-md-8">
         <div class="mb-3">
@@ -140,9 +130,13 @@ function gamenshare_form_add_game($errors = null)
             <div class="invalid-feedback">
                 Veuillez mettre un éditeur
             </div>
-        </div>gamenshare_form_add_game(disabled value="">Choisissez le ou les genre(s)...</option>';
+        </div>
+        <div class="mb-3">
+            <label for="post-genre" class="form-label">Genre</label>
+            <select class="form-select" id="post-genre" name="post-genre[]" multiple aria-label="multiple select" required>
+                <option disabled value="">Choisissez le ou les genre(s)...</option>
 
-
+                <?php
 
                     $args = [
                         'taxonomy'  => 'genre',
@@ -157,8 +151,8 @@ function gamenshare_form_add_game($errors = null)
                         endforeach;
 
                     endif;
-
-                    echo '</select>
+                    ?>
+                    </select>
                     <div class="invalid-feedback">
                         Veuillez choisir au moins un genre
                     </div>
@@ -167,7 +161,7 @@ function gamenshare_form_add_game($errors = null)
             <label for="post-plateform" class="form-label">Plateforme</label>
             <select class="form-select" id="post-plateform" name="post-plateform[]" multiple aria-label="multiple select" required >
                 <option disabled >Choisissez le ou les plateforme(s)...</option>';
-
+                    <?php
                 if ($plateforms = get_posts(['post_type' => 'platform', 'orderby' => 'name', 'order' => 'ASC', 'posts_per_page' => 80])) :
                     var_dump($plateforms);
 
@@ -177,8 +171,8 @@ function gamenshare_form_add_game($errors = null)
                     endforeach;
 
                 endif;
-              
-                echo '</select>
+              ?>
+                </select>
                 <div class="invalid-feedback">
                     Veuillez choisir au moins une plateforme
                 </div>
@@ -187,12 +181,15 @@ function gamenshare_form_add_game($errors = null)
     </div>
     <div class="col-md-12">
         <input type="hidden" name="ispost" value="1" />
-        <input type="hidden" name="userid" value="" />';
-    wp_nonce_field('add_game_action', 'add_game_field');
-    echo '   <button type="submit" class="btn button-red">Ajouter un jeu</button>
+        <input type="hidden" name="userid" value="" />
+   <?php wp_nonce_field('add_game_action', 'add_game_field'); ?>
+      <button type="submit" class="btn button-red">Ajouter un jeu</button>
     </div>
 
-</form>';
+</form>
+<?php
+$html = ob_get_clean();
+return $html;
 }
 
 function shortcodes_init()

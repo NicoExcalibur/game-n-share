@@ -637,3 +637,124 @@ Stack trace:
 [15-Feb-2021 15:16:08 UTC] PHP   7. CX_Simply_Show_Hooks->init() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:39
 [15-Feb-2021 15:16:08 UTC] PHP   8. CX_Simply_Show_Hooks->set_active_status() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:67
 [15-Feb-2021 15:16:08 UTC] PHP   9. setcookie() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:84
+[15-Feb-2021 17:11:38 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php on line 84
+[15-Feb-2021 17:11:38 UTC] PHP Stack trace:
+[15-Feb-2021 17:11:38 UTC] PHP   1. {main}() /var/www/html/site/game-n-share/wp/wp-cron.php:0
+[15-Feb-2021 17:11:38 UTC] PHP   2. require_once() /var/www/html/site/game-n-share/wp/wp-cron.php:44
+[15-Feb-2021 17:11:38 UTC] PHP   3. require_once() /var/www/html/site/game-n-share/wp/wp-load.php:42
+[15-Feb-2021 17:11:38 UTC] PHP   4. require_once() /var/www/html/site/game-n-share/wp-config.php:145
+[15-Feb-2021 17:11:38 UTC] PHP   5. include_once() /var/www/html/site/game-n-share/wp/wp-settings.php:388
+[15-Feb-2021 17:11:38 UTC] PHP   6. CX_Simply_Show_Hooks::get_instance() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:573
+[15-Feb-2021 17:11:38 UTC] PHP   7. CX_Simply_Show_Hooks->init() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:39
+[15-Feb-2021 17:11:38 UTC] PHP   8. CX_Simply_Show_Hooks->set_active_status() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:67
+[15-Feb-2021 17:11:38 UTC] PHP   9. setcookie() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:84
+[15-Feb-2021 17:33:50 UTC] PHP Warning:  Une erreur imprévue est survenue. Il pourrait y avoir un problème avec WordPress.org ou la configuration de ce serveur. Si vous continuez à rencontrer ce problème, veuillez vous rendre sur les <a href="https://wpfr.net/support">forums de support</a>. (WordPress n’a pas pu établir de connexion sécurisée vers WordPress.org. Veuillez contacter l’administrateur ou l’administratrice de votre serveur.) in /var/www/html/site/game-n-share/wp/wp-includes/update.php on line 173
+[15-Feb-2021 17:33:50 UTC] PHP Stack trace:
+[15-Feb-2021 17:33:50 UTC] PHP   1. {main}() /var/www/html/site/game-n-share/wp/wp-admin/edit.php:0
+[15-Feb-2021 17:33:50 UTC] PHP   2. require_once() /var/www/html/site/game-n-share/wp/wp-admin/edit.php:10
+[15-Feb-2021 17:33:50 UTC] PHP   3. do_action() /var/www/html/site/game-n-share/wp/wp-admin/admin.php:175
+[15-Feb-2021 17:33:50 UTC] PHP   4. WP_Hook->do_action() /var/www/html/site/game-n-share/wp/wp-includes/plugin.php:484
+[15-Feb-2021 17:33:50 UTC] PHP   5. WP_Hook->apply_filters() /var/www/html/site/game-n-share/wp/wp-includes/class-wp-hook.php:311
+[15-Feb-2021 17:33:50 UTC] PHP   6. _maybe_update_core() /var/www/html/site/game-n-share/wp/wp-includes/class-wp-hook.php:287
+[15-Feb-2021 17:33:50 UTC] PHP   7. wp_version_check() /var/www/html/site/game-n-share/wp/wp-includes/update.php:797
+[15-Feb-2021 17:33:50 UTC] PHP   8. trigger_error() /var/www/html/site/game-n-share/wp/wp-includes/update.php:173
+[15-Feb-2021 18:13:17 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php on line 84
+[15-Feb-2021 18:13:17 UTC] PHP Stack trace:
+[15-Feb-2021 18:13:17 UTC] PHP   1. {main}() /var/www/html/site/game-n-share/wp/wp-cron.php:0
+[15-Feb-2021 18:13:17 UTC] PHP   2. require_once() /var/www/html/site/game-n-share/wp/wp-cron.php:44
+[15-Feb-2021 18:13:17 UTC] PHP   3. require_once() /var/www/html/site/game-n-share/wp/wp-load.php:42
+[15-Feb-2021 18:13:17 UTC] PHP   4. require_once() /var/www/html/site/game-n-share/wp-config.php:145
+[15-Feb-2021 18:13:17 UTC] PHP   5. include_once() /var/www/html/site/game-n-share/wp/wp-settings.php:388
+[15-Feb-2021 18:13:17 UTC] PHP   6. CX_Simply_Show_Hooks::get_instance() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:573
+[15-Feb-2021 18:13:17 UTC] PHP   7. CX_Simply_Show_Hooks->init() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:39
+[15-Feb-2021 18:13:17 UTC] PHP   8. CX_Simply_Show_Hooks->set_active_status() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:67
+[15-Feb-2021 18:13:17 UTC] PHP   9. setcookie() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:84
+[15-Feb-2021 19:12:31 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php on line 84
+[15-Feb-2021 19:12:31 UTC] PHP Stack trace:
+[15-Feb-2021 19:12:31 UTC] PHP   1. {main}() /var/www/html/site/game-n-share/wp/wp-cron.php:0
+[15-Feb-2021 19:12:31 UTC] PHP   2. require_once() /var/www/html/site/game-n-share/wp/wp-cron.php:44
+[15-Feb-2021 19:12:31 UTC] PHP   3. require_once() /var/www/html/site/game-n-share/wp/wp-load.php:42
+[15-Feb-2021 19:12:31 UTC] PHP   4. require_once() /var/www/html/site/game-n-share/wp-config.php:145
+[15-Feb-2021 19:12:31 UTC] PHP   5. include_once() /var/www/html/site/game-n-share/wp/wp-settings.php:388
+[15-Feb-2021 19:12:31 UTC] PHP   6. CX_Simply_Show_Hooks::get_instance() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:573
+[15-Feb-2021 19:12:31 UTC] PHP   7. CX_Simply_Show_Hooks->init() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:39
+[15-Feb-2021 19:12:31 UTC] PHP   8. CX_Simply_Show_Hooks->set_active_status() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:67
+[15-Feb-2021 19:12:31 UTC] PHP   9. setcookie() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:84
+[15-Feb-2021 19:50:13 UTC] PHP Parse error:  syntax error, unexpected end of file in /var/www/html/site/game-n-share/content/themes/gamenshare/inc/add-game.php on line 211
+[15-Feb-2021 19:52:13 UTC] PHP Parse error:  syntax error, unexpected end of file in /var/www/html/site/game-n-share/content/themes/gamenshare/inc/add-game.php on line 211
+[15-Feb-2021 20:02:57 UTC] PHP Fatal error:  Uncaught Error: Maximum function nesting level of '256' reached, aborting! in /var/www/html/site/game-n-share/content/themes/gamenshare/inc/add-game.php:93
+Stack trace:
+#0 /var/www/html/site/game-n-share/content/themes/gamenshare/inc/add-game.php(96): gamenshare_form_add_game()
+#1 /var/www/html/site/game-n-share/content/themes/gamenshare/inc/add-game.php(96): gamenshare_form_add_game()
+#2 /var/www/html/site/game-n-share/content/themes/gamenshare/inc/add-game.php(96): gamenshare_form_add_game()
+#3 /var/www/html/site/game-n-share/content/themes/gamenshare/inc/add-game.php(96): gamenshare_form_add_game()
+#4 /var/www/html/site/game-n-share/content/themes/gamenshare/inc/add-game.php(96): gamenshare_form_add_game()
+#5 /var/www/html/site/game-n-share/content/themes/gamenshare/inc/add-game.php(96): gamenshare_form_add_game()
+#6 /var/www/html/site/game-n-share/content/themes/gamenshare/inc/add-game.php(96): gamenshare_form_add_game()
+#7 /var/www/html/site/game-n-share/content/themes/gamenshare/inc/add-game.php(96): ga in /var/www/html/site/game-n-share/content/themes/gamenshare/inc/add-game.php on line 93
+[15-Feb-2021 20:14:04 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php on line 84
+[15-Feb-2021 20:14:04 UTC] PHP Stack trace:
+[15-Feb-2021 20:14:04 UTC] PHP   1. {main}() /var/www/html/site/game-n-share/wp/wp-cron.php:0
+[15-Feb-2021 20:14:04 UTC] PHP   2. require_once() /var/www/html/site/game-n-share/wp/wp-cron.php:44
+[15-Feb-2021 20:14:04 UTC] PHP   3. require_once() /var/www/html/site/game-n-share/wp/wp-load.php:42
+[15-Feb-2021 20:14:04 UTC] PHP   4. require_once() /var/www/html/site/game-n-share/wp-config.php:145
+[15-Feb-2021 20:14:04 UTC] PHP   5. include_once() /var/www/html/site/game-n-share/wp/wp-settings.php:388
+[15-Feb-2021 20:14:04 UTC] PHP   6. CX_Simply_Show_Hooks::get_instance() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:573
+[15-Feb-2021 20:14:04 UTC] PHP   7. CX_Simply_Show_Hooks->init() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:39
+[15-Feb-2021 20:14:04 UTC] PHP   8. CX_Simply_Show_Hooks->set_active_status() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:67
+[15-Feb-2021 20:14:04 UTC] PHP   9. setcookie() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:84
+[16-Feb-2021 10:28:54 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php on line 84
+[16-Feb-2021 10:28:54 UTC] PHP Stack trace:
+[16-Feb-2021 10:28:54 UTC] PHP   1. {main}() /var/www/html/site/game-n-share/wp/wp-cron.php:0
+[16-Feb-2021 10:28:54 UTC] PHP   2. require_once() /var/www/html/site/game-n-share/wp/wp-cron.php:44
+[16-Feb-2021 10:28:54 UTC] PHP   3. require_once() /var/www/html/site/game-n-share/wp/wp-load.php:42
+[16-Feb-2021 10:28:54 UTC] PHP   4. require_once() /var/www/html/site/game-n-share/wp-config.php:145
+[16-Feb-2021 10:28:54 UTC] PHP   5. include_once() /var/www/html/site/game-n-share/wp/wp-settings.php:388
+[16-Feb-2021 10:28:54 UTC] PHP   6. CX_Simply_Show_Hooks::get_instance() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:573
+[16-Feb-2021 10:28:54 UTC] PHP   7. CX_Simply_Show_Hooks->init() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:39
+[16-Feb-2021 10:28:54 UTC] PHP   8. CX_Simply_Show_Hooks->set_active_status() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:67
+[16-Feb-2021 10:28:54 UTC] PHP   9. setcookie() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:84
+[16-Feb-2021 11:13:06 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php on line 84
+[16-Feb-2021 11:13:06 UTC] PHP Stack trace:
+[16-Feb-2021 11:13:06 UTC] PHP   1. {main}() /var/www/html/site/game-n-share/wp/wp-cron.php:0
+[16-Feb-2021 11:13:06 UTC] PHP   2. require_once() /var/www/html/site/game-n-share/wp/wp-cron.php:44
+[16-Feb-2021 11:13:06 UTC] PHP   3. require_once() /var/www/html/site/game-n-share/wp/wp-load.php:42
+[16-Feb-2021 11:13:06 UTC] PHP   4. require_once() /var/www/html/site/game-n-share/wp-config.php:145
+[16-Feb-2021 11:13:06 UTC] PHP   5. include_once() /var/www/html/site/game-n-share/wp/wp-settings.php:388
+[16-Feb-2021 11:13:06 UTC] PHP   6. CX_Simply_Show_Hooks::get_instance() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:573
+[16-Feb-2021 11:13:06 UTC] PHP   7. CX_Simply_Show_Hooks->init() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:39
+[16-Feb-2021 11:13:06 UTC] PHP   8. CX_Simply_Show_Hooks->set_active_status() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:67
+[16-Feb-2021 11:13:06 UTC] PHP   9. setcookie() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:84
+[16-Feb-2021 12:11:28 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php on line 84
+[16-Feb-2021 12:11:28 UTC] PHP Stack trace:
+[16-Feb-2021 12:11:28 UTC] PHP   1. {main}() /var/www/html/site/game-n-share/wp/wp-cron.php:0
+[16-Feb-2021 12:11:28 UTC] PHP   2. require_once() /var/www/html/site/game-n-share/wp/wp-cron.php:44
+[16-Feb-2021 12:11:28 UTC] PHP   3. require_once() /var/www/html/site/game-n-share/wp/wp-load.php:42
+[16-Feb-2021 12:11:28 UTC] PHP   4. require_once() /var/www/html/site/game-n-share/wp-config.php:145
+[16-Feb-2021 12:11:28 UTC] PHP   5. include_once() /var/www/html/site/game-n-share/wp/wp-settings.php:388
+[16-Feb-2021 12:11:28 UTC] PHP   6. CX_Simply_Show_Hooks::get_instance() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:573
+[16-Feb-2021 12:11:28 UTC] PHP   7. CX_Simply_Show_Hooks->init() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:39
+[16-Feb-2021 12:11:28 UTC] PHP   8. CX_Simply_Show_Hooks->set_active_status() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:67
+[16-Feb-2021 12:11:28 UTC] PHP   9. setcookie() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:84
+[16-Feb-2021 13:11:51 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php on line 84
+[16-Feb-2021 13:11:51 UTC] PHP Stack trace:
+[16-Feb-2021 13:11:51 UTC] PHP   1. {main}() /var/www/html/site/game-n-share/wp/wp-cron.php:0
+[16-Feb-2021 13:11:51 UTC] PHP   2. require_once() /var/www/html/site/game-n-share/wp/wp-cron.php:44
+[16-Feb-2021 13:11:51 UTC] PHP   3. require_once() /var/www/html/site/game-n-share/wp/wp-load.php:42
+[16-Feb-2021 13:11:51 UTC] PHP   4. require_once() /var/www/html/site/game-n-share/wp-config.php:145
+[16-Feb-2021 13:11:51 UTC] PHP   5. include_once() /var/www/html/site/game-n-share/wp/wp-settings.php:388
+[16-Feb-2021 13:11:51 UTC] PHP   6. CX_Simply_Show_Hooks::get_instance() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:573
+[16-Feb-2021 13:11:51 UTC] PHP   7. CX_Simply_Show_Hooks->init() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:39
+[16-Feb-2021 13:11:51 UTC] PHP   8. CX_Simply_Show_Hooks->set_active_status() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:67
+[16-Feb-2021 13:11:51 UTC] PHP   9. setcookie() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:84
+[16-Feb-2021 14:12:16 UTC] PHP Warning:  Cannot modify header information - headers already sent in /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php on line 84
+[16-Feb-2021 14:12:16 UTC] PHP Stack trace:
+[16-Feb-2021 14:12:16 UTC] PHP   1. {main}() /var/www/html/site/game-n-share/wp/wp-cron.php:0
+[16-Feb-2021 14:12:16 UTC] PHP   2. require_once() /var/www/html/site/game-n-share/wp/wp-cron.php:44
+[16-Feb-2021 14:12:16 UTC] PHP   3. require_once() /var/www/html/site/game-n-share/wp/wp-load.php:42
+[16-Feb-2021 14:12:16 UTC] PHP   4. require_once() /var/www/html/site/game-n-share/wp-config.php:145
+[16-Feb-2021 14:12:16 UTC] PHP   5. include_once() /var/www/html/site/game-n-share/wp/wp-settings.php:388
+[16-Feb-2021 14:12:16 UTC] PHP   6. CX_Simply_Show_Hooks::get_instance() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:573
+[16-Feb-2021 14:12:16 UTC] PHP   7. CX_Simply_Show_Hooks->init() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:39
+[16-Feb-2021 14:12:16 UTC] PHP   8. CX_Simply_Show_Hooks->set_active_status() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:67
+[16-Feb-2021 14:12:16 UTC] PHP   9. setcookie() /var/www/html/site/game-n-share/content/plugins/simply-show-hooks/index.php:84
