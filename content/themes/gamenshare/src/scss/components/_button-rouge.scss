@@ -1,10 +1,8 @@
 .menu .button-red{
     font-weight: bold;
 }
-.button-red{
-    
+.button-red{   
     background-color: $color-bg-btn;
-  //  line-height: normal !important;
     color: $color-text-alt!important;
     
     &:hover{
@@ -37,10 +35,8 @@
     
 }
 
-.add-fav-button{
-    
+.add-fav-button{    
     background-color: $color-bg-btn !important;
-  //  line-height: normal !important;
     color: $color-text-alt!important;
     
     &:hover{

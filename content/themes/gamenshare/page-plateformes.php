@@ -1,24 +1,14 @@
-<?php 
-
-get_header();
-
-?>
+<?php get_header(); ?>
 
 <?php 
-while ( have_posts() ) :
-				the_post();
+while ( have_posts() ) : the_post();
 
-
-get_template_part( 'template-parts/platforms/content-platforms', 'page' ); 
+	get_template_part( 'template-parts/platforms/content-platforms', 'page' ); 
 
 endwhile;
 ?>
 
+<?php get_footer(); ?>
 
 
-
-
-<?php 
-
-get_footer();
 

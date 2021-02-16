@@ -22,7 +22,6 @@
         <div class="game_infos_right  col-md-3">
             <?php
             $userid = get_current_user_id();
-            // var_dump($userid);
             $postid = $post->ID;
             global $wpdb;
             $countfav = $wpdb->get_var("SELECT COUNT(*) AS cntpost FROM {$wpdb->prefix}favorites WHERE post_id={$postid} and user_id={$userid}");
@@ -115,13 +114,11 @@
                 <div class="content">
                     <?php
                     $userid = get_current_user_id();
-                    // var_dump($userid);
                     $postid = $post->ID;
                     global $wpdb;
 
                     // User rating
                     $user_rating = $wpdb->get_var("SELECT `rating` FROM {$wpdb->prefix}rating WHERE post_id={$postid} and user_id={$userid}");
-                    //var_dump($user_rating);
 
                     // get average
                     $average = $wpdb->get_var("SELECT ROUND(AVG(rating),1) as averageRating FROM {$wpdb->prefix}rating WHERE post_id={$postid}");
@@ -144,7 +141,6 @@
                             <div style='clear: both;'></div>
                            <p class="note_raiting"> Note moyenne : <span class="number_raiting" id='avgrating_<?php echo $postid; ?>'><?php echo $average; ?><span class="small_number">/5</span></span></p>
                             <?php
-                            //var_dump($userid);
                             if ($average <= 0) {
                                 echo'<p class="small-p msg_for_raiting">Le jeu n\'a pas encore été noté </p>';
                             }

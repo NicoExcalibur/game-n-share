@@ -1,16 +1,10 @@
 .menu{
-   
-   //position: fixed;
-   // top: 0;
-    //right: 0;
-    //left: 0;
-    //z-index: 50;
     background: linear-gradient($color-bg, $color-bg-alt)!important;
     color: $color-text-alt;
     box-shadow: 0px 7px 6px 0px rgba(0, 0, 0, .35);
     font-weight: bold;
+    
     &__container{
         position: relative;
     }
-
 }

@@ -1,29 +1,37 @@
 .platform {
     box-shadow: 1px 1px 7px 1px rgba(163,163,163, .35);
     transition: $duration-fast;
-    &:hover{
+    margin-bottom: 1.5em;
+    
+    &:hover {
         box-shadow: 1px 1px 7px 1px rgba(163,163,163, 1)!important;
        
     }
-    margin-bottom: 1.5em;
-    &__image{
+    
+    &__image {
         overflow: hidden;
         height: 7em;
         background-position: center;
         background-size: cover;
         background-color: $white;
     }
-    &__image img{
-        margin-top: -30px;
+    
+    &__image {
+        
+        img {
+            margin-top: -30px;
+        }
     }
-    &__info{
+        
+    
+    &__info {
         padding: 0.5em 0;
         text-align: center;
         background-color: $color-bg-info;
+        
         &--title{
             font-size: 1.1em;
-            margin-bottom: 0.6em;
-            
+            margin-bottom: 0.6em;    
         }
 
     }
