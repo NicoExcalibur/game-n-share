@@ -5,7 +5,7 @@
 <div>
     <p>GAME OVER</P>
     
-    <a href="">Click here to continue</a>
+    <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Click here to continue</a>
 </div>
 
 <?php get_footer(); ?>
