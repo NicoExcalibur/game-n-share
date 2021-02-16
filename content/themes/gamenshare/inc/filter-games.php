@@ -6,12 +6,10 @@ function gamenshare_filter_games()
 {
     $args = array(
         'orderby' => 'name', // we will sort posts by date
-        //'post_type' => 'game' 
     );
 
     $termGenre = [];
     if (isset($_POST['genrefilter'])) {
-        //var_dump($_POST['genrefilter']);
         $termGenre[] = $_POST['genrefilter'];
     }
 
@@ -29,7 +27,6 @@ function gamenshare_filter_games()
         $terms = get_terms('genre');
         // convert array of term objects to array of term IDs
         $term_ids = wp_list_pluck($terms, 'term_id');
-        //var_dump($term_ids);
         $args['tax_query'] = [
             [
                 'taxonomy' => 'genre',
@@ -40,7 +37,7 @@ function gamenshare_filter_games()
     }
 
     $query = new WP_Query($args);
-    //var_dump($query );
+
     if ($query->have_posts()) :
         while ($query->have_posts()) : $query->the_post();
 
