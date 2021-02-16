@@ -4,11 +4,8 @@
 Template Name: recherche
 */
 
-get_header()
-?>
+get_header() ?>
 
 <?php get_template_part( 'template-parts/search/content-search', 'search'); ?>
 
-<?php
-get_footer()
-?>
+<?php get_footer() ?>

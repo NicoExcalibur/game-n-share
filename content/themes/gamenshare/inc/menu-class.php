@@ -1,6 +1,4 @@
-
 <?php
-
 
 if (!function_exists('gamenshare_menu_class')) {
     function gamenshare_menu_class($classe, $item, $args)
@@ -17,7 +15,6 @@ if (!function_exists('gamenshare_menu_class')) {
         return $classes;
     }
 }
-
 // Ajout d'un filtre au Hook 'nav_menu_css_class'
 add_filter( 'nav_menu_css_class', 'gamenshare_menu_class', 10, 3);
 

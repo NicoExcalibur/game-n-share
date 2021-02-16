@@ -1,4 +1,4 @@
-.mylogin{
+.mylogin {
     width: 100%;
     color: $color-text-alt;
     margin: 1.5em auto 0;
@@ -8,12 +8,10 @@
         box-shadow: 0px 7px 6px 0px rgba(0, 0, 0, .35);
         border-radius: 1em;
         padding: 1em;
-        width: 50%;
-        
+        width: 50%;   
     }
     
     & h1{
         margin-top: 0;
     }
-
 }

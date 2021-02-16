@@ -11,7 +11,6 @@
         <div class="platform_infos_right  col-md-3">
             <?php
             $userid = get_current_user_id();
-            // var_dump($userid);
             $postid = $post->ID;
             global $wpdb;
             

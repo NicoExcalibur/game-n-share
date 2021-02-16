@@ -6,8 +6,6 @@ import $ from 'jquery';
 
 window.jQuery = $;
 
-
-
 const app = {
     btnClose: document.getElementById('btn-close'),
     blockSearch: document.getElementById('form-search'),
@@ -18,7 +16,6 @@ const app = {
     body: document.querySelector('body'),
 
     init: function () {
-        //console.log('init');
         app.btnClose.addEventListener('click', app.closeSearch);
         app.formSearch.addEventListener('submit', app.handlecloseSearch);
         window.addEventListener('resize', app.filtersResponsive);
@@ -31,18 +28,17 @@ const app = {
         app.handleAddCollection();
 
     },
+    
     closeSearch: function () {
-        //console.log(app.blockSearch);
         app.blockSearch.classList.remove('show');
     },
+    
     handlecloseSearch: function () {
         app.blockSearch.classList.remove('show');
     },
 
     filtersResponsive: function () {
         let lWidth = window.screen.width;
-        // console.log(lWidth);
-        // console.log(app.filters);
         
         if (lWidth >= 768) { 
             app.filters.classList.remove('dropdown-menu');
@@ -55,7 +51,7 @@ const app = {
     },
 
     checkIfScrolled: function(){
-        // console.log(app.footerEl.offsetHeight);
+        
         if (window.innerHeight + window.scrollY >= document.body.offsetHeight )
         {
             app.filterButton.style.bottom = app.footerEl.offsetHeight  + "px";
@@ -65,11 +61,10 @@ const app = {
         }else 
         {
             app.filterButton.style.bottom = "35px";
-
         }
     },
+    
     handleAjaxFilterGames: function () {
-        //console.log('kikou j');
 
         $('.form-check-input').change(function () {
             const filter = $('#filter');
@@ -102,6 +97,7 @@ const app = {
             return false;
         });
     },
+    
     handleStarRating: function () {
         $('.rating').barrating({
             theme: 'fontawesome-stars',
@@ -111,14 +107,11 @@ const app = {
                 // Get element id by data-id attribute
                 var el = this;
                 var el_id = el.$elem.data('id');
-                // console.log(el);
                 // rating was selected by a user
                 if (typeof (event) !== 'undefined') {
 
                     var split_id = el_id.split("_");
                     var postid = split_id[1]; // postid
-                    //console.log(postid);
-                    //console.log(split_id);
 
                     // AJAX Request
                     $.ajax({
@@ -135,16 +128,12 @@ const app = {
                             var average = response['averageRating'];
                             $('#avgrating_' + postid).text(average);
                         },
-                        /*   error: function(){
-                              console.log('error');
-                              
-                          } */
                     });
-
                 }
             }
         });
     },
+    
     handleAddFavorite: function () {
         
         $('.fav-button').on('click', function() {
@@ -169,8 +158,7 @@ const app = {
                         $(el).removeClass('add-fav-button')
                             .addClass('delete-fav-button')
                             .html('Retirer des favoris')
-                            .attr('data-current-state', '1');
-    
+                            .attr('data-current-state', '1');  
                     }
                 });
                 
@@ -191,13 +179,11 @@ const app = {
                             .html('Ajouter aux favoris')
                             .attr('data-current-state', '0');      
                     }
-                });
-                
-            }  
-       
-        });
-    
+                });               
+            }         
+        });   
     },
+    
     handleAddCollection: function () {
         
         $('.collec-button').on('click', function() {
@@ -244,14 +230,10 @@ const app = {
                             .html('Ajouter à ma collection')
                             .attr('data-current-state', '0');      
                     }
-                });
-                
-            }  
-       
-        });
-    
+                });               
+            }         
+        });    
     },
-
 }
 
 document.addEventListener('DOMContentLoaded', app.init);

@@ -7,9 +7,6 @@ $login  = (isset($_GET['login'])) ? $_GET['login'] : 0;
 <?php
 if (is_user_logged_in()) :
 
-?>
-
-<?php
 else :
 ?>
     <div class="mylogin">

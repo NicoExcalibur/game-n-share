@@ -1,23 +1,26 @@
-
-
-body{
+body {
     background-color: $color-bg-site;
 }
-body, .wrapper{
+
+body, .wrapper {
     min-height: 100vh;
 }
-.wrapper{
+
+.wrapper {
     display: flex;
     flex-direction: column;
 }
-.main{
+
+.main {
     flex: 1;
+    
+    a {
+        text-decoration: none;
+        color: $color-text!important;
+    }
 }
-a{
+
+a {
     text-decoration: none;
     color: $color-text-alt!important;
-}
-.main a{
-    text-decoration: none;
-    color: $color-text!important;
 }

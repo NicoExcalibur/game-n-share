@@ -44,8 +44,6 @@
     .game_infos_rating,
     .game_infos_cover {
         background-color: $white !important;
-        //padding:1em ;
-
     }
 
     .game_infos_rating {
@@ -65,7 +63,6 @@
 
                 &::before {
                     content: "\00a0";
-
                 }
             }
 
@@ -88,11 +85,9 @@
     }
 
     .list-group {
-        //border-top: solid $bordergray 1px;
         padding: 0 1em 0.5em;
 
         &-item {
-            //background-color: $color-bg-site;
             font-size: $font-size-small;
 
             .item-bold {

@@ -10,7 +10,6 @@
             font-weight: bold;
             font-size: $font-size-large;
         }
-
     }
 
     .platform_infos_right {
@@ -24,7 +23,6 @@
             color: $color-text-alt;
             background-color: $color-text;
             text-align: left;
-
         }
     }
 
@@ -43,8 +41,6 @@
     .platform_infos_details,
     .platform_infos_cover {
         background-color: $white !important;
-        //padding:1em ;
-
     }
 
     .platform_infos_rating {
@@ -64,7 +60,6 @@
 
                 &::before {
                     content: "\00a0";
-
                 }
             }
 
@@ -77,11 +72,9 @@
     }
 
     .list-group {
-        //border-top: solid $bordergray 1px;
         padding: 0 1em 0.5em;
 
         &-item {
-            //background-color: $color-bg-site;
             font-size: $font-size-small;
 
             .item-bold {

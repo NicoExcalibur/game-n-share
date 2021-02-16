@@ -1,4 +1,5 @@
 <?php the_title('<h1>', '</h1>'); ?>
+
 <form class="mylogin d-flex flex-column" action="<?php echo site_url('wp-login.php?action=register', 'login_post') ?>" method="post">
     <div class="mb-3">
         <label class="form-label">Nom d'utilisateur</label>
