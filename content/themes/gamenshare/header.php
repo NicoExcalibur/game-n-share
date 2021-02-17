@@ -43,8 +43,8 @@
                         $userid = wp_get_current_user();
                         if ( is_user_logged_in() && $userid->exists()):
                         ?>
-                        <ul class="navbar-nav me-auto ms-5">
-                        
+
+                        <ul class="navbar-nav me-auto ms-5">                       
                             <li class="nav-item">
                                 <a class="nav-link menu-button__item d-flex flex-row profile-link" href="<?=  home_url('/profil/') ; ?>">
                                     <div class="profile-link-pic">
@@ -60,10 +60,12 @@
                         <?php
                         else:
                         ?>
-                        <ul class="navbar-nav me-auto ms-5">
-                            <li class="nav-item"><a href="<?=   wp_registration_url() ; ?>" class="nav-link btn menu-button__item button button-red">
-                                Inscrivez-vous</a></li>
-                            <li class="nav-item"><a href="<?=  home_url('/login/') ; ?>" class="nav-link menu-button__item">Connectez-vous</a></li>
+
+                            <ul class="navbar-nav me-auto ms-5">
+                            <li class="nav-item"><a href="<?= esc_url(wp_registration_url()); ?>" class="nav-link btn menu-button__item button button-red">
+                                    Inscrivez-vous</a></li>
+                            <li class="nav-item"><a href="<?=  esc_url(home_url('/login/')) ; ?>" class="nav-link menu-button__item">Connectez-vous</a></li>
+
                         </ul>
                         <?php
                         endif;

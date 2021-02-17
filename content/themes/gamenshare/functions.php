@@ -7,8 +7,10 @@ require 'inc/filter-games.php';
 require 'inc/login.php';
 require 'inc/custom-comment.php';
 require 'inc/star-rating.php';
+require 'inc/add-game.php';
 require 'inc/add-fav-game.php';
 require 'inc/add-collec.php';
 require 'inc/register.php';
 require 'inc/search.php';
 require 'inc/acf-css.php';
+
