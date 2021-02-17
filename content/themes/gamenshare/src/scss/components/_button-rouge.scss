@@ -1,20 +1,46 @@
 .menu .button-red{
     font-weight: bold;
 }
-.button-red{
-    
+.button-red{   
     background-color: $color-bg-btn;
-  //  line-height: normal !important;
     color: $color-text-alt!important;
     
- &:hover{
-    color: $red !important;
-    background-color: $white !important;
- }
+    &:hover{
+        color: $red !important;
+        background-color: $white !important;
+    }
 }
 .main .button-red{
     color: $color-text-alt!important;
+
+    &:hover{
+        color: $red !important;
+        background-color: $white !important;
+    }
 }
 .btn{
     line-height: 1!important;
+}
+
+.delete-fav-button {
+    background-color: $white !important;
+    color: $red;
+    border: $red solid 1px important !important;
+    
+    &:hover{
+        color: $white !important;
+        background-color:  $red !important;
+        border: $white solid 1px !important;
+    }
+    
+}
+
+.add-fav-button{    
+    background-color: $color-bg-btn !important;
+    color: $color-text-alt!important;
+    
+    &:hover{
+        color: $red !important;
+        background-color: $white !important;
+    }
 }

@@ -40,26 +40,37 @@
                         ]);
                         ?>
                         <?php
-                        if ( is_user_logged_in() ):
+                        $userid = wp_get_current_user();
+                        if ( is_user_logged_in() && $userid->exists()):
                         ?>
-                            <ul class="navbar-nav me-auto ms-5">
-                          
-                            <li class="nav-item"><a href="<?= esc_url(wp_logout_url( home_url() )); ?>/" class="nav-link menu-button__item">Déconnctez-vous</a></li>
+
+                        <ul class="navbar-nav me-auto ms-5">                       
+                            <li class="nav-item">
+                                <a class="nav-link menu-button__item d-flex flex-row profile-link" href="<?=  home_url('/profil/') ; ?>">
+                                    <div class="profile-link-pic">
+                                        <?php echo get_avatar( $userid, 35); ?> 
+                                    </div>
+                                    <p class="d-block">Profil</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= wp_logout_url( home_url() ); ?>/" class="nav-link menu-button__item">Déconnexion</a>
+                            </li>
                         </ul>
                         <?php
                         else:
                         ?>
+
                             <ul class="navbar-nav me-auto ms-5">
                             <li class="nav-item"><a href="<?= esc_url(wp_registration_url()); ?>" class="nav-link btn menu-button__item button button-red">
                                     Inscrivez-vous</a></li>
                             <li class="nav-item"><a href="<?=  esc_url(home_url('/login/')) ; ?>" class="nav-link menu-button__item">Connectez-vous</a></li>
+
                         </ul>
-                            <?php
-                            endif;
-                            ?>
+                        <?php
+                        endif;
+                        ?>
                     </div>
-
-
                     <?php get_search_form() ?>
                 </div>
             </nav>

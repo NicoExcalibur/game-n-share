@@ -14,6 +14,7 @@ if (!defined('WPINC')) {die();}
 require plugin_dir_path(__FILE__) . 'inc/game_cpt.php';
 require plugin_dir_path(__FILE__) . 'inc/platform_cpt.php';
 require plugin_dir_path(__FILE__) . 'inc/add_favorite.php';
+require plugin_dir_path(__FILE__) . 'inc/add_collec.php';
 require plugin_dir_path(__FILE__) . 'inc/star_rating.php';
 
 
@@ -40,4 +41,10 @@ register_deactivation_hook( __FILE__,[$add_favorite, 'deactivation']);
 $star_rating = new Star_rating();
 
 register_activation_hook( __FILE__,[$star_rating, 'activation']);
-register_deactivation_hook( __FILE__,[$star_rating, 'deactivation']); 
+register_deactivation_hook( __FILE__,[$star_rating, 'deactivation']);
+
+// Create a collection table + Add a post in cellection in DB 
+$add_collec = new Add_collection();
+
+register_activation_hook( __FILE__,[$add_collec, 'activation']);
+register_deactivation_hook( __FILE__,[$add_collec, 'deactivation']); 

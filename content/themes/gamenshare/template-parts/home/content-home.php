@@ -4,12 +4,10 @@
 $args = array(
   'post_type' => 'game',
   'posts_per_page' => 3,
-  
-  
 );
 
 $games = get_posts($args);
-// var_dump($games);
+
 ?>
 <h1>Accueil</h1>
 <p class="carousel-header mb-0 p-3">Voici les derniers jeux ajoutés récemment :</p>

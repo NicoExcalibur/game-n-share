@@ -8,13 +8,9 @@ require 'inc/login.php';
 require 'inc/custom-comment.php';
 require 'inc/star-rating.php';
 require 'inc/add-game.php';
-function css_custom_acf()
-{
-    echo '<style>
-            .editor{
-                margin-bottom: 1em!important;
-            }
-         </style>';
-}
-add_action('admin_head', 'css_custom_acf');
+require 'inc/add-fav-game.php';
+require 'inc/add-collec.php';
+require 'inc/register.php';
+require 'inc/search.php';
+require 'inc/acf-css.php';
 

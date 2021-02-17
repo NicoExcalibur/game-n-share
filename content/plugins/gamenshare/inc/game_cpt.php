@@ -45,6 +45,7 @@ class Game_cpt
         'show_in_rest' => true,
         'menu_icon' => 'dashicons-games',
         'show_in_rest' => true,// display in Gutenberg editor
+        'query_var' => true,
         'supports' => [
           'title',
           'categories',

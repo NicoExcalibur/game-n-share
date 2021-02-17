@@ -12,6 +12,7 @@
     '~font-awesome/scss/font-awesome',
     '~bootstrap/scss/bootstrap',
     '~jquery-bar-rating/dist/themes/fontawesome-stars';
+
 @import
     'base/base',
     'base/typo';
@@ -20,23 +21,28 @@
     'layout/header',
     'layout/footer',
     'layout/nav',
-    'layout/games',
-    'layout/single-game'; 
+    'layout/single-game',
+    'layout/content-profile',
+    'layout/single-platform'; 
 
- @import
+@import
     'components/menu-link',
     'components/footer-menu',
     'components/footer-social',
     'components/footer-info',
     'components/game',
+    'components/platform',
     'components/button-rouge',
     'components/bs-navbar-toggler',
+    'components/profile-nav-link',
     'components/form-search',
     'components/button-search',
+    'components/collection-button',
     'components/button-filter-mobile',
     'components/form-filter',
     'components/comments',
     'components/mylogin',
+    'components/pagination',
     'components/carousel';
 
 @import

@@ -1,6 +1,5 @@
 <?php
 
-
 if (!function_exists('gamenshare_setup')) {
     function gamenshare_setup()
     {

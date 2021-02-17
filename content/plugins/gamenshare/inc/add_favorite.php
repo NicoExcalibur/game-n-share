@@ -2,7 +2,7 @@
 
 class Add_favorite {
 
-    public function custom_table()
+    public function custom_table_fav()
   {
     global $wpdb;
 
@@ -21,7 +21,7 @@ class Add_favorite {
   }
 
   // function that drops(delete) the custom_table
-  public function custom_table_uninstall()
+  public function custom_table_fav_uninstall()
   { 
     global $wpdb;
 
@@ -36,11 +36,11 @@ class Add_favorite {
   // callbacks
   public function activation()
   {
-    $this->custom_table();
+    $this->custom_table_fav();
   }
 
   public function deactivation()
   {
-    $this->custom_table_uninstall();
+    $this->custom_table_fav_uninstall();
   }
 }

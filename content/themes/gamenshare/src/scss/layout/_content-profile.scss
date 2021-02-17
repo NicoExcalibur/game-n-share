@@ -1,0 +1,44 @@
+.profile {
+    
+    &-header {
+        justify-content: center;
+
+            .avatar {
+                border-radius: 5px;
+                border: solid 10px $white;
+                text-align: center;
+            }
+
+        &-infos {
+            margin-left: 2em;
+
+            .infos-title {
+                color: $red;
+                font-weight: bold;
+                font-size: $font-size-large;
+                margin: auto;
+            }
+
+            .counters {
+                justify-content: space-around;
+                
+                p {
+                    text-align: center;
+                    font-size: $font-size;
+                   
+                    span {
+                        color: $red;
+                        font-weight: bold;
+                        display: block;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.tab-content {
+    background-color: $white;
+    padding: 1em;
+}
