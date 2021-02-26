@@ -35,6 +35,11 @@ if (!function_exists('gamesnshare_enqueue')) {
       'ajaxadd',
       ['ajaxurl' => admin_url( 'admin-ajax.php' )] 
     ); 
+    wp_localize_script( 
+      'app',
+      'ajaxaddpost',
+      ['ajaxurl' => admin_url( 'admin-ajax.php' )] 
+    ); 
   }
 }
 
