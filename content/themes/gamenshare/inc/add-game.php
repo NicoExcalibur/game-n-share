@@ -87,7 +87,7 @@ function gamenshare_insert_game()
          
            
             $post_link = get_post_permalink($new_post_id);
-            wp_safe_redirect( $post_link );
+            wp_redirect( $post_link );
            
             exit;
             
