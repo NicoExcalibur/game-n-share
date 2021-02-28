@@ -55,5 +55,5 @@ function gamesnshare_get_star_rating()
 
     echo json_encode($data);
 
-    die();
+    wp_die();
 }
