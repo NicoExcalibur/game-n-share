@@ -26,6 +26,7 @@ const app = {
         app.handleStarRating();
         app.handleAddFavorite();
         app.handleAddCollection();
+        //app.handleDeleteAccount();
         //app.handleAddPost();
     },
 
@@ -237,6 +238,31 @@ const app = {
             }
         });
     },
+    handleDeleteAccount: function () {
+
+        $('#delete').on('click', function () {
+
+            var el = this;
+            var el_id = el.dataset.id;
+            var split_id = el_id.split("_");
+            var userID = parseInt(split_id[1], 10);
+            console.log(userID);
+            
+                // AJAX Request
+                $.ajax({
+                    url: ajaxobject.ajaxurl,
+                    type: 'POST', //Post method
+                    data: {
+                        'action': 'delete_account',
+                        'userid': userID,
+                    },
+                    success: function () {
+                        console.log('suppé ');
+                        
+                    }
+                });
+        });
+    },
     handleAddPost: function () {
         $('#addpost').submit(function () {
             //filter.attr('action'),
@@ -251,7 +277,7 @@ const app = {
             console.log(postPlateform);
 
             $.ajax({
-                url: ajaxaddpost.ajaxurl,
+                url: ajaxobject.ajaxurl,
                 type: 'POST',
 
                 data: {

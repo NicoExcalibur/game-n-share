@@ -96,14 +96,14 @@ function gamenshare_insert_game()
       // return $errors;
     }
 }
-function sample_admin_notice__success() {
+/* function sample_admin_notice__success() {
     ?>
     <div  class="alert alert-success" role="alert">
         <p><?php _e( 'Done!', 'sample-text-domain' ); ?></p>
     </div>
     <?php
 }
-add_action( 'admin_notices', 'sample_admin_notice__success' );
+add_action( 'admin_notices', 'sample_admin_notice__success' ); */
 function gamenshare_form_add_game()
 {
 
