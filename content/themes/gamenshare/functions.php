@@ -13,4 +13,5 @@ require 'inc/add-collec.php';
 require 'inc/register.php';
 require 'inc/search.php';
 require 'inc/acf-css.php';
-
+require 'inc/show_bar.php';
+require 'inc/delete_account.php';

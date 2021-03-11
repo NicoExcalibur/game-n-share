@@ -45,16 +45,17 @@
                         ?>
 
                         <ul class="navbar-nav me-auto ms-5">                       
-                            <li class="nav-item">
-                                <a class="nav-link menu-button__item d-flex flex-row profile-link" href="<?=  home_url('/profil/') ; ?>">
+                            <li class="nav-item menu-button">
+                                <a class="nav-link menu-button__item profile-link" href="<?=  esc_url(home_url('/profil/')) ; ?>">
                                     <div class="profile-link-pic">
                                         <?php echo get_avatar( $userid, 35); ?> 
                                     </div>
-                                    <p class="d-block">Profil</p>
+                                    <span >Profil</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="<?= wp_logout_url( home_url() ); ?>/" class="nav-link menu-button__item">Déconnexion</a>
+                            <li class="nav-item menu-button"><a href="<?=  esc_url(home_url('/ajouter-un-jeu/')) ; ?>" class="nav-link menu-button__item">Ajouter un jeu</a></li>
+                            <li class="nav-item menu-button">
+                                <a href="<?= esc_url(wp_logout_url( home_url() )); ?>/" class="nav-link menu-button__item">Déconnexion</a>
                             </li>
                         </ul>
                         <?php

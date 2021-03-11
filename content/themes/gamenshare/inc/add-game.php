@@ -77,20 +77,39 @@ function gamenshare_insert_game()
                 update_field('field_601d5af05f123', $screenshot, $new_post_id); // screenshot field
                // return wp_redirect(home_url());
             }
-            if ($new_post_id < 0) {
-                  
+            if ( $new_post_id != 0 )  {
+                $results = '*Post Added';
             }
+            else {
+                $results = '*Error occurred while adding the post';
+            }
+            $data = array('results' => $results);
+         
+           
+            $post_link = get_post_permalink($new_post_id);
+            wp_redirect( $post_link );
+           
+            exit;
+            
         }
     } else {
       // return $errors;
     }
 }
-
-function gamenshare_form_add_game($errors = null)
+/* function sample_admin_notice__success() {
+    ?>
+    <div  class="alert alert-success" role="alert">
+        <p><?php _e( 'Done!', 'sample-text-domain' ); ?></p>
+    </div>
+    <?php
+}
+add_action( 'admin_notices', 'sample_admin_notice__success' ); */
+function gamenshare_form_add_game()
 {
 
     ob_start(); ?>
-    <form class="form row needs-validation" name="form" method="post" enctype="multipart/form-data" novalidate>
+    
+    <form id="addpost" class="form row needs-validation" name="form" method="post" enctype="multipart/form-data" novalidate>
 
     <div class="col-md-8">
         <div class="mb-3">

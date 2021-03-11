@@ -40,7 +40,12 @@
                     <p>Vous possedez <span id="counter"><?php echo $countplats; ?></span> plateformes de jeu</p>
                 </div>
             </div>
-            <button type="button" class="btn btn-secondary">Supprimer mon compte</button>
+            <form method="post">
+                <input type="hidden" name="userid" value="<?php echo $user->ID ?>" />
+                <?php wp_nonce_field('delete_account_action', 'delete_account_field'); ?>
+                <button id="delete" type="submit" class="btn btn-secondary">Supprimer mon compte</button>
+
+            </form>
         </div>
 
     </div>

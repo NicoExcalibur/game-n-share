@@ -20,7 +20,7 @@ $games = get_posts($args);
         ?>
        
           
-          <li data-bs-target="#carouselExampleDark" data-bs-slide-to="<?= $key; ?>" style="background: url('<?= get_field('game_cover', $game->ID); ?>') center;"   class="<?php echo ($i == 0) ? 'active' : ''; ?>"> </li> 
+          <li data-bs-target="#carouselExampleDark" data-bs-slide-to="<?= $key; ?>" style="background: url('<?= get_field('game_cover', $game->ID); ?>') center; background-size: cover;"   class="<?php echo ($i == 0) ? 'active' : ''; ?>"> </li> 
           
          </li>
          <?php
