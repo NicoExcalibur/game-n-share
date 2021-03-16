@@ -44,7 +44,7 @@ $games = get_posts($args);
             <div class="carousel-container">
               <div class="carousel-cover ">
              
-                  <a href="<?= $game->guid ?>"><img class="img-fluid rounded" src="<?= get_field('game_cover', $game->ID); ?>" /></a>
+                  <a href="<?= get_permalink($game->ID)?>"><img class="img-fluid rounded" src="<?= get_field('game_cover', $game->ID); ?>" /></a>
                
               </div>
               <div class="carousel-text d-flex flex-column justify-content-around">
