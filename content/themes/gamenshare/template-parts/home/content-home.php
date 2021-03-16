@@ -49,7 +49,7 @@ $games = get_posts($args);
               </div>
               <div class="carousel-text d-flex flex-column justify-content-around">
                 <h5><?= $game->post_title ?></h5>
-                <p><?= the_excerpt($game->ID); ?></p>
+                <p><?= get_the_excerpt($game->ID); ?></p>
                 <a href="<?= get_permalink($game->ID)?>" class="btn button button-red w-25 align-self-center">Voir la fiche</a>
               </div>
             </div>
