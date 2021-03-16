@@ -28,7 +28,6 @@
 
 
                 </fieldset>
-                <button>Filtrez</button>
                 <input type="hidden" name="action" value="myfilter">
 
             </form>
