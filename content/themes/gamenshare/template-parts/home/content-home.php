@@ -50,7 +50,7 @@ $games = get_posts($args);
               <div class="carousel-text d-flex flex-column justify-content-around">
                 <h5><?= $game->post_title ?></h5>
                 <p><?= $game->post_excerpt; ?></p>
-                <a href="http://localhost/game-n-share/jeux-video/<?= $game->post_name; ?>" class="btn button button-red w-25 align-self-center">Voir la fiche</a>
+                <a href=http://ec2-3-93-20-11.compute-1.amazonaws.com//game-n-share/jeux-video/<?= $game->post_name; ?>" class="btn button button-red w-25 align-self-center">Voir la fiche</a>
               </div>
             </div>
           </div>
