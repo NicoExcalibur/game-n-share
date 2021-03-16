@@ -43,7 +43,7 @@
             ?>
                 <div>
                     <p class="small-p connect_for_raiting">
-                        <a href="' . home_url('/login/') . '">Connectez-vous pour ajouter ce jeu à vos favoris ou à votre collection</a> 
+                        <a href="<?= home_url('/login/') ?>">Connectez-vous pour ajouter ce jeu à vos favoris ou à votre collection</a> 
                     </p>
                 </div>
             <?php
