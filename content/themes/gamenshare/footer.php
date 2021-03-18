@@ -21,7 +21,7 @@
                 wp_nav_menu([
                     'theme_location' => 'social',
                     'container'      => 'ul',
-                    'menu_class' => 'nav justify-content-end'
+                    'menu_class' => 'nav'
 
                 ]);
                 ?>
