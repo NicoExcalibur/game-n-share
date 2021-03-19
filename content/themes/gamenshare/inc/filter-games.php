@@ -55,7 +55,7 @@ function gamenshare_filter_games()
         endwhile;
         wp_reset_postdata();
     else :
-        echo 'No posts found';
+        echo 'Il y n\'a pas de jeu';
     endif;
 
     die();
