@@ -46,8 +46,8 @@ function gamenshare_filter_games()
                 <div class="game__imagecover"> <img class="img-fluid" src="' . get_field('game_cover', $query->post->ID) . '" />
                 </div>
                 <div class="game__info">';
-            echo '<h2 class="game__info--title">' . $query->post->post_title . '</h2>';
-            echo ' <a href="' . get_permalink($query->post->ID) . '" class="btn button button-red">Voir la fiche</a>';
+            echo '<h2 class="game__info--title">' . get_the_title($query->post->ID) . '</h2>';
+            echo ' <a href="' . get_the_permalink($query->post->ID) . '" class="btn button button-red">Voir la fiche</a>';
             echo ' </div>
             </div>
         </div>';
