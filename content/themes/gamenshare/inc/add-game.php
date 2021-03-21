@@ -22,8 +22,8 @@ function gamenshare_insert_game()
             $post_cover = 'post-cover';
             $post_screenshot = 'post-screenshot';
             $post_editor = $_POST['post-editor'];
-            $post_genres = isset($_POST['post-genre']) ? sanitize_term($_POST['post-genre'], 'genre') : 'Choisissez le ou les plateforme(s)...' ; 
-            $post_plateform = isset($_POST['post-plateform']) ? $_POST['post-plateform'] : 'Choisissez le ou les plateforme(s)...' ;
+            $post_genres = sanitize_term($_POST['post-genre'], 'genre') ; 
+            $post_plateform = $_POST['post-plateform'] ;
             $errors = [];
             if (!isset($post_title)) {
                 $errors['post-title'] = true;
@@ -77,14 +77,15 @@ function gamenshare_insert_game()
                 update_field('field_601d5af05f123', $screenshot, $new_post_id); // screenshot field
                // return wp_redirect(home_url());
             }
+            /* Ne renvoi rien */
             if ( $new_post_id != 0 )  {
-                $results = '*Post Added';
+                $results = 'Votre jeu à été ajouté';
             }
             else {
                 $results = '*Error occurred while adding the post';
             }
-            $data = array('results' => $results);
-         
+            $data = ['results' => $results];
+            /* ------------------------ */
            
             $post_link = get_post_permalink($new_post_id);
             wp_redirect( $post_link );
@@ -93,7 +94,10 @@ function gamenshare_insert_game()
             
         }
     } else {
-      // return $errors;
+        $login_page  = home_url('/login/');
+        wp_redirect( $login_page );
+           
+        exit;
     }
 }
 /* function sample_admin_notice__success() {
