@@ -21,7 +21,7 @@ function gamenshare_insert_game()
             $post_date = $_POST['post-date'];
             $post_cover = 'post-cover';
             $post_screenshot = 'post-screenshot';
-            $post_editor = $_POST['post-editor'];
+            $post_editor = sanitize_text_field($_POST['post-editor']);
             $post_genres = sanitize_term($_POST['post-genre'], 'genre') ; 
             $post_plateform = $_POST['post-plateform'] ;
             $errors = [];
