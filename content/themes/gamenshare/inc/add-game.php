@@ -109,7 +109,7 @@ function gamenshare_form_add_game()
 
     ob_start(); ?>
     
-    <form id="addpost" class="form row needs-validation" name="form" method="post" enctype="multipart/form-data" novalidate>
+    <form id="addpost" class="form row needs-validation mb-2" name="form" method="post" enctype="multipart/form-data" novalidate>
 
     <div class="col-md-8">
         <div class="mb-3">
