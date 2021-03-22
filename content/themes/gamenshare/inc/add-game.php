@@ -12,11 +12,10 @@ function gamenshare_insert_game()
             //$current_user = wp_get_current_user();
            
             $user_id =  get_current_user_id();
-            $user = get_user_by('id', $user_id);
-            wp_set_current_user($user_id, $user->user_login);
-
+            //$user = get_user_by('id', $user_id);
+           
             // post game
-            $post_title =  sanitize_title($_POST['post-title']);
+            $post_title =  sanitize_text_field($_POST['post-title']);
             $post_content =  sanitize_textarea_field($_POST['post-content']);
             $post_date = $_POST['post-date'];
             $post_cover = 'post-cover';
@@ -49,15 +48,12 @@ function gamenshare_insert_game()
                 $new_post = [
                     'post_title' => $post_title,
                     'post_content' => $post_content,
+                    'post_author' => $user_id,
                     'post_status' => 'publish',
                     'post_type' => 'game',
                 ];
     
-                $new_post_id = wp_insert_post($new_post, true);
-                if ($user) {
-                    wp_set_current_user($user_id, $user->user_login);
-                }
-    
+                $new_post_id = wp_insert_post($new_post, true);    
                 $my_tax = wp_set_post_terms($new_post_id, $post_genres, 'genre');
                 if (!function_exists('media_handle_upload')) {
                     require_once(ABSPATH . 'wp-admin/includes/image.php');
@@ -94,10 +90,10 @@ function gamenshare_insert_game()
             
         }
     } else {
-        $login_page  = home_url('/login/');
-        wp_redirect( $login_page );
+        //$login_page  = home_url('/login/');
+        //wp_redirect( $login_page );
            
-        exit;
+        //exit;
     }
 }
 /* function sample_admin_notice__success() {
