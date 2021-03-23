@@ -11,12 +11,11 @@ function gamenshare_delete_account()
     
     $receiveUserID = intval($_POST['userid']);
     require_once( ABSPATH.'wp-admin/includes/user.php' );
-        //if ($userID == $receiveUserID) {
+       if ($userID == $receiveUserID) {
         wp_delete_user($userID, 1);
    
-        //}
+       }
   
-// Logout
 wp_redirect( home_url() );
 exit;
 }
