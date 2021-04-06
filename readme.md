@@ -14,3 +14,7 @@ Projet réalisé avec [Vincent Zepharren](https://github.com/zephdev-92)
 |  phpMyAdmin |  Ajax |
 |Composer||
 |WordPress||
+
+## Screenshots
+
+(Soon)
