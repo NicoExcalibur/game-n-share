@@ -21,16 +21,16 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'database_name_here');
+define('DB_NAME', 'wp_gameshare');
 
 /** MySQL database username */
-define('DB_USER', 'username_here');
+define('DB_USER', 'wp_gameshare');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'password_here');
+define('DB_PASSWORD', 'wp_gameshare');
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define('DB_HOST', '3.93.20.11');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
@@ -47,15 +47,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'put_unique_key_here');
-define('SECURE_AUTH_KEY',  'put_unique_key_here');
-define('LOGGED_IN_KEY',    'put_unique_key_here');
-define('NONCE_KEY',        'put_unique_key_here');
-define('AUTH_SALT',        'put_unique_key_here');
-define('SECURE_AUTH_SALT', 'put_unique_key_here');
-define('LOGGED_IN_SALT',   'put_unique_key_here');
-define('NONCE_SALT',       'put_unique_key_here');
-
+define('AUTH_KEY',         'kZ-l%Ag0xxE6<8^^;QWoTlElKg&{y-.6)*YBQ(U}.fCyMok?ET3=c<3f-IP~C&Fs');
+define('SECURE_AUTH_KEY',  'OybsP,|PRp(/DQ9ci)7w~kRUEe6@6Q<VM7iB&:x,@|EsF}f2UO=w;YMwmF|?{Uji');
+define('LOGGED_IN_KEY',    '-Rs%$0D4FK*C.8j(.9H/@R$~/m>6h&,wt!3ASJZ&I0MV:N0DP$|9-t>|tL`vd:$3');
+define('NONCE_KEY',        '+|q@!1z{~#Uzjtk|;`y7|7Nz/g.C@%siY5+|~(ZT2c}S$s0XO{A.ll;Ar!HfV/K5');
+define('AUTH_SALT',        'A@T*Wfyx))xo6x)Now$TO1crHveRsDaxuD06_p9c|G_mjQ3C+-YC>9SsUo2/TB*m');
+define('SECURE_AUTH_SALT', 'X)]%.aYxkF Ac)J^IF!o,~*-K6M+%oP=>~&%nhz~T(`G)ss}isYcK KkFxOl{Q)E');
+define('LOGGED_IN_SALT',   'N3H;!>yR.Ye?HtZ+7KFphl1ECy6B(v^kI&MSAp[b0}2?69hhwu|HS^Vm7*hR_yDs');
+define('NONCE_SALT',       'j&a[2Yh]|I[:,L|g dmbjwb`~+X/sDYo$+#r:T4DfCQ+w`6EoKv`qcK|aGvV=PO+');
 /**#@-*/
 
 /**
@@ -80,19 +79,19 @@ $table_prefix = 'wp_';
  */
 
 // https://www.php.net/manual/fr/function.rtrim.php
-define( 'WP_HOME', rtrim('put_your_home_url_here', '/'));
+define( 'WP_HOME', rtrim('http://game-n-share', '/'));
 define( 'WP_SITEURL', WP_HOME . '/wp');
 define( 'WP_CONTENT_URL', WP_HOME . '/content');
 define( 'WP_CONTENT_DIR', dirname( ABSPATH ) . '/content');
 
-define('WP_DEBUG', false);
+define('WP_DEBUG', true);
 
 /*
 Sachant que WordPress ne nous permet pas de gérer l'environnement dans lequel est exécuté notre WordPress, nous mettons la fonctionnalité en place nous-même en créant une constante qui n'est comprise que pas notre code.
 */
-// define( 'ENVIRONMENT', 'development' );
+define( 'ENVIRONMENT', 'development' );
 // define( 'ENVIRONMENT', 'staging' );
-define('ENVIRONMENT', 'production');
+// define('ENVIRONMENT', 'production');
 /**
  * Additionnal configuration constants
  *
